@@ -1,0 +1,2 @@
+# KittensGame
+Kittens Game Automation
