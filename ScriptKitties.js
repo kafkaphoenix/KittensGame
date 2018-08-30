@@ -7,13 +7,6 @@ function autoObserve() {
 		}
 }
 
-// Auto praise the sun
-
-/*function autoPraise() {
-  if (game.bld.getBuildingExt('temple').meta.val > 0) {
-    gamePage.religion.praise();
-}*/
-
 // Auto Hunt
 
 function autoHunt() {
@@ -25,12 +18,9 @@ function autoHunt() {
 }
 
 clearInterval(runAllAutomation);
-var runAllAutomation = setInterval(function() {
-  autoPraise();
-  
+var runAllAutomation = setInterval(function() {  
   if (gamePage.timer.ticksTotal % 3 === 0) {
-		autoObserve();
-		autoHunt();
-	}
-  
+	autoObserve();
+	autoHunt();
+}  
 }, 200);
