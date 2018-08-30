@@ -9,10 +9,10 @@ function autoObserve() {
 
 // Auto praise the sun
 
-function autoPraise() {
+/*function autoPraise() {
   if (game.bld.getBuildingExt('temple').meta.val > 0) {
     gamePage.religion.praise();
-}
+}*/
 
 // Auto Hunt
 
