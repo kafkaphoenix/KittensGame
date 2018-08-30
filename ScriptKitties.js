@@ -20,6 +20,16 @@ function autoHunt() {
 	}
 }
 
+// Auto praise the sun
+
+function autoPraise() {
+	
+	var faith = gamePage.resPool.get('faith');
+	if (game.bld.getBuildingExt('temple').meta.val > 0 && faith.value > (faith.maxValue - 1)) {
+		gamePage.religion.praise();
+	}
+}
+
 function autoCraft() {
 	
 	//Craft the fur derivatives
