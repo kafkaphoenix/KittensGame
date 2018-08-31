@@ -1,7 +1,7 @@
 # KittensGame
 Kittens Game Automation
 
-javascript:(function(){var d=document,s=d.createElement('script');s.src='https://cdn.rawgit.com/kafkaphoenix/KittensGame/b8384f22/ScriptKitties.js';d.body.appendChild(s);})();
+javascript:(function(){var d=document,s=d.createElement('script');s.src='https://cdn.rawgit.com/kafkaphoenix/KittensGame/a3f03687/ScriptKitties.js';d.body.appendChild(s);})();
 
 Basado en los proyectos
 https://github.com/recalibr8/AutoKittens
