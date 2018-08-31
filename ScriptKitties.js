@@ -30,9 +30,10 @@ function autoPraise() {
 	}
 }
 
+//Craft the fur derivatives
+
 function autoCraft() {
 	
-	//Craft the fur derivatives
 	var furDerivatives = ['parchment', 'manuscript', 'compedium', 'blueprint'];
 	for (var i = 0; i < furDerVal; i++) {
   		if (gamePage.workshop.getCraft(furDerivatives[i]).unlocked) { 
@@ -41,11 +42,43 @@ function autoCraft() {
 	}
 }
 
+//Convert catnip to wood
+
+function autoCatnip() {
+	
+	var catnip = gamePage.resPool.get('catnip');
+	var calendar = gamePage.calendar;
+
+	// Only run if positive catnip and not in last half of Autumn
+	if (catnip.perTickUI < 0) { return; }
+	if (catnip.value / catnip.maxValue < 0.99) { return; }
+	if (calendar.season == 2 && calendar.day > 50) { return; }
+	gamePage.craftAll('wood');
+}
+
+// Festival automatically
+
+function autoParty() {
+	if (gamePage.science.get("drama").researched && game.calendar.festivalDays === 0) {
+		var catpower = gamePage.resPool.get('manpower').value;
+		var culture = gamePage.resPool.get('culture').value;
+		var parchment = gamePage.resPool.get('parchment').value;
+		
+		if (catpower > 1500 && culture > 5000 && parchment > 2500) {
+			gamePage.village.holdFestival(1);
+		}
+	
+	}
+}
+
 clearInterval(runAllAutomation);
 var runAllAutomation = setInterval(function() {  
 	if (gamePage.timer.ticksTotal % 3 === 0) {
 		autoObserve();
 		autoHunt();
+		autoPraise();
 		autoCraft();
+		autoCatnip();
+		autoParty();
 	}  
 }, 200);
