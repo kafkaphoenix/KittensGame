@@ -73,12 +73,19 @@ function autoParty() {
 
 clearInterval(runAllAutomation);
 var runAllAutomation = setInterval(function() {  
+	
+	autoPraise();
+	
 	if (gamePage.timer.ticksTotal % 3 === 0) {
 		autoObserve();
 		autoHunt();
-		autoPraise();
 		autoCraft();
 		autoCatnip();
+	} 
+	
+	if (gamePage.timer.ticksTotal % 25 === 0) {
+		
 		autoParty();
-	}  
+	}
+	
 }, 200);
