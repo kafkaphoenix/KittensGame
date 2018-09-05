@@ -7,9 +7,9 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 '<a id="scriptOptions" onclick="openMenu()"> | AutoKittens </a>' + 
 
 '<div id="menu" style="display:none; margin-top:-400px; margin-left:-100px; width:200px" class="dialog help">' + 
-'<a href="#" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">X</a>' + 
+'<a href="#" class="close" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
-'<button id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);">Stop Script</button> </br>' +
+'<input type="button" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);">Stop Script</input> </br>' +
 
 '<select id="craftFur" size="1" onclick="setFurValue()">' +
 '<option value="1" selected="selected">Parchment</option>' +
