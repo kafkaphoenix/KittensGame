@@ -3,7 +3,7 @@ var furDerVal = 2;
 
 var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
-'<a id="scriptOptions" onclick="openMenu()"> | AutoKittens </a>' + 
+'<a id="scriptOptions" onclick="selectOptions()"> | AutoKittens </a>' + 
 
 '<div id="menu" class="dialog help">' + 
 '<a href="#" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">X</a>' + 
@@ -26,7 +26,7 @@ function closeMenu() {
 	$("#menu").hide();
 }
 
-function openMenu() {
+function selectOptions() {
 	$("#menu").toggle();
 }
 
