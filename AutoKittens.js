@@ -8,8 +8,8 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
 '<div id="menu" style="display:none; margin-top:-400px; margin-left:-100px; width:200px" class="dialog help">' + 
 '<a href="#" class="close" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
-
-'<input type="button" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);">Stop Script</input> </br>' +
+    
+'<input type="button" style="position: absolute; left: 15px" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);">Stop Script</input> </br>' +
 
 '<select id="craftFur" size="1" onclick="setFurValue()">' +
 '<option value="1" selected="selected">Parchment</option>' +
