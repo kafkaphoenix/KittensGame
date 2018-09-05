@@ -4,7 +4,7 @@ var deadScript = "Script stopped!";
 
 var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
-'<a id="scriptOptions" onclick="openMenu();"> | AutoKittens </a>' + 
+'<a id="scriptOptions" onclick="openMenu()"> | AutoKittens </a>' + 
 
 '<div id="menu" class="dialog help">' + 
 '<a href="#" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">X</a>' + 
