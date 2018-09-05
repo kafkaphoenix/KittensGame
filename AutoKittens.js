@@ -1,8 +1,9 @@
+var furDerivatives = ['parchment', 'manuscript', 'compedium', 'blueprint'];
 var furDerVal = 2;
 
 var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
-'<a id="scriptOptions" onclick="selectOptions()"> | AutoKittens </a>' + 
+'<a id="scriptOptions" onclick="openMenu()"> | AutoKittens </a>' + 
 
 '<div id="menu" style="display:none; margin-top:-400px; margin-left:-100px; width:200px" class="dialog help">' + 
 '<a href="#" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
@@ -32,11 +33,16 @@ function closeMenu() {
 	$("#menu").hide();
 }
 
+function openMenu() {
+	$("#menu").toggle();
+}
+
 function setFurValue() {
 	furDerVal = $('#craftFur').val();
 }
 
 function clearScript() {
+	$("#menu").remove();
 	$("#scriptOptions").remove();
 	clearInterval(runAllAutomation);
 	htmlMenuAddition = null;
@@ -76,7 +82,6 @@ function autoPraise() {
 
 function autoCraft() {
 	
-	var furDerivatives = ['parchment', 'manuscript', 'compedium', 'blueprint'];
 	for (var i = 0; i < furDerVal; i++) {
   		if (gamePage.workshop.getCraft(furDerivatives[i]).unlocked) { 
 				gamePage.craftAll(furDerivatives[i]); 
@@ -118,6 +123,7 @@ var runAllAutomation = setInterval(function() {
 	
 	autoPraise();
 	
+	//day
 	if (gamePage.timer.ticksTotal % 3 === 0) {
 		autoObserve();
 		autoHunt();
