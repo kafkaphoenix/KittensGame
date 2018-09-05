@@ -5,10 +5,10 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
 '<a id="scriptOptions" onclick="openMenu()"> | AutoKittens </a>' + 
 
-'<div id="menu"  class="dialog help">' + 
+'<div id="menu" class="dialog help">' + 
 '<a href="#" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">X</a>' + 
 
-'<button id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(Script stopped!);">Stop Script</button> </br>' +
+
 
 '<select id="craftFur" size="1" onclick="setFurValue()">' +
 '<option value="1" selected="selected">Parchment</option>' +
