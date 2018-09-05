@@ -3,9 +3,9 @@ var furDerVal = 2;
 
 var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
-'<a id="scriptOptions" onclick="selectOptions()"> | AutoKittens </a>' + 
+'<a id="scriptOptions" onclick="openMenu()"> | AutoKittens </a>' + 
 
-'<div id="menu" style="display:none; margin-top:-400px; margin-left:-100px; width:200px" class="dialog help">' + 
+'<div id="menu"  class="dialog help">' + 
 '<a href="#" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">X</a>' + 
 
 '<button id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(Script stopped!);">Stop Script</button> </br>' +
@@ -26,7 +26,7 @@ function closeMenu() {
 	$("#menu").hide();
 }
 
-function selectOptions() {
+function openMenu() {
 	$("#menu").toggle();
 }
 
