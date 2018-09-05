@@ -1,4 +1,5 @@
 var furDerVal = 2;
+var jobsWindow;
 
 // Auto Observe Astronomical Events
 
@@ -71,7 +72,22 @@ function autoParty() {
 	}
 }
 
+// Jobs window
+
+function createWindow() {
+	jobsWindow = window.open("", "Jobs", "width=200, height=100");
+	jobsWindow.document.write("<p>Jobs</p>");
+    
+}
+
+// Reload Info
+
+function reload() {
+	jobsWindow.document.write("<p>Reloaded!</p>");
+}
+
 clearInterval(runAllAutomation);
+createWindow();
 var runAllAutomation = setInterval(function() {  
 	
 	autoPraise();
@@ -81,6 +97,7 @@ var runAllAutomation = setInterval(function() {
 		autoHunt();
 		autoCraft();
 		autoCatnip();
+		reload();
 	} 
 	
 	if (gamePage.timer.ticksTotal % 25 === 0) {
