@@ -3,6 +3,24 @@ var furDerVal = 1;
 var deadScript = "Script stopped!";
 var nm = 0;
 var nightModeMsg = "Night mode activated!";
+let time, log;
+let authPromise;
+let database;
+
+function setupFirebase() {
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAbx7hpaQodr6vyUQvomO2-OsPxleWHNSo",
+    authDomain: "autokittenlog.firebaseapp.com",
+    databaseURL: "https://autokittenlog.firebaseio.com",
+    projectId: "autokittenlog",
+    storageBucket: "autokittenlog.appspot.com",
+    messagingSenderId: "569325163300"
+  };
+  firebase.initializeApp(config);
+  database = firebase.database();
+  authPromise = firebase.auth().signInAnonymously();
+}
 
 var resources = [
        		["catnip", "wood", 50],
@@ -149,6 +167,7 @@ function autoParty() {
 }
 
 clearInterval(runAllAutomation);
+setupFirebase();
 var runAllAutomation = setInterval(function() {  
 	
 	autoPraise();
