@@ -1,6 +1,19 @@
 var furDerivatives = ['parchment', 'manuscript', 'compedium', 'blueprint'];
 var furDerVal = 1;
 var deadScript = "Script stopped!";
+var nightMode = 0;
+var nightModeMsg = "Night mode activated!";
+
+var resources = [
+       		["catnip", "wood", 50],
+            ["wood", "beam", 175],
+        	["minerals", "slab", 250],
+            ["coal", "steel", 100],
+        	["iron", "plate", 125],
+            ["oil", "kerosene", 7500],
+            ["uranium", "thorium", 250],
+			["unobtainium", "eludium", 1000]
+                ];
 
 var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
@@ -9,9 +22,10 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 '<div id="menu" style="display:none; margin-top:-400px; margin-left:-100px; width:200px" class="dialog help">' + 
 '<a href="#" class="close" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
     
-'<input type="button" style="position: absolute; left: 15px" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);">Stop Script</input> </br>' +
+'<input type="button" value="Stop Script" style="position: absolute; left: 15px" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);"> </br>' +
+'<input type="button" value="NightMode" style="position: absolute; left: 15px" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);"> </br>' +    
 
-'<select id="craftFur" size="1" onclick="setFurValue()">' +
+'<select id="craftFur" style="position: absolute; left: 15px" size="1" onclick="setFurValue()">' +
 '<option value="1" selected="selected">Parchment</option>' +
 '<option value="2">Manuscript</option>' +
 '<option value="3">Compendium</option>' +
@@ -72,6 +86,26 @@ function autoPraise() {
 	}
 }
 
+function nightMode() {
+	if (nightMode == 0) {
+		nightMode = 1;
+		furDerVal = 4;
+	} else {
+		nightMode = 0;
+		furDerVal = 1;
+	}
+	if (nightMode != 0) {
+		for (var i = 0; i < resources.length; i++) {
+		    var curRes = gamePage.resPool.get(resources[i][0]);
+		    var resourcePerTick = gamePage.getResourcePerTick(resources[i][0], 0);
+		    var resourcePerCraft = (resourcePerTick * 3);
+		    if (curRes.value > (curRes.maxValue - resourcePerCraft) && gamePage.workshop.getCraft(resources[i][1]).unlocked) {
+			gamePage.craft(resources[i][1], (resourcePerCraft / resources[i][2]));
+		    }
+		}
+	}
+}
+
 //Craft the fur derivatives
 
 function autoCraft() {
@@ -122,7 +156,9 @@ var runAllAutomation = setInterval(function() {
 		autoObserve();
 		autoHunt();
 		autoCraft();
-		autoCatnip();
+		if (nightMode == 0) {
+			autoCatnip();
+		}
 	} 
 	
 	if (gamePage.timer.ticksTotal % 25 === 0) {
