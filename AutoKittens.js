@@ -1,5 +1,5 @@
 var furDerivatives = ['parchment', 'manuscript', 'compedium', 'blueprint'];
-var furDerVal = 2;
+var furDerVal = 1;
 var deadScript = "Script stopped!";
 
 var htmlMenuAddition = '<div id="autokittens" class="column">' +
