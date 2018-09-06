@@ -1,7 +1,7 @@
 var furDerivatives = ['parchment', 'manuscript', 'compedium', 'blueprint'];
 var furDerVal = 1;
 var deadScript = "Script stopped!";
-var nightMode = 0;
+var nm = 0;
 var nightModeMsg = "Night mode activated!";
 
 var resources = [
@@ -22,10 +22,10 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 '<div id="menu" style="display:none; margin-top:-400px; margin-left:-100px; width:200px" class="dialog help">' + 
 '<a href="#" class="close" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
     
-'<input type="button" value="Stop Script" style="position: absolute; left: 15px" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);"> </br>' +
-'<input type="button" value="NightMode" style="position: absolute; left: 15px" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);"> </br>' +    
+'<input type="button" value="Stop Script" style="position: absolute; left: 15px; top: 15 px;" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);"> </br>' +
+'<input type="button" value="NightMode" style="position: absolute; left: 15px; top: 45 px;" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);"> </br>' +    
 
-'<select id="craftFur" style="position: absolute; left: 15px" size="1" onclick="setFurValue()">' +
+'<select id="craftFur" style="position: absolute; left: 15px; top: 75 px;" size="1" onclick="setFurValue()">' +
 '<option value="1" selected="selected">Parchment</option>' +
 '<option value="2">Manuscript</option>' +
 '<option value="3">Compendium</option>' +
@@ -87,14 +87,16 @@ function autoPraise() {
 }
 
 function nightMode() {
-	if (nightMode == 0) {
-		nightMode = 1;
+	if (nm == 0) {
+		nm = 1;
 		furDerVal = 4;
+		nightModeMsg = "Night mode activated!";
 	} else {
-		nightMode = 0;
+		nm = 0;
 		furDerVal = 1;
+		nightModeMsg = "Night mode deactivated!";
 	}
-	if (nightMode != 0) {
+	if (nm != 0) {
 		for (var i = 0; i < resources.length; i++) {
 		    var curRes = gamePage.resPool.get(resources[i][0]);
 		    var resourcePerTick = gamePage.getResourcePerTick(resources[i][0], 0);
@@ -156,7 +158,7 @@ var runAllAutomation = setInterval(function() {
 		autoObserve();
 		autoHunt();
 		autoCraft();
-		if (nightMode == 0) {
+		if (nm == 0) {
 			autoCatnip();
 		}
 	} 
