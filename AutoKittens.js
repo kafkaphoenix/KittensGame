@@ -19,13 +19,13 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
 '<a id="scriptOptions" onclick="openMenu()"> | AutoKittens </a>' + 
 
-'<div id="menu" style="display:none; margin-top:-200px; margin-left:-100px; width:200px" class="dialog help">' + 
+'<div id="menu" style="display:none; margin-top:-300px; margin-left:-100px; width:200px; height:200px !important" class="dialog help">' + 
 '<a href="#" class="close" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
 '<input type="button" value="Stop Script" style="position: absolute; left: 15px;" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);">' +
-'<input type="button" value="NightMode" style="position: relative; left: 0px; top: 15px;" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);">' +    
+'<input type="button" value="NightMode" style="position: absolute; left: 15px; top: 50px; width: 130px;" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);">' +    
 	
-'<select id="craftFur" style="position: relative; left: 0px; top: 15px;" size="1" onclick="setFurValue()">' +
+'<select id="craftFur" style="position: absolute; left: 15px; top: 90px;" size="1" onclick="setFurValue()">' +
 '<option value="0" selected="selected">Parchment</option>' +
 '<option value="1">Manuscript</option>' +
 '<option value="2">Compendium</option>' +
