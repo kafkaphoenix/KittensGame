@@ -80,14 +80,12 @@ function autoTrade() {
 	}
 	if (at != 0) {
 		var slab = gamePage.resPool.get('slab');
-		var gold = gamePage.resPool.get('gold');
-		var catpower = gamePage.resPool.get('catpower');
 		var titanium = gamePage.resPool.get('titanium');
 		if (titanium.value / titanium.maxValue > 0.99) {
-			gamePage.craft('alloy', titanium.value / 20); // 1/2 max 10 each
+			Math.round(Math.min(gamePage.resPool.get('titanium').value / 20, gamePage.resPool.get('steel').value / 75)); // 1/2 max 10 each titanium or 75 each steel
 		}
-		if (gamePage.calendar.season == 1 && gold.value >= 15 && slab.value >= 50 && catpower.value >= 50) {
-			gamePage.diplomacy.tradeAll(game.diplomacy.get("zebras"), (gold.value / 15));
+		if (gamePage.calendar.season == 1 && slab.value >= 50) {
+			gamePage.diplomacy.tradeMultiple(game.diplomacy.get("zebras"), Math.floor(game.resPool.get("slab").value) / 50);
 		}
 		
 	}
