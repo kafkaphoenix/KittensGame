@@ -205,6 +205,9 @@ var runAllAutomation = setInterval(function() {
 			autoCatnip();
 			autoSteel();
 		}
+		if (at == 0) {
+			autoTrade();
+		}
 	} 
 	
 	if (gamePage.timer.ticksTotal % 25 === 0) {
