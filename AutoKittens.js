@@ -20,12 +20,12 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 '<a id="scriptOptions" onclick="openMenu()"> | AutoKittens </a>' + 
 
 '<div id="menu" style="display:none; margin-top:-400px; margin-left:-100px; width:200px" class="dialog help">' + 
-'<a href="#" class="close" onclick="closeMenu();" style="top: 10px; right: 15px;">close</a>' + 
+'<a href="#" class="close" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
     
-'<input type="button" value="Stop Script" style="left: 15px; top: 30 px;" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);"> </br>' +
-'<input type="button" value="NightMode" style="left: 15px; top: 60 px;" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);"> </br>' +    
+'<input type="button" value="Stop Script" style="position: absolute; left: 15px; top: 30 px;" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);"> </br>' +
+'<input type="button" value="NightMode" style="position: absolute; left: 15px; top: 60 px;" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);"> </br>' +    
 
-'<select id="craftFur" style="left: 15px; top: 90 px;" size="1" onclick="setFurValue()">' +
+'<select id="craftFur" style="position: absolute; left: 15px; top: 90 px;" size="1" onclick="setFurValue()">' +
 '<option value="0" selected="selected">Parchment</option>' +
 '<option value="1">Manuscript</option>' +
 '<option value="2">Compendium</option>' +
@@ -137,6 +137,18 @@ function autoCatnip() {
 	gamePage.craftAll('wood');
 }
 
+//Convert catnip to wood
+
+function autoSteel() {
+	
+	var coal = gamePage.resPool.get('coal');
+
+	// Only run if positive catnip and not in last half of Autumn
+	if ((coal.value / coal.maxValue) > 0.99 && gamePage.workshop.getCraft("steel").unlocked) {
+			gamePage.craftAll("steel");
+	}
+}
+
 // Festival automatically
 
 function autoParty() {
@@ -166,6 +178,7 @@ var runAllAutomation = setInterval(function() {
 		autoCraft();
 		if (nm == 0) {
 			autoCatnip();
+			autoSteel();
 		}
 	} 
 	
