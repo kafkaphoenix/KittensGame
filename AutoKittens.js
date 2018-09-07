@@ -24,7 +24,7 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
 '<ul>' +
 '<li><input type="button" value="Stop Script" style="position: absolute; left: 15px;" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);"></li>' +
-'<li><input type="button" value="NightMode" style="position: absolute; left: 15px;" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);"></li>' +    
+'<li><input type="button" value="NightMode" style="position: absolute; left: 15px; bottom: 15px;" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);"></li>' +    
 '</ul>' +
 '<ul>' +	
 '<li><select id="craftFur" style="position: absolute; left: 15px; top: 90 px;" size="1" onclick="setFurValue()">' +
