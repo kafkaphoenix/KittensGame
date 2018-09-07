@@ -22,10 +22,10 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 '<div id="menu" style="display:none; margin-top:-400px; margin-left:-100px; width:200px" class="dialog help">' + 
 '<a href="#" class="close" onclick="closeMenu();" style="top: 10px; right: 15px;">close</a>' + 
     
-'<input type="button" value="Stop Script" style="left: 15px; top: 15 px;" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);"> </br>' +
-'<input type="button" value="NightMode" style="left: 15px; top: 75 px;" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);"> </br>' +    
+'<input type="button" value="Stop Script" style="left: 15px; top: 30 px;" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);"> </br>' +
+'<input type="button" value="NightMode" style="left: 15px; top: 60 px;" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);"> </br>' +    
 
-'<select id="craftFur" style="left: 15px; top: 105 px;" size="1" onclick="setFurValue()">' +
+'<select id="craftFur" style="left: 15px; top: 90 px;" size="1" onclick="setFurValue()">' +
 '<option value="0" selected="selected">Parchment</option>' +
 '<option value="1">Manuscript</option>' +
 '<option value="2">Compendium</option>' +
