@@ -1,5 +1,5 @@
 var furDerivatives = ['parchment', 'manuscript', 'compedium', 'blueprint'];
-var furDerVal = 1;
+var furDerVal = 2;
 var deadScript = "Script stopped!";
 var nm = 0;
 var nightModeMsg = "Night mode activated!";
@@ -26,10 +26,10 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 '<input type="button" value="NightMode" style="position: absolute; left: 15px; top: 50px; width: 130px;" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);">' +    
 	
 '<select id="craftFur" style="position: absolute; left: 15px; top: 90px;" size="1" onclick="setFurValue()">' +
-'<option value="0" selected="selected">Parchment</option>' +
-'<option value="1">Manuscript</option>' +
-'<option value="2">Compendium</option>' +
-'<option value="3">Blueprint</option>' +
+'<option value="1" selected="selected">Parchment</option>' +
+'<option value="2">Manuscript</option>' +
+'<option value="3">Compendium</option>' +
+'<option value="4">Blueprint</option>' +
 '</select>' +
 
 '</div>' +
@@ -89,11 +89,11 @@ function autoPraise() {
 function nightMode() {
 	if (nm == 0) {
 		nm = 1;
-		furDerVal = 3;
+		furDerVal = 4;
 		nightModeMsg = "Night mode activated!";
 	} else {
 		nm = 0;
-		furDerVal = 1;
+		furDerVal = 2;
 		nightModeMsg = "Night mode deactivated!";
 	}
 	if (nm != 0) {
@@ -113,7 +113,7 @@ function autoCraft() {
 	for (var i = 0; i < furDerVal; i++) {
   		if (gamePage.workshop.getCraft(furDerivatives[i]).unlocked) { 
 			if (gamePage.science.get("drama").researched && game.calendar.festivalDays === 0) {
-				if ( i != 1) {
+				if ( i != 2) {
 					gamePage.craftAll(furDerivatives[i]); 
 				}
 			} else {
