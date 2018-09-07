@@ -70,7 +70,7 @@ function autoObserve() {
 function autoHunt() {
 	
 	var catpower = gamePage.resPool.get('manpower');
-	if ((catpower.value / catpower.maxValue) > 0.99)) {
+	if ((catpower.value / catpower.maxValue) > 0.99) {
 		gamePage.village.huntAll();
 	}
 }
