@@ -2,7 +2,9 @@ var furDerivatives = ['parchment', 'manuscript', 'compedium', 'blueprint'];
 var furDerVal = 2;
 var deadScript = "Script stopped!";
 var nm = 0;
+var at = 0;
 var nightModeMsg = "Night mode activated!";
+var tradeMsg = "Auto Trade activated!";
 
 var resources = [
        		["catnip", "wood", 50],
@@ -24,8 +26,9 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
 '<input type="button" value="Stop Script" style="position: absolute; left: 15px;" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);">' +
 '<input type="button" value="NightMode" style="position: absolute; left: 15px; top: 50px; width: 130px;" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);">' +    
+'<input type="button" value="AutoTrade" style="position: absolute; left: 15px; top: 80px; width: 130px;" id="autoTrade" onclick="autoTrade(); gamePage.msg(tradeMsg);">' +      
 	
-'<select id="craftFur" style="position: absolute; left: 15px; top: 90px;" size="1" onclick="setFurValue()">' +
+'<select id="craftFur" style="position: absolute; left: 15px; top: 120px;" size="1" onclick="setFurValue()">' +
 '<option value="1" selected="selected">Parchment</option>' +
 '<option value="2">Manuscript</option>' +
 '<option value="3">Compendium</option>' +
@@ -63,6 +66,30 @@ function autoObserve() {
 	var checkObserveBtn = document.getElementById("observeBtn");
 	if (typeof(checkObserveBtn) != 'undefined' && checkObserveBtn != null) {
 		checkObserveBtn.click();	
+	}
+}
+
+		// Trade automatically
+function autoTrade() {
+	if (at == 0) {
+		at = 1;
+		tradeMsg = "Auto Trade activated!";
+	} else {
+		at = 0;
+		tradeMsg = "Auto Trade deactivated!";
+	}
+	if (at != 0) {
+		var slab = gamePage.resPool.get('slab');
+		var gold = gamePage.resPool.get('gold');
+		var catpower = gamePage.resPool.get('catpower');
+		var titanium = gamePage.resPool.get('titanium');
+		if (titanium.value / titanium.maxValue > 0.99) {
+			gamePage.craft('alloy', titanium.value / 20); // 1/2 max 10 each
+		}
+		if (gamePage.calendar.season == 1 && gold.value >= 15 && slab.value >= 50 && catpower.value >= 50) {
+			gamePage.diplomacy.tradeAll(game.diplomacy.get("zebras"), (gold.value / 15));
+		}
+		
 	}
 }
 
