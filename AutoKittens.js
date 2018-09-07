@@ -62,7 +62,8 @@ function autoObserve() {
 	
 	var checkObserveBtn = document.getElementById("observeBtn");
 	if (typeof(checkObserveBtn) != 'undefined' && checkObserveBtn != null) {
-		checkObserveBtn.click();				
+		checkObserveBtn.click();	
+	}
 }
 
 // Auto Hunt
@@ -80,7 +81,7 @@ function autoHunt() {
 function autoPraise() {
 	
 	var faith = gamePage.resPool.get('faith');
-	if (game.bld.getBuildingExt('temple').meta.val > 0 && (faith.value / faith.maxValue) > 0.99)) {
+	if (game.bld.getBuildingExt('temple').meta.val > 0 && (faith.value / faith.maxValue) > 0.99) {
 		gamePage.religion.praise();
 	}
 }
@@ -98,8 +99,8 @@ function nightMode() {
 	if (nm != 0) {
 		for (var i = 0; i < resources.length; i++) {
 		    var resource = gamePage.resPool.get(resources[i][0]);
-		    if (resource.value / resource.maxValue > 0.99) && gamePage.workshop.getCraft(resources[i][1]).unlocked) {
-			gamePage.craftAll(resources[i][1]));
+		    if ((resource.value / resource.maxValue) > 0.99 && gamePage.workshop.getCraft(resources[i][1]).unlocked) {
+			gamePage.craftAll(resources[i][1]);
 		    }
 		}
 	}
