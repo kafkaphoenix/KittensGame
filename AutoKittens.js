@@ -25,8 +25,8 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 '<a href="#" class="close" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
 '<input type="button" value="Stop Script" style="position: absolute; left: 15px;" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);">' +
-'<input type="button" value="NightMode" style="position: absolute; left: 15px; top: 50px; width: 130px;" id="nightMode" onclick="nightMode(); gamePage.msg(nightModeMsg);">' +    
-'<input type="button" value="AutoTrade" style="position: absolute; left: 15px; top: 80px; width: 130px;" id="autoTrade" onclick="autoTrade(); gamePage.msg(tradeMsg);">' +      
+'<input type="button" value="NightMode" style="position: absolute; left: 15px; top: 50px; width: 130px;" id="nightMode" onclick="switchNightMode(); gamePage.msg(nightModeMsg);">' +    
+'<input type="button" value="AutoTrade" style="position: absolute; left: 15px; top: 80px; width: 130px;" id="autoTrade" onclick="switchAutoTrade(); gamePage.msg(tradeMsg);">' +      
 	
 '<select id="craftFur" style="position: absolute; left: 15px; top: 120px;" size="1" onclick="setFurValue()">' +
 '<option value="1" selected="selected">Parchment</option>' +
@@ -69,28 +69,6 @@ function autoObserve() {
 	}
 }
 
-		// Trade automatically
-function autoTrade() {
-	if (at == 0) {
-		at = 1;
-		tradeMsg = "Auto Trade activated!";
-	} else {
-		at = 0;
-		tradeMsg = "Auto Trade deactivated!";
-	}
-	if (at != 0) {
-		var slab = gamePage.resPool.get('slab');
-		var titanium = gamePage.resPool.get('titanium');
-		if (titanium.value / titanium.maxValue > 0.99) {
-			Math.round(Math.min(gamePage.resPool.get('titanium').value / 20, gamePage.resPool.get('steel').value / 75)); // 1/2 max 10 each titanium or 75 each steel
-		}
-		if (gamePage.calendar.season == 1 && slab.value >= 50) {
-			gamePage.diplomacy.tradeMultiple(game.diplomacy.get("zebras"), Math.floor(game.resPool.get("slab").value) / 50);
-		}
-		
-	}
-}
-
 // Auto Hunt
 
 function autoHunt() {
@@ -111,24 +89,44 @@ function autoPraise() {
 	}
 }
 
-function nightMode() {
-	if (nm == 0) {
-		nm = 1;
-		furDerVal = 4;
+function nightMode()
+	for (var i = 0; i < resources.length; i++) {
+	    var resource = gamePage.resPool.get(resources[i][0]);
+	    if ((resource.value / resource.maxValue) > 0.99 && gamePage.workshop.getCraft(resources[i][1]).unlocked) {
+		gamePage.craftAll(resources[i][1]);
+	    }
+	}
+}
+
+function switchNightMode ()
+{
+	nm == 0 ? 1 : 0;
+	
+	if (nm == 1) {
+		furDerVal = 3;
 		nightModeMsg = "Night mode activated!";
 	} else {
-		nm = 0;
 		furDerVal = 2;
 		nightModeMsg = "Night mode deactivated!";
+	}	
+}
+
+		// Trade automatically
+function autoTrade() {
+	if (gamePage.calendar.season == 1 && slab.value >= 50) {
+		gamePage.diplomacy.tradeMultiple(game.diplomacy.get("zebras"), Math.floor(game.resPool.get("slab").value) / 50);
 	}
-	if (nm != 0) {
-		for (var i = 0; i < resources.length; i++) {
-		    var resource = gamePage.resPool.get(resources[i][0]);
-		    if ((resource.value / resource.maxValue) > 0.99 && gamePage.workshop.getCraft(resources[i][1]).unlocked) {
-			gamePage.craftAll(resources[i][1]);
-		    }
-		}
-	}
+}
+
+function switchAutoTrade()
+{
+	at == 0 ? 1 : 0;
+	
+	if (at == 1) {
+		tradeMsg = "Auto Trade activated!";
+	} else {
+		tradeMsg = "Auto Trade deactivated!";
+	}	
 }
 
 //Craft the fur derivatives
@@ -193,6 +191,13 @@ clearInterval(runAllAutomation);
 var runAllAutomation = setInterval(function() {  
 	
 	autoPraise();
+	if (nm == 1){
+		nightMode();
+	}
+	if (at = 1){
+		autoTrade();
+	}
+	
 	
 	//day
 	if (gamePage.timer.ticksTotal % 3 === 0) {
@@ -205,14 +210,19 @@ var runAllAutomation = setInterval(function() {
 			autoCatnip();
 			autoSteel();
 		}
-		if (at == 0) {
-			autoTrade();
-		}
 	} 
 	
 	if (gamePage.timer.ticksTotal % 25 === 0) {
 		
 		autoParty();
+		
+		if (nm == 1){
+			gamePage.msg("... zz zzz ... zz ...");
+		}
+		if (at == 1){
+			gamePage.msg("auto trading ...");
+		}
+		
 	}
 	
 }, 200);
