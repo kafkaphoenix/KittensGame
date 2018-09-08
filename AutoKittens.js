@@ -194,7 +194,7 @@ var runAllAutomation = setInterval(function() {
 	if (nm == 1){
 		nightMode();
 	}
-	if (at = 1){
+	if (at == 1){
 		autoTrade();
 	}
 	
