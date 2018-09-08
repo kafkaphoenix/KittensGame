@@ -89,7 +89,7 @@ function autoPraise() {
 	}
 }
 
-function nightMode()
+function nightMode() {
 	for (var i = 0; i < resources.length; i++) {
 	    var resource = gamePage.resPool.get(resources[i][0]);
 	    if ((resource.value / resource.maxValue) > 0.99 && gamePage.workshop.getCraft(resources[i][1]).unlocked) {
