@@ -216,13 +216,6 @@ var runAllAutomation = setInterval(function() {
 		
 		autoParty();
 		
-		if (nm == 1){
-			gamePage.msg("... zz zzz ... zz ...");
-		}
-		if (at == 1){
-			gamePage.msg("auto trading ...");
-		}
-		
 	}
 	
 }, 200);
