@@ -100,7 +100,7 @@ function nightMode() {
 
 function switchNightMode ()
 {
-	nm == 0 ? 1 : 0;
+	nm = nm == 0 ? 1 : 0;
 	
 	if (nm == 1) {
 		furDerVal = 3;
@@ -122,7 +122,7 @@ function autoTrade() {
 
 function switchAutoTrade()
 {
-	at == 0 ? 1 : 0;
+	at = at == 0 ? 1 : 0;
 	
 	if (at == 1) {
 		tradeMsg = "Auto Trade activated!";
