@@ -1,5 +1,5 @@
 var furDerivatives = ['parchment', 'manuscript', 'compedium', 'blueprint'];
-var furDerVal = 2;
+var furDerVal = 1;
 var deadScript = "Script stopped!";
 var nm = 0;
 var at = 0;
@@ -103,10 +103,10 @@ function switchNightMode ()
 	nm = nm == 0 ? 1 : 0;
 	
 	if (nm == 1) {
-		furDerVal = 3;
+		furDerVal = 4;
 		nightModeMsg = "Night mode activated!";
 	} else {
-		furDerVal = 2;
+		furDerVal = 1;
 		nightModeMsg = "Night mode deactivated!";
 	}	
 }
@@ -135,7 +135,7 @@ function switchAutoTrade()
 
 function autoCraft() {
 	
-	for (var i = 0; i < furDerVal; i++) {
+	for (var i = 0; i < furDerVal; i++) { // 1 2 3 4
   		if (gamePage.workshop.getCraft(furDerivatives[i]).unlocked) { 
 			if (gamePage.science.get("drama").researched && game.calendar.festivalDays === 0) {
 				if ( i != 2) {
