@@ -44,7 +44,7 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
 '<a id="scriptOptions" onclick="openMenu()"> | AutoKittens </a>' + 
 
-'<div id="menu" style="display:none; margin-top:-300px; margin-left:-100px; width:220px; height:420px !important" class="dialog help">' + 
+'<div id="menu" style="display:none; margin-top:-420px; margin-left:-100px; width:220px; height:345px !important" class="dialog help">' + 
 '<a href="#" class="close" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
 '<input type="button" value="Stop Script" style="position: absolute; left: 15px;" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);">' +
@@ -54,11 +54,11 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 '<input type="button" value="AutoBuild" style="position: absolute; left: 15px; top: 130px; width: 130px;" id="autoBuild" onclick="switchAutoBuild(); gamePage.msg(buildMsg);">' +      
 '<input type="button" value="AutoCraft" style="position: absolute; left: 15px; top: 160px; width: 130px;" id="autoCraft" onclick="switchAutoCraft(); gamePage.msg(craftMsg);">' +      
 '<input type="button" value="AutoKittens" style="position: absolute; left: 15px; top: 190px; width: 130px;" id="autoKittens" onclick="switchAutoKittens(); gamePage.msg(kittensMsg);">' +  
-'<input type="button" value="AutoHunt" style="position: absolute; left: 15px; top: 210px; width: 130px;" id="autoHunt" onclick="switchAutoHunt(); gamePage.msg(huntMsg);">' +  
-'<input type="button" value="AutoPraise" style="position: absolute; left: 15px; top: 240px; width: 130px;" id="autoPraise" onclick="switchAutoPraise(); gamePage.msg(praiseMsg);">' +      
-'<input type="button" value="AutoParty" style="position: absolute; left: 15px; top: 270px; width: 130px;" id="autoParty" onclick="switchAutoParty(); gamePage.msg(partyMsg);">' +  
-'<input type="button" value="AutoUpgrade" style="position: absolute; left: 15px; top: 300px; width: 130px;" id="autoUpgrade" onclick="switchAutoUpgrade(); gamePage.msg(upgradeMsg);">' +  
-'<input type="button" value="AutoScience" style="position: absolute; left: 15px; top: 330px; width: 130px;" id="autoScience" onclick="switchAutoScience(); gamePage.msg(scienceMsg);">' +      
+'<input type="button" value="AutoHunt" style="position: absolute; left: 15px; top: 220px; width: 130px;" id="autoHunt" onclick="switchAutoHunt(); gamePage.msg(huntMsg);">' +  
+'<input type="button" value="AutoPraise" style="position: absolute; left: 15px; top: 250px; width: 130px;" id="autoPraise" onclick="switchAutoPraise(); gamePage.msg(praiseMsg);">' +      
+'<input type="button" value="AutoParty" style="position: absolute; left: 15px; top: 280px; width: 130px;" id="autoParty" onclick="switchAutoParty(); gamePage.msg(partyMsg);">' +  
+'<input type="button" value="AutoUpgrade" style="position: absolute; left: 15px; top: 310px; width: 130px;" id="autoUpgrade" onclick="switchAutoUpgrade(); gamePage.msg(upgradeMsg);">' +  
+'<input type="button" value="AutoScience" style="position: absolute; left: 15px; top: 340px; width: 130px;" id="autoScience" onclick="switchAutoScience(); gamePage.msg(scienceMsg);">' +      
 
 
 '<input type="button" value="+" style="position: absolute; left: 150px; top: 100px; width: auto;" id="autoTradingOptions" onclick="openAToptions();">' +      
@@ -71,8 +71,8 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
 $("#footerLinks").append(htmlMenuAddition);
 
-var bldSelectAddition = '<div id="buildingSelect" style="display:none; margin-top:-400px; width:200px" class="dialog help">' + 
-'<a href="#" onclick="$(\'#buildingSelect\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
+var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-400px; width:200px" class="dialog help">' + 
+'<a href="#" onclick="$(\'#menuAB\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
 '	<br><input type="checkbox" id="hutChecker"><label for="hutChecker" onclick="$(\'.hutCheck\').click();"><b>Kitten Housing</b></label><br>' + 
 '	<input type="checkbox" id="hutBld" class="hutCheck" onchange="verifyBuildingSelected(\'0\', \'hutBld\');"><label for="hutBld">Hut</label><br>' + 
@@ -137,32 +137,16 @@ function openMenu() {
 	$("#menu").toggle();
 }
 
-function closeAToptions() {
-	$("#menuAT").hide();
-}
-
 function openAToptions() {
 	$("#menuAT").toggle();
-}
-
-function closeABoptions() {
-	$("#menuAB").hide();
 }
 
 function openABoptions() {
 	$("#menuAB").toggle();
 }
 
-function closeACoptions() {
-	$("#menuAC").hide();
-}
-
 function openACoptions() {
 	$("#menuAC").toggle();
-}
-
-function closeAKoptions() {
-	$("#menuAK").hide();
 }
 
 function openAKoptions() {
