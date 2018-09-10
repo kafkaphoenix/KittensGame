@@ -294,7 +294,7 @@ var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-360px
 
 '</div>'
 
-var spaceSelectAddition = '<div id="spaceSelect" style="display:none; margin-top:-360px; width:200px; z-index: 1;" class="dialog help">' + 
+var spaceSelectAddition = '<div id="menuASpace" style="display:none; margin-top:-360px; width:200px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuASpace\').hide(); $(\'#menuAB\').toggle();" style="position: absolute; top: 10px; left: 15px;">Cath</a>' + 
 '<a href="#" onclick="$(\'#menuASpace\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
@@ -306,44 +306,43 @@ var spaceSelectAddition = '<div id="spaceSelect" style="display:none; margin-top
 '	<input type="checkbox" id="statSBld" class="spaceCheck" onchange="verifyBuildingSelected(\'36\', \'statSBld\');"><label for="statSBld">Space Station</label></br></br>' + 
 
 '	<input type="checkbox" id="moonChecker"><label for="moonChecker" onclick="$(\'.moonCheck\').click();"><b>Moon</b></label></br>' + 
-'	<input type="checkbox" id="outSBld" class="moonCheck" onchange="verifyBuildingSelected(\'35\', \'outSBld\');"><label for="outSBld">Lunar Outpost</label></br>' + 
-'	<input type="checkbox" id="baseSBld" class="moonCheck" onchange="verifyBuildingSelected(\'36\', \'baseSBld\');"><label for="baseSBld">Moon Base</label></br></br>' + 
+'	<input type="checkbox" id="outSBld" class="moonCheck" onchange="verifyBuildingSelected(\'37\', \'outSBld\');"><label for="outSBld">Lunar Outpost</label></br>' + 
+'	<input type="checkbox" id="baseSBld" class="moonCheck" onchange="verifyBuildingSelected(\'38\', \'baseSBld\');"><label for="baseSBld">Moon Base</label></br></br>' + 
 
 '	<input type="checkbox" id="duneChecker"><label for="duneChecker" onclick="$(\'.duneCheck\').click();"><b>Dune</b></label></br>' + 
-'	<input type="checkbox" id="crackSBld" class="duneCheck" onchange="verifyBuildingSelected(\'37\', \'crackSBld\');"><label for="crackSBld">Planet Cracker</label></br>' + 
-'	<input type="checkbox" id="fracSBld" class="duneCheck" onchange="verifyBuildingSelected(\'38\', \'fracSBld\');"><label for="fracSBld">Hydraulic Fracturer</label></br>' + 
-'	<input type="checkbox" id="spiceSBld" class="duneCheck" onchange="verifyBuildingSelected(\'39\', \'spiceSBld\');"><label for="spiceSBld">Spice Refinery</label></br></br>' + 
+'	<input type="checkbox" id="crackSBld" class="duneCheck" onchange="verifyBuildingSelected(\'39\', \'crackSBld\');"><label for="crackSBld">Planet Cracker</label></br>' + 
+'	<input type="checkbox" id="fracSBld" class="duneCheck" onchange="verifyBuildingSelected(\'40\', \'fracSBld\');"><label for="fracSBld">Hydraulic Fracturer</label></br>' + 
+'	<input type="checkbox" id="spiceSBld" class="duneCheck" onchange="verifyBuildingSelected(\'41\', \'spiceSBld\');"><label for="spiceSBld">Spice Refinery</label></br></br>' + 
 
 '	<input type="checkbox" id="piscineChecker"><label for="piscineChecker" onclick="$(\'piscineCheck\').click();"><b>Piscine</b></label></br>' + 
-'	<input type="checkbox" id="reVeSBld" class="piscineCheck" onchange="verifyBuildingSelected(\'40\', \'reVeSBld\');"><label for="reVeSBld">Research Vessel</label></br>' + 
-'	<input type="checkbox" id="orbSBld" class="piscineCheck" onchange="verifyBuildingSelected(\'41\', \'orbSBld\');"><label for="orbSBld">Orbital Array</label></br></br>' + 
+'	<input type="checkbox" id="reVeSBld" class="piscineCheck" onchange="verifyBuildingSelected(\'42\', \'reVeSBld\');"><label for="reVeSBld">Research Vessel</label></br>' + 
+'	<input type="checkbox" id="orbSBld" class="piscineCheck" onchange="verifyBuildingSelected(\'43\', \'orbSBld\');"><label for="orbSBld">Orbital Array</label></br></br>' + 
 
 '	<input type="checkbox" id="heliosChecker"><label for="heliosChecker" onclick="$(\'.heliosCheck\').click();"><b>Helios</b></label></br>' + 
-'	<input type="checkbox" id="sunSBld" class="heliosCheck" onchange="verifyBuildingSelected(\'42\', \'sunSBld\');"><label for="sunSBld">Sunlifter</label></br>' + 
-'	<input type="checkbox" id="contSBld" class="heliosCheck" onchange="verifyBuildingSelected(\'43\', \'contSBld\');"><label for="contSBld">Containment Chamber</label></br></br>' + 
-'	<input type="checkbox" id="heatSinkSBld" class="heliosCheck" onchange="verifyBuildingSelected(\'43\', \'heatSinkSBld\');"><label for="heatSinkSBld">Heatsink</label></br></br>' + 
-'	<input type="checkbox" id="sunForgeSBld" class="heliosCheck" onchange="verifyBuildingSelected(\'43\', \'sunForgeSBld\');"><label for="sunForgeSBld">Sunforge</label></br></br>' + 
+'	<input type="checkbox" id="sunSBld" class="heliosCheck" onchange="verifyBuildingSelected(\'44\', \'sunSBld\');"><label for="sunSBld">Sunlifter</label></br>' + 
+'	<input type="checkbox" id="contSBld" class="heliosCheck" onchange="verifyBuildingSelected(\'45\', \'contSBld\');"><label for="contSBld">Containment Chamber</label></br></br>' + 
+'	<input type="checkbox" id="heatSinkSBld" class="heliosCheck" onchange="verifyBuildingSelected(\'46\', \'heatSinkSBld\');"><label for="heatSinkSBld">Heatsink</label></br></br>' + 
+'	<input type="checkbox" id="sunForgeSBld" class="heliosCheck" onchange="verifyBuildingSelected(\'47\', \'sunForgeSBld\');"><label for="sunForgeSBld">Sunforge</label></br></br>' + 
 
 '	<input type="checkbox" id="terminusChecker"><label for="terminusChecker" onclick="$(\'.terminusCheck\').click();"><b>Terminus</b></label></br>' + 
-'	<input type="checkbox" id="crySBld" class="terminusCheck" onchange="verifyBuildingSelected(\'44\', \'crySBld\');"><label for="crySBld">Cryostation</label></br></br>' + 
+'	<input type="checkbox" id="crySBld" class="terminusCheck" onchange="verifyBuildingSelected(\'48\', \'crySBld\');"><label for="crySBld">Cryostation</label></br></br>' + 
 
 '	<input type="checkbox" id="kairoChecker"><label for="kairoChecker" onclick="$(\'.kairoCheck\').click();"><b>Kairo</b></label></br>' + 
-'	<input type="checkbox" id="beacSBld" class="kairoCheck" onchange="verifyBuildingSelected(\'45\', \'beacSBld\');"><label for="beacSBld">Space Beacon</label></br></br>' + 
+'	<input type="checkbox" id="beacSBld" class="kairoCheck" onchange="verifyBuildingSelected(\'49\', \'beacSBld\');"><label for="beacSBld">Space Beacon</label></br></br>' + 
 
 '	<input type="checkbox" id="yarnChecker"><label for="yarnChecker" onclick="$(\'.yarnCheck\').click();"><b>Yarn</b></label></br>' + 
-'	<input type="checkbox" id="terrSBld" class="yarnCheck" onchange="verifyBuildingSelected(\'46\', \'terrSBld\');"><label for="terrSBld">Terraforming Station</label></br>' + 
-'	<input type="checkbox" id="hydrSBld" class="centaurusCheck" onchange="verifyBuildingSelected(\'47\', \'hydrSBld\');"><label for="hydrSBld">Hydroponics</label></br></br>' + 
+'	<input type="checkbox" id="terrSBld" class="yarnCheck" onchange="verifyBuildingSelected(\'50\', \'terrSBld\');"><label for="terrSBld">Terraforming Station</label></br>' + 
+'	<input type="checkbox" id="hydrSBld" class="centaurusCheck" onchange="verifyBuildingSelected(\'51\', \'hydrSBld\');"><label for="hydrSBld">Hydroponics</label></br></br>' + 
 
 '	<input type="checkbox" id="umbraChecker"><label for="umbraChecker" onclick="$(\'.umbraCheck\').click();"><b>Umbra</b></label></br>' + 
-'	<input type="checkbox" id="hrSBld" class="umbraCheck" onchange="verifyBuildingSelected(\'48\', \'hrSBld\');"><label for="hrSBld">HR Harvester</label></br></br>' + 
+'	<input type="checkbox" id="hrSBld" class="umbraCheck" onchange="verifyBuildingSelected(\'52\', \'hrSBld\');"><label for="hrSBld">HR Harvester</label></br></br>' + 
 
 '	<input type="checkbox" id="charonChecker"><label for="charonChecker" onclick="$(\'.charonCheck\').click();"><b>Charon</b></label></br>' + 
-'	<input type="checkbox" id="esSBld" class="charonCheck" onchange="verifyBuildingSelected(\'48\', \'esSBld\');"><label for="esSBld">Entanglement Station</label></br></br>' + 
+'	<input type="checkbox" id="esSBld" class="charonCheck" onchange="verifyBuildingSelected(\'53\', \'esSBld\');"><label for="esSBld">Entanglement Station</label></br></br>' + 
 
 '	<input type="checkbox" id="centaurusChecker"><label for="centaurusChecker" onclick="$(\'.centaurusCheck\').click();"><b>Centaurus System</b></label></br>' + 
-'	<input type="checkbox" id="tecSBld" class="centaurusCheck" onchange="verifyBuildingSelected(\'48\', \'tecSBld\');"><label for="tecSBld">Tectonic</label></br></br>' + 
+'	<input type="checkbox" id="tecSBld" class="centaurusCheck" onchange="verifyBuildingSelected(\'54\', \'tecSBld\');"><label for="tecSBld">Tectonic</label></br></br>' + 
 
-'	<input type="checkbox" id="furthestRingChecker"><label for="furthestRingChecker" onclick="$(\'.furthestRingCheck\').click();"><b>Furthest Ring</b></label></br>' +
 '</div>'
 
 function verifyBuildingSelected(buildingNumber, buildingCheckID) {
@@ -541,7 +540,6 @@ function switchAutoBuild()
 
 		// Build space stuff automatically
 function autoSpace() {		
-if (autoCheck[0] != "false") {	
 	
 	var origTab = gamePage.ui.activeTabId;	
 		
@@ -596,7 +594,6 @@ if (autoCheck[0] != "false") {
         gamePage.ui.activeTabId = origTab; gamePage.render(); // Return to the original tab
 		  }
 	
-}
 }			
 
 function switchAutoSpace()
