@@ -145,6 +145,7 @@ function openAToptions() {
 function openABoptions() {
 	$("#menuAB").toggle();
 	$("#menuAB").focus();
+	$("#menu").off( "focus" ).
 }
 
 function openACoptions() {
