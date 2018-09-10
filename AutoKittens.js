@@ -234,51 +234,57 @@ var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-360px
 '<a href="#" onclick="$(\'#menuASpace\').toggle(); $(\'#menuAB\').hide();" style="position: absolute; top: 10px; left: 15px;">space</a>' + 
 '<a href="#" onclick="$(\'#menuAB\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
-'	<br><input type="checkbox" id="hutChecker"><label for="hutChecker" onclick="$(\'.hutCheck\').click();"><b>Kitten Housing</b></label><br>' + 
-'	<input type="checkbox" id="hutBld" class="hutCheck" onchange="verifyBuildingSelected(\'0\', \'hutBld\');"><label for="hutBld">Hut</label><br>' + 
-'	<input type="checkbox" id="houseBld" class="hutCheck" onchange="verifyBuildingSelected(\'1\', \'houseBld\')"><label for="houseBld">Log House</label><br>' + 
-'	<input type="checkbox" id="mansionBld" class="hutCheck" onchange="verifyBuildingSelected(\'2\', \'mansionBld\')"><label for="mansionBld">Mansion</label><br><br>' + 
+'	<br><input type="checkbox" id="prodChecker"><label for="prodChecker" onclick="$(\'.prodCheck\').click();"><b>Food Production</b></label><br>' + 
+'	<input type="checkbox" id="fieldBld" class="prodCheck" onchange="verifyBuildingSelected(\'0\', \'fieldBld\')"><label for="fieldBld">Catnip Field</label><br>' + 
+'	<input type="checkbox" id="pastureBld" class="prodCheck" onchange="verifyBuildingSelected(\'1\', \'pastureBld\')"><label for="pastureBld">Pasture/Solar</label><br>' + 
+'	<input type="checkbox" id="aqueductBld" class="prodCheck" onchange="verifyBuildingSelected(\'2\', \'aqueductBld\')"><label for="aqueductBld">Aqueduct/Hydro</label><br>' + 
 
-'	<input type="checkbox" id="craftChecker"><label for="craftChecker" onclick="$(\'.craftCheck\').click();"><b>Craft Bonuses</b></label><br>' + 
-'	<input type="checkbox" id="workshopBld" class="craftCheck" onchange="verifyBuildingSelected(\'3\', \'workshopBld\')"><label for="workshopBld">Workshop</label><br>' + 
-'	<input type="checkbox" id="factoryBld" class="craftCheck" onchange="verifyBuildingSelected(\'4\', \'factoryBld\')"><label for="factoryBld">Factory</label><br><br>' + 
-
-'	<input type="checkbox" id="prodChecker"><label for="prodChecker" onclick="$(\'.prodCheck\').click();"><b>Production</b></label><br>' + 
-'	<input type="checkbox" id="fieldBld" class="prodCheck" onchange="verifyBuildingSelected(\'5\', \'fieldBld\')"><label for="fieldBld">Catnip Field</label><br>' + 
-'	<input type="checkbox" id="pastureBld" class="prodCheck" onchange="verifyBuildingSelected(\'6\', \'pastureBld\')"><label for="pastureBld">Pasture/Solar</label><br>' + 
-'	<input type="checkbox" id="mineBld" class="prodCheck" onchange="verifyBuildingSelected(\'7\', \'mineBld\')"><label for="mineBld">Mine</label><br>' + 
-'	<input type="checkbox" id="lumberBld" class="prodCheck" onchange="verifyBuildingSelected(\'8\', \'lumberBld\')"><label for="lumberBld">Lumber Mill</label><br>' + 
-'	<input type="checkbox" id="aqueductBld" class="prodCheck" onchange="verifyBuildingSelected(\'9\', \'aqueductBld\')"><label for="aqueductBld">Aqueduct/Hydro</label><br>' + 
-'	<input type="checkbox" id="oilBld" class="prodCheck" onchange="verifyBuildingSelected(\'10\', \'oilBld\')"><label for="oilBld">Oil Well</label><br>' + 
-'	<input type="checkbox" id="quarryBld" class="prodCheck" onchange="verifyBuildingSelected(\'11\', \'quarryBld\')"><label for="quarryBld">Quarry</label><br><br>' + 
-
-'	<input type="checkbox" id="conversionChecker"><label for="conversionChecker" onclick="$(\'.convertCheck\').click();"><b>Conversion</b></label><br>' + 
-'	<input type="checkbox" id="smelterBld" class="convertCheck" onchange="verifyBuildingSelected(\'12\', \'smelterBld\')"><label for="smelterBld">Smelter</label><br>' + 
-'	<input type="checkbox" id="labBld" class="convertCheck" onchange="verifyBuildingSelected(\'13\', \'labBld\')"><label for="labBld">Bio Lab</label><br>' + 
-'	<input type="checkbox" id="calcinerBld" class="convertCheck" onchange="verifyBuildingSelected(\'14\', \'calcinerBld\')"><label for="calcinerBld">Calciner</label><br>' + 
-'	<input type="checkbox" id="reactorBld" class="convertCheck" onchange="verifyBuildingSelected(\'15\', \'reactorBld\')"><label for="reactorBld">Reactor</label><br>' + 
-'	<input type="checkbox" id="acceleratorBld" class="convertCheck" onchange="verifyBuildingSelected(\'16\', \'acceleratorBld\')"><label for="acceleratorBld">Accelerator</label><br>' + 
-'	<input type="checkbox" id="steamBld" class="convertCheck" onchange="verifyBuildingSelected(\'17\', \'steamBld\')"><label for="steamBld">Steamworks</label><br>' + 
-'	<input type="checkbox" id="magnetoBld" class="convertCheck" onchange="verifyBuildingSelected(\'18\', \'magnetoBld\')"><label for="magnetoBld">Magneto</label><br><br>' + 
+'	<input type="checkbox" id="hutChecker"><label for="hutChecker" onclick="$(\'.hutCheck\').click();"><b>Population</b></label><br>' + 
+'	<input type="checkbox" id="hutBld" class="hutCheck" onchange="verifyBuildingSelected(\'3\', \'hutBld\');"><label for="hutBld">Hut</label><br>' + 
+'	<input type="checkbox" id="houseBld" class="hutCheck" onchange="verifyBuildingSelected(\'4\', \'houseBld\')"><label for="houseBld">Log House</label><br>' + 
+'	<input type="checkbox" id="mansionBld" class="hutCheck" onchange="verifyBuildingSelected(\'5\', \'mansionBld\')"><label for="mansionBld">Mansion</label><br><br>' +
 
 '	<input type="checkbox" id="scienceChecker"><label for="scienceChecker" onclick="$(\'.scienceCheck\').click();"><b>Science</b></label><br>' + 
-'	<input type="checkbox" id="libraryBld" class="scienceCheck" onchange="verifyBuildingSelected(\'19\', \'libraryBld\')"><label for="libraryBld">Library</label><br>' + 
-'	<input type="checkbox" id="academyBld" class="scienceCheck" onchange="verifyBuildingSelected(\'20\', \'academyBld\')"><label for="academyBld">Academy</label><br>' + 
-'	<input type="checkbox" id="obervatoryBld" class="scienceCheck" onchange="verifyBuildingSelected(\'21\', \'obervatoryBld\')"><label for="obervatoryBld">Observatory</label><br><br>' + 
+'	<input type="checkbox" id="libraryBld" class="scienceCheck" onchange="verifyBuildingSelected(\'6\', \'libraryBld\')"><label for="libraryBld">Library</label><br>' + 
+'	<input type="checkbox" id="academyBld" class="scienceCheck" onchange="verifyBuildingSelected(\'7\', \'academyBld\')"><label for="academyBld">Academy</label><br>' + 
+'	<input type="checkbox" id="observatoryBld" class="scienceCheck" onchange="verifyBuildingSelected(\'8\', \'observatoryBld\')"><label for="observatoryBld">Observatory</label><br><br>' + 
+'	<input type="checkbox" id="labBld" class="scienceCheck" onchange="verifyBuildingSelected(\'9\', \'labBld\')"><label for="labBld">Bio Lab</label><br><br>' +
 
 '	<input type="checkbox" id="storageChecker"><label for="storageChecker" onclick="$(\'.storageCheck\').click();"><b>Storage</b></label><br>' + 
-'	<input type="checkbox" id="barnBld" class="storageCheck" onchange="verifyBuildingSelected(\'22\', \'barnBld\')"><label for="barnBld">Barn</label><br>' + 
-'	<input type="checkbox" id="harborBld" class="storageCheck" onchange="verifyBuildingSelected(\'23\', \'harborBld\')"><label for="harborBld">Harbor</label><br>' + 
-'	<input type="checkbox" id="warehouseBld" class="storageCheck" onchange="verifyBuildingSelected(\'24\', \'warehouseBld\')"><label for="warehouseBld">Warehouse</label><br><br>' + 
+'	<input type="checkbox" id="barnBld" class="storageCheck" onchange="verifyBuildingSelected(\'10\', \'barnBld\')"><label for="barnBld">Barn</label><br>' + 
+'	<input type="checkbox" id="warehouseBld" class="storageCheck" onchange="verifyBuildingSelected(\'11\', \'warehouseBld\')"><label for="warehouseBld">Warehouse</label><br><br>' + 
+'	<input type="checkbox" id="harborBld" class="storageCheck" onchange="verifyBuildingSelected(\'12\', \'harborBld\')"><label for="harborBld">Harbor</label><br>' + 
+
+'	<input type="checkbox" id="resourcesChecker"><label for="resourcesChecker" onclick="$(\'.resourcesCheck\').click();"><b>Resources</b></label><br>' + 
+'	<input type="checkbox" id="mineBld" class="resourcesCheck" onchange="verifyBuildingSelected(\'13\', \'mineBld\')"><label for="mineBld">Mine</label><br>' + 
+'	<input type="checkbox" id="quarryBld" class="resourcesCheck" onchange="verifyBuildingSelected(\'14\', \'quarryBld\')"><label for="quarryBld">Quarry</label><br><br>' + 
+'	<input type="checkbox" id="lumberBld" class="resourcesCheck" onchange="verifyBuildingSelected(\'15\', \'lumberBld\')"><label for="lumberBld">Lumber Mill</label><br>' + 
+'	<input type="checkbox" id="oilBld" class="resourcesCheck" onchange="verifyBuildingSelected(\'16\', \'oilBld\')"><label for="oilBld">Oil Well</label><br>' + 
+'	<input type="checkbox" id="acceleratorBld" class="resourcesCheck" onchange="verifyBuildingSelected(\'17\', \'acceleratorBld\')"><label for="acceleratorBld">Accelerator</label><br>' + 
+
+'	<input type="checkbox" id="industryChecker"><label for="industryChecker" onclick="$(\'.industryCheck\').click();"><b>Industry</b></label><br>' + 
+'	<input type="checkbox" id="steamBld" class="industryCheck" onchange="verifyBuildingSelected(\'18\', \'steamBld\')"><label for="steamBld">Steamworks</label><br>' + 
+'	<input type="checkbox" id="magnetoBld" class="industryCheck" onchange="verifyBuildingSelected(\'19\', \'magnetoBld\')"><label for="magnetoBld">Magneto</label><br><br>' + 
+'	<input type="checkbox" id="smelterBld" class="industryCheck" onchange="verifyBuildingSelected(\'20\', \'smelterBld\')"><label for="smelterBld">Smelter</label><br>' + 
+'	<input type="checkbox" id="calcinerBld" class="industryCheck" onchange="verifyBuildingSelected(\'21\', \'calcinerBld\')"><label for="calcinerBld">Calciner</label><br>' + 
+'	<input type="checkbox" id="factoryBld" class="industryCheck" onchange="verifyBuildingSelected(\'22\', \'factoryBld\')"><label for="factoryBld">Factory</label><br><br>' + 
+'	<input type="checkbox" id="reactorBld" class="industryCheck" onchange="verifyBuildingSelected(\'23\', \'reactorBld\')"><label for="reactorBld">Reactor</label><br>' + 
+
+'	<input type="checkbox" id="cultureChecker"><label for="cultureChecker" onclick="$(\'.cultureCheck\').click();"><b>Culture</b></label><br>' + 
+'	<input type="checkbox" id="ampBld" class="cultureCheck" onchange="verifyBuildingSelected(\'24\', \'ampBld\')"><label for="ampBld">Amphitheatre/Broadcast</label><br>' + 
+'	<input type="checkbox" id="chapelBld" class="cultureCheck" onchange="verifyBuildingSelected(\'25\', \'chapelBld\')"><label for="chapelBld">Chapel</label><br>' + 
+'	<input type="checkbox" id="templeBld" class="cultureCheck" onchange="verifyBuildingSelected(\'26\', \'templeBld\')"><label for="templeBld">Temple</label><br>' + 
 
 '	<input type="checkbox" id="otherChecker"><label for="otherChecker" onclick="$(\'.otherCheck\').click();"><b>Other</b></label><br>' + 
-'	<input type="checkbox" id="ampBld" class="otherCheck" onchange="verifyBuildingSelected(\'25\', \'ampBld\')"><label for="ampBld">Amphitheatre/Broadcast</label><br>' + 
-'	<input type="checkbox" id="tradeBld" class="otherCheck" onchange="verifyBuildingSelected(\'26\', \'tradeBld\')"><label for="tradeBld">Tradepost</label><br>' + 
-'	<input type="checkbox" id="chapelBld" class="otherCheck" onchange="verifyBuildingSelected(\'27\', \'chapelBld\')"><label for="chapelBld">Chapel</label><br>' + 
-'	<input type="checkbox" id="templeBld" class="otherCheck" onchange="verifyBuildingSelected(\'28\', \'templeBld\')"><label for="templeBld">Temple</label><br>' + 
+'	<input type="checkbox" id="workshopBld" class="otherCheck" onchange="verifyBuildingSelected(\'27\', \'workshopBld\')"><label for="workshopBld">Workshop</label><br>' + 
+'	<input type="checkbox" id="tradeBld" class="otherCheck" onchange="verifyBuildingSelected(\'28\', \'tradeBld\')"><label for="tradeBld">Tradepost</label><br>' + 
 '	<input type="checkbox" id="mintBld" class="otherCheck" onchange="verifyBuildingSelected(\'29\', \'mintBld\')"><label for="mintBld">Mint</label><br>' + 
-'	<input type="checkbox" id="zigguratBld" class="otherCheck" onchange="verifyBuildingSelected(\'30\', \'zigguratBld\')"><label for="zigguratBld">Ziggurat</label><br>' + 
-'	<input type="checkbox" id="unicBld" class="otherCheck" onchange="verifyBuildingSelected(\'31\', \'unicBld\')"><label for="unicBld">Unicorn Pasture</label><br></br>' + 
+'	<input type="checkbox" id="unicBld" class="otherCheck" onchange="verifyBuildingSelected(\'30\', \'unicBld\')"><label for="unicBld">Unicorn Pasture</label><br></br>' + 
+
+'	<input type="checkbox" id="megaStructuresChecker"><label for="megaStructuresChecker" onclick="$(\'.megaStructuresCheck\').click();"><b>Mega Structures</b></label><br>' + 
+'	<input type="checkbox" id="zigguratBld" class="megaStructuresCheck" onchange="verifyBuildingSelected(\'31\', \'zigguratBld\')"><label for="zigguratBld">Ziggurat</label><br>' + 
+'	<input type="checkbox" id="chronospereBld" class="megaStructuresCheck" onchange="verifyBuildingSelected(\'32\', \'zigguratBld\')"><label for="zigguratBld">Ziggurat</label><br>' + 
+'	<input type="checkbox" id="aiCoreBld" class="megaStructuresCheck" onchange="verifyBuildingSelected(\'33\', \'zigguratBld\')"><label for="zigguratBld">Ziggurat</label><br>' +
 
 '</div>'
 
@@ -286,7 +292,7 @@ var spaceSelectAddition = '<div id="spaceSelect" style="display:none; margin-top
 '<a href="#" onclick="$(\'#menuASpace\').hide(); $(\'#menuAB\').toggle();" style="position: absolute; top: 10px; left: 15px;">cath</a>' + 
 '<a href="#" onclick="$(\'#menuASpace\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
-'	</br></br><input type="checkbox" id="programs" class="programs" onchange="programBuild = this.checked; console.log(this.checked);"><label for="programs">Programs</label></br></br>' + 
+'	</br><input type="checkbox" id="programs" class="programs" onchange="programBuild = this.checked; console.log(this.checked);"><label for="programs">Programs</label></br></br>' + 
 
 '	<input type="checkbox" id="spaceChecker"><label for="spaceChecker" onclick="$(\'.spaceCheck\').click();"><b>Space</b></label></br>' + 
 
@@ -486,7 +492,7 @@ function autoBuild()
 
 		var btn = gamePage.tabs[0].buttons;
 
-		for (var z = 0; z <  36; z++) { // total buildings
+		for (var z = 0; z < 34; z++) { // total buildings
 			if (buildings[z][1] != false) {
 				if (gamePage.bld.getBuildingExt(buildingsList[z]).meta.unlocked) {
 					for (i = 2 ;i < gamePage.tabs[0].buttons.length; i++) { // 0 gather 1 refine
