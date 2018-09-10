@@ -294,12 +294,12 @@ var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-360px
 
 '</div>'
 
-var spaceSelectAddition = '<div id="menuASpace" style="display:none; margin-top:-360px; width:200px; z-index: 1;" class="dialog help">' + 
+var spaceSelectAddition = '<div id="menuASpace" style="display:none; margin-top:-210px; margin-left: 100px; width:400px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuASpace\').hide(); $(\'#menuAB\').toggle();" style="position: absolute; top: 10px; left: 15px;">Cath</a>' + 
 '<a href="#" onclick="$(\'#menuASpace\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
-'	</br><input type="checkbox" id="programs" class="programs" onchange="programBuild = this.checked;"><label for="programs"><b>Programs</b></label></br></br>' + 
-'       <div id="leftMenuASpace" style="position: absolute; top: 30px; left: 15px;">' +
+'	</br></br><input type="checkbox" id="programs" class="programs" onchange="programBuild = this.checked;"><label for="programs"><b>Programs</b></label></br></br>' + 
+'       <div id="leftMenuASpace" style="position: absolute; top: 90px; left: 40px;">' +
 '	<input type="checkbox" id="spaceChecker"><label for="spaceChecker" onclick="$(\'.spaceCheck\').click();"><b>Space</b></label></br>' + 
 '	<input type="checkbox" id="elevSBld" class="spaceCheck" onchange="verifyBuildingSelected(\'34\', \'elevSBld\');"><label for="elevSBld">Space Elevator</label></br>' + 
 '	<input type="checkbox" id="satSBld" class="spaceCheck" onchange="verifyBuildingSelected(\'35\', \'satSBld\');"><label for="satSBld">Satellite</label></br>' + 
@@ -324,7 +324,7 @@ var spaceSelectAddition = '<div id="menuASpace" style="display:none; margin-top:
 '	<input type="checkbox" id="heatSinkSBld" class="heliosCheck" onchange="verifyBuildingSelected(\'46\', \'heatSinkSBld\');"><label for="heatSinkSBld">Heatsink</label></br>' + 
 '	<input type="checkbox" id="sunForgeSBld" class="heliosCheck" onchange="verifyBuildingSelected(\'47\', \'sunForgeSBld\');"><label for="sunForgeSBld">Sunforge</label></br></br>' + 
 
-'       </div><div id="rightMenuASpace" style="position: absolute; top: 30px; right: 15px;">' +    
+'       </div><div id="rightMenuASpace" style="position: absolute; top: 90px; right: 50px;">' +    
     
 '	<input type="checkbox" id="terminusChecker"><label for="terminusChecker" onclick="$(\'.terminusCheck\').click();"><b>Terminus</b></label></br>' + 
 '	<input type="checkbox" id="crySBld" class="terminusCheck" onchange="verifyBuildingSelected(\'48\', \'crySBld\');"><label for="crySBld">Cryostation</label></br></br>' + 
