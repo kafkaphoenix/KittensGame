@@ -139,17 +139,21 @@ function openMenu() {
 
 function openAToptions() {
 	$("#menuAT").toggle();
+	$("#menuAT").focus();
 }
 
 function openABoptions() {
 	$("#menuAB").toggle();
+	$("#menuAB").focus();
 }
 
 function openACoptions() {
 	$("#menuAC").toggle();
+	$("#menuAC").focus();
 }
 
 function openAKoptions() {
+	$("#menuAK").toggle();
 	$("#menuAK").toggle();
 }
 
