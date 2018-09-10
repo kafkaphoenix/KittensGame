@@ -21,6 +21,7 @@ var ap = 0;
 var as = 0;
 var au = 0;
 var apr = 0;
+var steamOn = 0;
 
 var resources = [
        		["catnip", "wood", 50],
@@ -32,28 +33,38 @@ var resources = [
             ["uranium", "thorium", 250],
 			["unobtainium", "eludium", 1000]
                 ];
+var secondaryResources = [
+			["beam", "scaffold", 50],
+            ["steel", "alloy", 75],
+			["steel", "gear", 15],
+			["slab", "concrate", 2500]
+			];
 
 var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
 '<a id="scriptOptions" onclick="openMenu()"> | AutoKittens </a>' + 
 
-'<div id="menu" style="display:none; margin-top:-300px; margin-left:-100px; width:200px; height:200px !important" class="dialog help">' + 
+'<div id="menu" style="display:none; margin-top:-300px; margin-left:-100px; width:220px; height:420px !important" class="dialog help">' + 
 '<a href="#" class="close" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
 '<input type="button" value="Stop Script" style="position: absolute; left: 15px;" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);">' +
 '<input type="button" value="NightMode" style="position: absolute; left: 15px; top: 50px; width: 130px;" id="nightMode" onclick="switchNightMode(); gamePage.msg(nightModeMsg);">' +    
 
 '<input type="button" value="AutoTrade" style="position: absolute; left: 15px; top: 100px; width: 130px;" id="autoTrade" onclick="switchAutoTrade(); gamePage.msg(tradeMsg);">' +      
-'<input type="button" value="AutoBuild" style="position: absolute; left: 15px; top: 120px; width: 130px;" id="autoBuild" onclick="switchAutoBuild(); gamePage.msg(buildMsg);">' +      
-'<input type="button" value="AutoCraft" style="position: absolute; left: 15px; top: 140px; width: 130px;" id="autoCraft" onclick="switchAutoCraft(); gamePage.msg(craftMsg);">' +      
-'<input type="button" value="AutoKittens" style="position: absolute; left: 15px; top: 160px; width: 130px;" id="autoKittens" onclick="switchAutoKittens(); gamePage.msg(kittensMsg);">' +  
-'<input type="button" value="AutoKittens" style="position: absolute; left: 15px; top: 160px; width: 130px;" id="autoKittens" onclick="switchAutoHunt(); gamePage.msg(kittensMsg);">' +  
-'<input type="button" value="AutoKittens" style="position: absolute; left: 15px; top: 160px; width: 130px;" id="autoKittens" onclick="switchAutoPraise(); gamePage.msg(kittensMsg);">' +      
+'<input type="button" value="AutoBuild" style="position: absolute; left: 15px; top: 130px; width: 130px;" id="autoBuild" onclick="switchAutoBuild(); gamePage.msg(buildMsg);">' +      
+'<input type="button" value="AutoCraft" style="position: absolute; left: 15px; top: 160px; width: 130px;" id="autoCraft" onclick="switchAutoCraft(); gamePage.msg(craftMsg);">' +      
+'<input type="button" value="AutoKittens" style="position: absolute; left: 15px; top: 190px; width: 130px;" id="autoKittens" onclick="switchAutoKittens(); gamePage.msg(kittensMsg);">' +  
+'<input type="button" value="AutoHunt" style="position: absolute; left: 15px; top: 210px; width: 130px;" id="autoHunt" onclick="switchAutoHunt(); gamePage.msg(huntMsg);">' +  
+'<input type="button" value="AutoPraise" style="position: absolute; left: 15px; top: 240px; width: 130px;" id="autoPraise" onclick="switchAutoPraise(); gamePage.msg(praiseMsg);">' +      
+'<input type="button" value="AutoParty" style="position: absolute; left: 15px; top: 270px; width: 130px;" id="autoParty" onclick="switchAutoParty(); gamePage.msg(partyMsg);">' +  
+'<input type="button" value="AutoUpgrade" style="position: absolute; left: 15px; top: 300px; width: 130px;" id="autoUpgrade" onclick="switchAutoUpgrade(); gamePage.msg(upgradeMsg);">' +  
+'<input type="button" value="AutoScience" style="position: absolute; left: 15px; top: 330px; width: 130px;" id="autoScience" onclick="switchAutoScience(); gamePage.msg(scienceMsg);">' +      
 
-'<input type="button" value="+" style="position: absolute; left: 180px; top: 100px; width: 60px;" id="autoTradingOptions" onclick="openAToptions();">' +      
-'<input type="button" value="+" style="position: absolute; left: 180px; top: 120px; width: 60px;" id="autoBuildingOptions" onclick="openABoptions();">' +    
-'<input type="button" value="+" style="position: absolute; left: 180px; top: 140px; width: 60px;" id="autoCraftingOptions" onclick="openACoptions();">' +   
-'<input type="button" value="+" style="position: absolute; left: 180px; top: 160px; width: 60px;" id="autoKittensOptions" onclick="openAKoptions();">' +
+
+'<input type="button" value="+" style="position: absolute; left: 150px; top: 100px; width: auto;" id="autoTradingOptions" onclick="openAToptions();">' +      
+'<input type="button" value="+" style="position: absolute; left: 150px; top: 130px; width: auto;" id="autoBuildingOptions" onclick="openABoptions();">' +    
+'<input type="button" value="+" style="position: absolute; left: 150px; top: 160px; width: auto;" id="autoCraftingOptions" onclick="openACoptions();">' +   
+'<input type="button" value="+" style="position: absolute; left: 150px; top: 190px; width: auto;" id="autoKittensOptions" onclick="openAKoptions();">' +
     
 '</div>' +
 '</div>'
