@@ -236,11 +236,12 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
 $("#footerLinks").append(htmlMenuAddition);
 
-var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-360px; width:200px; z-index: 1;" class="dialog help">' + 
+var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-210px; margin-left: 100px; width:400px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuAB\').hide(); $(\'#menuASpace\').toggle();" style="position: absolute; top: 10px; left: 15px;">Space</a>' + 
 '<a href="#" onclick="$(\'#menuAB\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
 '	<br><input type="checkbox" id="prodChecker"><label for="prodChecker" onclick="$(\'.prodCheck\').click();"><b>Food Production</b></label><br>' + 
+'	<div id="leftMenuAB" style="position: absolute; top: 90px; left: 40px;">' +
 '	<input type="checkbox" id="fieldBld" class="prodCheck" onchange="verifyBuildingSelected(\'0\', \'fieldBld\')"><label for="fieldBld">Catnip Field</label><br>' + 
 '	<input type="checkbox" id="pastureBld" class="prodCheck" onchange="verifyBuildingSelected(\'1\', \'pastureBld\')"><label for="pastureBld">Pasture / Solar</label><br>' + 
 '	<input type="checkbox" id="aqueductBld" class="prodCheck" onchange="verifyBuildingSelected(\'2\', \'aqueductBld\')"><label for="aqueductBld">Aqueduct / Hydro</label><br><br>' + 
@@ -268,6 +269,7 @@ var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-360px
 '	<input type="checkbox" id="oilBld" class="resourcesCheck" onchange="verifyBuildingSelected(\'16\', \'oilBld\')"><label for="oilBld">Oil Well</label><br>' + 
 '	<input type="checkbox" id="acceleratorBld" class="resourcesCheck" onchange="verifyBuildingSelected(\'17\', \'acceleratorBld\')"><label for="acceleratorBld">Accelerator</label><br><br>' + 
 
+'	<div id="rightMenuAB" style="position: absolute; top: 90px; right: 40px;">' +    
 '	<input type="checkbox" id="industryChecker"><label for="industryChecker" onclick="$(\'.industryCheck\').click();"><b>Industry</b></label><br>' + 
 '	<input type="checkbox" id="steamBld" class="industryCheck" onchange="verifyBuildingSelected(\'18\', \'steamBld\')"><label for="steamBld">Steamworks</label><br>' + 
 '	<input type="checkbox" id="magnetoBld" class="industryCheck" onchange="verifyBuildingSelected(\'19\', \'magnetoBld\')"><label for="magnetoBld">Magneto</label><br>' + 
@@ -298,7 +300,7 @@ var spaceSelectAddition = '<div id="menuASpace" style="display:none; margin-top:
 '<a href="#" onclick="$(\'#menuASpace\').hide(); $(\'#menuAB\').toggle();" style="position: absolute; top: 10px; left: 15px;">Cath</a>' + 
 '<a href="#" onclick="$(\'#menuASpace\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
-'	</br></br><input type="checkbox" id="programs" class="programs" onchange="programBuild = this.checked;"><label for="programs"><b>Programs</b></label></br></br>' + 
+'	</br><input type="checkbox" id="programs" class="programs" onchange="programBuild = this.checked;"><label for="programs"><b>Programs</b></label></br></br>' + 
 '       <div id="leftMenuASpace" style="position: absolute; top: 90px; left: 40px;">' +
 '	<input type="checkbox" id="spaceChecker"><label for="spaceChecker" onclick="$(\'.spaceCheck\').click();"><b>Space</b></label></br>' + 
 '	<input type="checkbox" id="elevSBld" class="spaceCheck" onchange="verifyBuildingSelected(\'34\', \'elevSBld\');"><label for="elevSBld">Space Elevator</label></br>' + 
