@@ -236,7 +236,7 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
 $("#footerLinks").append(htmlMenuAddition);
 
-var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-210px; margin-left: 100px; width:400px; z-index: 1;" class="dialog help">' + 
+var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-210px; height: 500px !important; margin-left: 100px; width:400px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuAB\').hide(); $(\'#menuASpace\').toggle();" style="position: absolute; top: 10px; left: 15px;">Space</a>' + 
 '<a href="#" onclick="$(\'#menuAB\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
@@ -269,7 +269,7 @@ var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-210px
 '	<input type="checkbox" id="oilBld" class="resourcesCheck" onchange="verifyBuildingSelected(\'16\', \'oilBld\')"><label for="oilBld">Oil Well</label><br>' + 
 '	<input type="checkbox" id="acceleratorBld" class="resourcesCheck" onchange="verifyBuildingSelected(\'17\', \'acceleratorBld\')"><label for="acceleratorBld">Accelerator</label><br><br>' + 
 
-'	<div id="rightMenuAB" style="position: absolute; top: 90px; right: 40px;">' +    
+'	</div><div id="rightMenuAB" style="position: absolute; top: 90px; right: 40px;">' +    
 '	<input type="checkbox" id="industryChecker"><label for="industryChecker" onclick="$(\'.industryCheck\').click();"><b>Industry</b></label><br>' + 
 '	<input type="checkbox" id="steamBld" class="industryCheck" onchange="verifyBuildingSelected(\'18\', \'steamBld\')"><label for="steamBld">Steamworks</label><br>' + 
 '	<input type="checkbox" id="magnetoBld" class="industryCheck" onchange="verifyBuildingSelected(\'19\', \'magnetoBld\')"><label for="magnetoBld">Magneto</label><br>' + 
@@ -296,7 +296,7 @@ var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-210px
 
 '</div>'
 
-var spaceSelectAddition = '<div id="menuASpace" style="display:none; margin-top:-210px; margin-left: 100px; width:400px; z-index: 1;" class="dialog help">' + 
+var spaceSelectAddition = '<div id="menuASpace" style="display:none; margin-top:-210px; height: 500px !important; margin-left: 100px; width:400px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuASpace\').hide(); $(\'#menuAB\').toggle();" style="position: absolute; top: 10px; left: 15px;">Cath</a>' + 
 '<a href="#" onclick="$(\'#menuASpace\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
