@@ -71,7 +71,7 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
 $("#footerLinks").append(htmlMenuAddition);
 
-var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-400px; width:200px" class="dialog help">' + 
+var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-400px; width:200px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuAB\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
 '	<br><input type="checkbox" id="hutChecker"><label for="hutChecker" onclick="$(\'.hutCheck\').click();"><b>Kitten Housing</b></label><br>' + 
@@ -139,22 +139,17 @@ function openMenu() {
 
 function openAToptions() {
 	$("#menuAT").toggle();
-	$("#menuAT").focus();
 }
 
 function openABoptions() {
 	$("#menuAB").toggle();
-	$("#menuAB").focus();
-	$("#menu").off( "focus" );
 }
 
 function openACoptions() {
 	$("#menuAC").toggle();
-	$("#menuAC").focus();
 }
 
 function openAKoptions() {
-	$("#menuAK").toggle();
 	$("#menuAK").toggle();
 }
 
