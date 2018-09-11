@@ -501,10 +501,7 @@ function switchAutoKittens()
 
 function autoBuild()
 {
-	if (gamePage.ui.activeTabId != 'Bonfire') {
-		var origTab = gamePage.ui.activeTabId;
-		gamePage.ui.activeTabId = 'Bonfire'; gamePage.render(); // Change the tab so that we can build
-	}
+	if (gamePage.ui.activeTabId == 'Bonfire') {
 	
 	var btn = gamePage.tabs[0].buttons;
 
@@ -531,8 +528,6 @@ function autoBuild()
 		steamOn = 1;
 	}
 	
-        if (origTab != gamePage.ui.activeTabId) {
-		gamePage.ui.activeTabId = origTab; gamePage.render(); // Return to the original tab
 	}
 
 }
