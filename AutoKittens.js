@@ -240,7 +240,7 @@ var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-260px
 '<a href="#" onclick="$(\'#menuAB\').hide(); $(\'#menuASpace\').toggle();" style="position: absolute; top: 10px; left: 15px;">Space</a>' + 
 '<a href="#" onclick="$(\'#menuAB\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
-'	<div id="leftMenuAB" style="position: absolute; top: 90px; left: 40px;">' +    
+'	<div id="leftMenuAB" style="position: absolute; top: 70px; left: 40px;">' +    
 '	<br><input type="checkbox" id="prodChecker"><label for="prodChecker" onclick="$(\'.prodCheck\').click();"><b>Food Production</b></label><br>' + 
 '	<input type="checkbox" id="fieldBld" class="prodCheck" onchange="verifyBuildingSelected(\'0\', \'fieldBld\')"><label for="fieldBld">Catnip Field</label><br>' + 
 '	<input type="checkbox" id="pastureBld" class="prodCheck" onchange="verifyBuildingSelected(\'1\', \'pastureBld\')"><label for="pastureBld">Pasture / Solar</label><br>' + 
@@ -427,7 +427,7 @@ function autoTrade() {
 	
 	var slab = gamePage.resPool.get('slab');
 	if (gamePage.calendar.season == 1 && slab.value >= 50) {
-		gamePage.diplomacy.tradeMultiple(game.diplomacy.get("zebras"), Math.floor(game.resPool.get("slab").value) / 50);
+		gamePage.diplomacy.tradeMultiple(game.diplomacy.get("zebras"), Math.floor(game.resPool.get("slab").value / 50);
 	}
 }
 
@@ -501,7 +501,10 @@ function switchAutoKittens()
 
 function autoBuild()
 {
-	var origTab = gamePage.ui.activeTabId;	
+	if (gamePage.ui.activeTabId != 'Bonfire') {
+		var origTab = gamePage.ui.activeTabId;
+		gamePage.ui.activeTabId = 'Bonfire'; gamePage.render(); // Change the tab so that we can build
+	}
 	
 	var btn = gamePage.tabs[0].buttons;
 
@@ -510,15 +513,11 @@ function autoBuild()
 			if (gamePage.bld.getBuildingExt(buildingsList[z]).meta.unlocked) {
 				for (i = 2 ;i < gamePage.tabs[0].buttons.length; i++) { // 0 gather 1 refine
 					try { 	
-						if (gamePage.ui.activeTabId != "Bonfire") {
-							gamePage.ui.activeTabId = 'Bonfire'; gamePage.render(); // Change the tab so that we can build
-
-							if (btn[i].model.metadata.name == buildingsList[z]) {
-								btn[i].controller.buyItem(btn[i].model, {}, function(result) {
-									if (result) {btn[i].update();}
-								});
-							} 
-						}
+						if (btn[i].model.metadata.name == buildingsList[z]) {
+							btn[i].controller.buyItem(btn[i].model, {}, function(result) {
+								if (result) {btn[i].update();}
+							});
+						} 	
 					} catch(err) {
 					console.log(err);
 					}
