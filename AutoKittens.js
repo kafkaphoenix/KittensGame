@@ -208,8 +208,8 @@ var crafts = [
 	["tradeship", "tanker", 200, false],
 	["furs", "parchment", 175, false],
 	["parchment", "manuscript", 25, false],
-	["manuscript", "compendium", 50, false],
-	["compendium", "blueprint", 25, false]
+	["manuscript", "compedium", 50, false],
+	["compedium", "blueprint", 25, false]
 ];
 
 var htmlMenuAddition = '<div id="autokittens" class="column">' +
@@ -402,7 +402,7 @@ var craftSelectAddition = '<div id="menuAC" style="display:none; margin-top:-260
 '	<input type="checkbox" id="scienceChecker"><label for="scienceChecker" onclick="$(\'.scienceCheck\').click();"><b>Science</b></label><br>' + 
 '	<input type="checkbox" id="parchCraft" class="scienceCheck" onchange="verifyCraftSelected(\'13\', \'parchCraft\')"><label for="parchCraft">Parchment</label><br>' + 
 '	<input type="checkbox" id="manuCraft" class="scienceCheck" onchange="verifyCraftSelected(\'14\', \'manuCraft\')"><label for="manuCraft">Manuscript</label><br>' + 
-'	<input type="checkbox" id="compCraft" class="scienceCheck" onchange="verifyCraftSelected(\'15\', \'compCraft\')"><label for="compCraft">Compendium</label><br>' + 
+'	<input type="checkbox" id="compCraft" class="scienceCheck" onchange="verifyCraftSelected(\'15\', \'compCraft\')"><label for="compCraft">Compedium</label><br>' + 
 '	<input type="checkbox" id="blueCraft" class="scienceCheck" onchange="verifyCraftSelected(\'16\', \'blueCraft\')"><label for="blueCraft">Blueprint</label><br><br>' + 
 
 '	<input type="checkbox" id="otherChecker"><label for="otherChecker" onclick="$(\'.otherCheck\').click();"><b>Other</b></label><br>' + 
