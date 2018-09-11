@@ -390,12 +390,12 @@ var craftSelectAddition = '<div id="menuAC" style="display:none; margin-top:-260
 
 '       </div><div id="centerMenuAC" style="position: absolute; top: 60px; left: 150px;">' +   
 
-'	<span id="ratioScaffold" style="position: absolute; top: 70px;" title="Between 0 and 100"><input id="ratioScaffoldText" type="text" style="width:25px" onchange="ratioScaffold = this.value" value="0"></span>' + 
-'	<span id="ratioTradeship" style="position: absolute; top: 100px;" title="Between 0 and 100"><input id="ratioTradeshipText" type="text" style="width:25px" onchange="ratioTradeship = this.value" value="0"></span>' + 
-'	<span id="ratioTanker" style="position: absolute; top: 130px;" title="Between 0 and 100"><input id="ratioTankerText" type="text" style="width:25px" onchange="ratioTanker = this.value" value="0"></span>' +     
-'	<span id="ratioConcrate" style="position: absolute; top: 160px;" title="Between 0 and 100"><input id="ratioConcrateText" type="text" style="width:25px" onchange="ratioConcrate = this.value" value="0"></span>' +     
-'	<span id="ratioGear" style="position: absolute; top: 190px;" title="Between 0 and 100"><input id="ratioGearText" type="text" style="width:25px" onchange="ratioGear = this.value" value="0"></span>' +     
-'	<span id="ratioAlloy" style="position: absolute; top: 220px;" title="Between 0 and 100"><input id="ratioAlloyText" type="text" style="width:25px" onchange="ratioAlloy = this.value" value="0"></span>' + 
+'	<span id="ratioScaffold" title="Between 0 and 100"><input id="ratioScaffoldText" type="text" style="width:25px; position: absolute; top: -50px;" onchange="ratioScaffold = this.value" value="0"></span>' + 
+'	<span id="ratioTradeship" title="Between 0 and 100"><input id="ratioTradeshipText" type="text" style="width:25px; position: absolute; top: -30px;" onchange="ratioTradeship = this.value" value="0"></span>' + 
+'	<span id="ratioTanker" title="Between 0 and 100"><input id="ratioTankerText" type="text" style="width:25px; position: absolute; top: -10px;" onchange="ratioTanker = this.value" value="0"></span>' +     
+'	<span id="ratioConcrate" title="Between 0 and 100"><input id="ratioConcrateText" type="text" style="width:25px; position: absolute; top: 60px;" onchange="ratioConcrate = this.value" value="0"></span>' +     
+'	<span id="ratioGear"  title="Between 0 and 100"><input id="ratioGearText" type="text" style="width:25px; position: absolute; top: 145px;" onchange="ratioGear = this.value" value="0"></span>' +     
+'	<span id="ratioAlloy" title="Between 0 and 100"><input id="ratioAlloyText" type="text" style="width:25px; position: absolute; top: 265px;" onchange="ratioAlloy = this.value" value="0"></span>' + 
     
 '       </div><div id="rightMenuAC" style="position: absolute; top: 60px; right: 90px;">' +        
     
@@ -411,9 +411,9 @@ var craftSelectAddition = '<div id="menuAC" style="display:none; margin-top:-260
 '	<input type="checkbox" id="keroseneCraft" class="otherCheck" onchange="verifyCraftSelected(\'5\', \'keroseneCraft\')"><label for="keroseneCraft">Kerosene</label><br>' + 
 '	<input type="checkbox" id="thoriumCraft" class="otherCheck" onchange="verifyCraftSelected(\'6\', \'thoriumCraft\')"><label for="thoriumCraft">Thorium</label><br><br>' + 
     
-'       </div><div id="rightMenu2AC" style="position: absolute; top: 60px; left: 30px;">' +
+'       </div><div id="rightMenu2AC" style="position: absolute; top: 60px; right: 30px;">' +
     
-' 	<span id="ratioMegalith" style="position: absolute; top: 120px;" title="Between 0 and 100"><input id="ratioMegalithText" type="text" style="width:25px" onchange="ratioMegalith = this.value" value="0"></span>' +     
+' 	<span id="ratioMegalith" title="Between 0 and 100"><input id="ratioMegalithText" type="text" style="width:25px; position: absolute; top: -5px;" onchange="ratioMegalith = this.value" value="0"></span>' +     
     
 '</div></div>'
 
