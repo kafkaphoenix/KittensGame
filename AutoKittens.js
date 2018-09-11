@@ -250,7 +250,7 @@ var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-260px
 '<a href="#" onclick="$(\'#menuAB\').hide(); $(\'#menuASpace\').toggle();" style="position: absolute; top: 10px; left: 15px;">Space</a>' + 
 '<a href="#" onclick="$(\'#menuAB\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
-'	<div id="leftMenuAB" style="position: absolute; top: 70px; left: 40px;">' +    
+'	<div id="leftMenuAB" style="position: absolute; top: 50px; left: 40px;">' +    
 '	<br><input type="checkbox" id="prodChecker"><label for="prodChecker" onclick="$(\'.prodCheck\').click();"><b>Food Production</b></label><br>' + 
 '	<input type="checkbox" id="fieldBld" class="prodCheck" onchange="verifyBuildingSelected(\'0\', \'fieldBld\')"><label for="fieldBld">Catnip Field</label><br>' + 
 '	<input type="checkbox" id="pastureBld" class="prodCheck" onchange="verifyBuildingSelected(\'1\', \'pastureBld\')"><label for="pastureBld">Pasture / Solar</label><br>' + 
@@ -279,7 +279,7 @@ var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-260px
 '	<input type="checkbox" id="oilBld" class="resourcesCheck" onchange="verifyBuildingSelected(\'16\', \'oilBld\')"><label for="oilBld">Oil Well</label><br>' + 
 '	<input type="checkbox" id="acceleratorBld" class="resourcesCheck" onchange="verifyBuildingSelected(\'17\', \'acceleratorBld\')"><label for="acceleratorBld">Accelerator</label><br><br>' + 
 
-'	</div><div id="rightMenuAB" style="position: absolute; top: 90px; right: 40px;">' +    
+'	</div><div id="rightMenuAB" style="position: absolute; top: 70px; right: 30px;">' +    
 '	<input type="checkbox" id="industryChecker"><label for="industryChecker" onclick="$(\'.industryCheck\').click();"><b>Industry</b></label><br>' + 
 '	<input type="checkbox" id="steamBld" class="industryCheck" onchange="verifyBuildingSelected(\'18\', \'steamBld\')"><label for="steamBld">Steamworks</label><br>' + 
 '	<input type="checkbox" id="magnetoBld" class="industryCheck" onchange="verifyBuildingSelected(\'19\', \'magnetoBld\')"><label for="magnetoBld">Magneto</label><br>' + 
@@ -390,12 +390,12 @@ var craftSelectAddition = '<div id="menuAC" style="display:none; margin-top:-260
 
 '       </div><div id="centerMenuAC" style="position: absolute; top: 60px; left: 150px;">' +   
 
-'	<span id="ratioScaffold" title="Between 0 and 100"><input id="ratioScaffoldText" type="text" style="width:25px; position: absolute; top: -50px;" onchange="ratioScaffold = this.value" value="0"></span>' + 
-'	<span id="ratioTradeship" title="Between 0 and 100"><input id="ratioTradeshipText" type="text" style="width:25px; position: absolute; top: -30px;" onchange="ratioTradeship = this.value" value="0"></span>' + 
-'	<span id="ratioTanker" title="Between 0 and 100"><input id="ratioTankerText" type="text" style="width:25px; position: absolute; top: -10px;" onchange="ratioTanker = this.value" value="0"></span>' +     
-'	<span id="ratioConcrate" title="Between 0 and 100"><input id="ratioConcrateText" type="text" style="width:25px; position: absolute; top: 60px;" onchange="ratioConcrate = this.value" value="0"></span>' +     
-'	<span id="ratioGear"  title="Between 0 and 100"><input id="ratioGearText" type="text" style="width:25px; position: absolute; top: 145px;" onchange="ratioGear = this.value" value="0"></span>' +     
-'	<span id="ratioAlloy" title="Between 0 and 100"><input id="ratioAlloyText" type="text" style="width:25px; position: absolute; top: 265px;" onchange="ratioAlloy = this.value" value="0"></span>' + 
+'	<span id="ratioScaffold" title="Between 0 and 100"><input id="ratioScaffoldText" type="text" style="width:25px; position: absolute; top: 48px;" onchange="ratioScaffold = this.value" value="0"></span>' + 
+'	<span id="ratioTradeship" title="Between 0 and 100"><input id="ratioTradeshipText" type="text" style="width:25px; position: absolute; top: 70px;" onchange="ratioTradeship = this.value" value="0"></span>' + 
+'	<span id="ratioTanker" title="Between 0 and 100"><input id="ratioTankerText" type="text" style="width:25px; position: absolute; top: 92px;" onchange="ratioTanker = this.value" value="0"></span>' +     
+'	<span id="ratioConcrate" title="Between 0 and 100"><input id="ratioConcrateText" type="text" style="width:25px; position: absolute; top: 160px; left: -10px;" onchange="ratioConcrate = this.value" value="0"></span>' +     
+'	<span id="ratioGear"  title="Between 0 and 100"><input id="ratioGearText" type="text" style="width:25px; position: absolute; top: 247px; left: -40px;" onchange="ratioGear = this.value" value="0"></span>' +     
+'	<span id="ratioAlloy" title="Between 0 and 100"><input id="ratioAlloyText" type="text" style="width:25px; position: absolute; top: 269px; left: -40px;" onchange="ratioAlloy = this.value" value="0"></span>' + 
     
 '       </div><div id="rightMenuAC" style="position: absolute; top: 60px; right: 90px;">' +        
     
@@ -413,7 +413,7 @@ var craftSelectAddition = '<div id="menuAC" style="display:none; margin-top:-260
     
 '       </div><div id="rightMenu2AC" style="position: absolute; top: 60px; right: 30px;">' +
     
-' 	<span id="ratioMegalith" title="Between 0 and 100"><input id="ratioMegalithText" type="text" style="width:25px; position: absolute; top: -5px;" onchange="ratioMegalith = this.value" value="0"></span>' +     
+' 	<span id="ratioMegalith" title="Between 0 and 100"><input id="ratioMegalithText" type="text" style="width:25px; position: absolute; top: 125px; right: 40px;" onchange="ratioMegalith = this.value" value="0"></span>' +     
     
 '</div></div>'
 
