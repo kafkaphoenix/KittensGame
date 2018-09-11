@@ -427,7 +427,7 @@ function autoTrade() {
 	
 	var slab = gamePage.resPool.get('slab');
 	if (gamePage.calendar.season == 1 && slab.value >= 50) {
-		gamePage.diplomacy.tradeMultiple(game.diplomacy.get("zebras"), Math.floor(game.resPool.get("slab").value / 50);
+		gamePage.diplomacy.tradeMultiple(game.diplomacy.get("zebras"), Math.floor(game.resPool.get("slab")).value / 50);
 	}
 }
 
