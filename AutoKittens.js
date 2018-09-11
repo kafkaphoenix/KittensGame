@@ -563,7 +563,7 @@ function autoCraft() {
 			if (crafts[i][0] == 'parchment' && gamePage.science.get("drama").researched && calendar.festivalDays === 0) {
 			
 			} else {
-				gamePage.craftAll(crafts[k]); 
+				gamePage.craftAll(crafts[k][1]); 
 			}
 		}
 	}	
