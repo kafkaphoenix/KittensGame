@@ -23,7 +23,13 @@ var apr = 0;
 var aspace = 0;
 var steamOn = 0;
 var programBuild = false;
-var secResRatio = 0;
+var ratioScaffold = 0;
+var ratioAlloy = 0;
+var ratioGear = 0;
+var ratioConcrate = 0;
+var ratioTradeship = 0;
+var ratioMegalith = 0;
+var ratioTanker = 0;
 
 var buildings = [
         ["Field", false], 
@@ -369,18 +375,24 @@ var craftSelectAddition = '<div id="menuAC" style="display:none; margin-top:-260
 '	<input type="checkbox" id="woodCraft" class="woodCheck" onchange="verifyCraftSelected(\'0\', \'woodCraft\')"><label for="woodCraft">Wood</label><br>' + 
 '	<input type="checkbox" id="beamCraft" class="woodCheck" onchange="verifyCraftSelected(\'1\', \'beamCraft\')"><label for="beamCraft">Beam</label><br>' + 
 '	<input type="checkbox" id="scaffoldCraft" class="woodCheck" onchange="verifyCraftSelected(\'8\', \'scaffoldCraft\')"><label for="scaffoldCraft">Scaffold</label><br>' + 
+'	<span id="ratioScaffold" style="position: relative; right: 20px;" title="Between 0 and 100"><input id="ratioScaffoldText" type="text" style="width:25px" onchange="ratioScaffold = this.value" value="0"></span>' + 
 '	<input type="checkbox" id="shipCraft" class="woodCheck" onchange="verifyCraftSelected(\'12\', \'shipCraft\')"><label for="shipCraft">Trade Ship</label><br>' + 
+'	<span id="ratioTradeship" style="position: relative; right: 20px;" title="Between 0 and 100"><input id="ratioTradeshipText" type="text" style="width:25px" onchange="ratioTradeship = this.value" value="0"></span>' + 
 '	<input type="checkbox" id="tankerCraft" class="woodCheck" onchange="verifyCraftSelected(\'18\', \'tankerCraft\')"><label for="tankerCraft">Tanker</label><br><br>' + 
+'	<span id="ratioTanker" style="position: relative; right: 20px;" title="Between 0 and 100"><input id="ratioTankerText" type="text" style="width:25px" onchange="ratioTanker = this.value" value="0"></span>' + 
 
 '	<input type="checkbox" id="mineralsChecker"><label for="mineralsChecker" onclick="$(\'.mineralCheck\').click();"><b>Minerals</b></label><br>' + 
 '	<input type="checkbox" id="slabCraft" class="mineralCheck" onchange="verifyCraftSelected(\'2\', \'slabCraft\');"><label for="slabCraft">Slab</label><br>' + 
 '	<input type="checkbox" id="concreteCraft" class="mineralCheck" onchange="verifyCraftSelected(\'11\', \'concreteCraft\')"><label for="concreteCraft">Concrete</label><br><br>' + 
+'	<span id="ratioConcrate" style="position: relative; right: 20px;" title="Between 0 and 100"><input id="ratioConcrateText" type="text" style="width:25px" onchange="ratioConcrate = this.value" value="0"></span>' + 
 
 '	<input type="checkbox" id="ironChecker"><label for="ironChecker" onclick="$(\'.ironCheck\').click();"><b>Iron</b></label><br>' + 
 '	<input type="checkbox" id="plateCraft" class="ironCheck" onchange="verifyCraftSelected(\'4\', \'plateCraft\')"><label for="plateCraft">Plate</label><br>' + 
 '	<input type="checkbox" id="steelCraft" class="ironCheck" onchange="verifyCraftSelected(\'3\', \'steelCraft\')"><label for="steelCraft">Steel</label><br>' + 
 '	<input type="checkbox" id="gearCraft" class="ironCheck" onchange="verifyCraftSelected(\'10\', \'gearCraft\')"><label for="gearCraft">Gear</label><br>' + 
+'	<span id="ratioGear" style="position: relative; right: 20px;" title="Between 0 and 100"><input id="ratioGearText" type="text" style="width:25px" onchange="ratioGear = this.value" value="0"></span>' + 
 '	<input type="checkbox" id="alloyCraft" class="ironCheck" onchange="verifyCraftSelected(\'9\', \'alloyCraft\')"><label for="alloyCraft">Alloy</label><br><br>' +
+'	<span id="ratioAlloy" style="position: relative; right: 20px;" title="Between 0 and 100"><input id="ratioAlloyText" type="text" style="width:25px" onchange="ratioAlloy = this.value" value="0"></span>' + 
 
 '	<input type="checkbox" id="scienceChecker"><label for="scienceChecker" onclick="$(\'.scienceCheck\').click();"><b>Science</b></label><br>' + 
 '	<input type="checkbox" id="parchCraft" class="scienceCheck" onchange="verifyCraftSelected(\'13\', \'parchCraft\')"><label for="parchCraft">Parchment</label><br>' + 
@@ -390,12 +402,11 @@ var craftSelectAddition = '<div id="menuAC" style="display:none; margin-top:-260
 
 '	<input type="checkbox" id="otherChecker"><label for="otherChecker" onclick="$(\'.otherCheck\').click();"><b>Other</b></label><br>' + 
 '	<input type="checkbox" id="megalithCraft" class="otherCheck" onchange="verifyCraftSelected(\'17\', \'megalithCraft\')"><label for="megalithCraft">Megalith</label><br>' + 
+'	<span id="ratioMegalith" style="position: relative; right: 20px;" title="Between 0 and 100"><input id="ratioMegalithText" type="text" style="width:25px" onchange="ratioMegalith = this.value" value="0"></span>' + 
 '	<input type="checkbox" id="eludiumCraft" class="otherCheck" onchange="verifyCraftSelected(\'7\', \'eludiumCraft\')"><label for="eludiumCraft">Eludium</label><br>' + 
 '	<input type="checkbox" id="keroseneCraft" class="otherCheck" onchange="verifyCraftSelected(\'5\', \'keroseneCraft\')"><label for="keroseneCraft">Kerosene</label><br>' + 
 '	<input type="checkbox" id="thoriumCraft" class="otherCheck" onchange="verifyCraftSelected(\'6\', \'thoriumCraft\')"><label for="thoriumCraft">Thorium</label><br><br>' + 
-'	
-'	<label id="secResLabel"> Secondary Craft % </label>' + 
-'	<span id="secResSpan" title="Between 0 and 100"><input id="secResText" type="text" style="width:25px" onchange="secResRatio = this.value" value="30"></span></br></br>' + 
+    
 '</div></div>'
 
 function verifyCraftSelected(craftNumber, craftCheckID) {
