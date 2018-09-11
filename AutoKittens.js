@@ -525,7 +525,31 @@ function autoCraft() {
 	for (var j = 8; j < 15; j++) { // Secondary Resources
 		var priRes = gamePage.resPool.get(crafts[j][0]);
 		var secRes = gamePage.resPool.get(crafts[j][1]);	
-		var resMath = priRes.value / secondaryResources[i][2];	
+		var resMath = priRes.value / crafts[i][2];	
+		
+		switch (crafts[j][1]) {
+			case "scaffold":
+				secResRatio = ratioScaffold;
+				break;
+			case "alloy":
+				secResRatio = ratioAlloy;
+				break;
+			case "gear":
+				secResRatio = ratioGear;
+				break;
+			case "concrate":
+				secResRatio = ratioConcrate;
+				break;
+			case "tradeship":
+				secResRatio = ratioTradeship;
+				break;
+			case "megalith":
+				secResRatio = ratioMegalith;
+				break;
+			case "tanker":
+				secResRatio = ratioTanker;
+				break;
+		}
 		
 		if (resMath > 1 && secRes.value < (priRes.value * (secResRatio / 100)) && gamePage.workshop.getCraft(crafts[j][1]).unlocked) {
 			gamePage.craft(crafts[j][1], (resMath * (secResRatio / 100)));
@@ -798,7 +822,7 @@ function autoNip() { // New game
 }
 
 function autoWood() { // New game
-	if (gamePage.bld.buildingsData[0].val >= 30 && gamePage.bld.buildingsData[0].val < 40) {
+	if (gamePage.bld.buildingsData[0].val >= 30 && gamePage.resPool.get("wood").val < 50) {
 		$(".btnContent:contains('Refine')").trigger("click");
 	}
 }
@@ -816,10 +840,10 @@ var runAllAutomation = setInterval(function() {
 		autoBuild();
 	}
 	autoNip();
-	autoWood();
 	
 	//day
 	if (gamePage.timer.ticksTotal % 3 === 0) {
+		autoWood();
 		if (!game.workshop.get("seti").researched) {
 			autoObserve();
 		}
