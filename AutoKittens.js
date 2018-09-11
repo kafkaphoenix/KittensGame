@@ -523,41 +523,43 @@ function autoCraft() {
 	}
 	
 	for (var j = 8; j < 15; j++) { // Secondary Resources
-		var priRes = gamePage.resPool.get(crafts[j][0]);
-		var secRes = gamePage.resPool.get(crafts[j][1]);	
-		var resMath = priRes.value / crafts[i][2];	
-		
-		switch (crafts[j][1]) {
-			case "scaffold":
-				secResRatio = ratioScaffold;
-				break;
-			case "alloy":
-				secResRatio = ratioAlloy;
-				break;
-			case "gear":
-				secResRatio = ratioGear;
-				break;
-			case "concrate":
-				secResRatio = ratioConcrate;
-				break;
-			case "tradeship":
-				secResRatio = ratioTradeship;
-				break;
-			case "megalith":
-				secResRatio = ratioMegalith;
-				break;
-			case "tanker":
-				secResRatio = ratioTanker;
-				break;
-		}
-		
-		if (resMath > 1 && secRes.value < (priRes.value * (secResRatio / 100)) && gamePage.workshop.getCraft(crafts[j][1]).unlocked) {
-			gamePage.craft(crafts[j][1], (resMath * (secResRatio / 100)));
+		if (crafts[i][3] == true) { 
+			var priRes = gamePage.resPool.get(crafts[j][0]);
+			var secRes = gamePage.resPool.get(crafts[j][1]);	
+			var resMath = priRes.value / crafts[i][2];	
+
+			switch (crafts[j][1]) {
+				case "scaffold":
+					secResRatio = ratioScaffold;
+					break;
+				case "alloy":
+					secResRatio = ratioAlloy;
+					break;
+				case "gear":
+					secResRatio = ratioGear;
+					break;
+				case "concrate":
+					secResRatio = ratioConcrate;
+					break;
+				case "tradeship":
+					secResRatio = ratioTradeship;
+					break;
+				case "megalith":
+					secResRatio = ratioMegalith;
+					break;
+				case "tanker":
+					secResRatio = ratioTanker;
+					break;
+			}
+
+			if (resMath > 1 && secRes.value < (priRes.value * (secResRatio / 100)) && gamePage.workshop.getCraft(crafts[j][1]).unlocked) {
+				gamePage.craft(crafts[j][1], (resMath * (secResRatio / 100)));
+			}
 		}
 	}
 	
 	for (var k = 15; k < crafts.length; k++) {
-  		if (gamePage.workshop.getCraft(crafts[k]).unlocked) { 
+  		if (crafts[i][3] == true) { 
 			if (crafts[i][0] == 'parchment' && gamePage.science.get("drama").researched && calendar.festivalDays === 0) {
 			
 			} else {
