@@ -1,5 +1,3 @@
-var furDerivatives = ['parchment', 'manuscript', 'compedium', 'blueprint'];
-var furDerVal = 1;
 var deadScript = "Script stopped!";
 var nightModeMsg = "Night mode activated!";
 var tradeMsg = "Auto Trade activated!";
@@ -25,6 +23,7 @@ var apr = 0;
 var aspace = 0;
 var steamOn = 0;
 var programBuild = false;
+var secResRatio = 0;
 
 var buildings = [
         ["Field", false], 
@@ -184,22 +183,27 @@ var buildingsList = [
 	["tectonic"]
 ];		
 
-var resources = [
-       	["catnip", "wood", 50],
-        ["wood", "beam", 175],
-        ["minerals", "slab", 250],
-        ["coal", "steel", 100],
-        ["iron", "plate", 125],
-        ["oil", "kerosene", 7500],
-        ["uranium", "thorium", 250],
-	["unobtainium", "eludium", 1000]
-];
+var crafts = [
+       	["catnip", "wood", 50, false],
+        ["wood", "beam", 175, false],
+        ["minerals", "slab", 250, false],
+        ["coal", "steel", 100, false],
+        ["iron", "plate", 125, false],
+        ["oil", "kerosene", 7500, false],
+        ["uranium", "thorium", 250, false],
+	["unobtainium", "eludium", 1000, false],
 
-var secondaryResources = [
-	["beam", "scaffold", 50],
-        ["steel", "alloy", 75],
-	["steel", "gear", 15],
-	["slab", "concrate", 2500]
+	["beam", "scaffold", 50, false],
+        ["steel", "alloy", 75, false],
+	["steel", "gear", 15, false],
+	["slab", "concrate", 2500, false],
+	["scaffold", "tradeship", 100, false],
+	["slab", "megalith", 50, false],
+	["tradeship", "tanker", 200, false],
+	["furs", "parchment", 175, false],
+	["parchment", "manuscript", 25, false],
+	["manuscript", "compendium", 50, false],
+	["compendium", "blueprint", 25, false]
 ];
 
 var htmlMenuAddition = '<div id="autokittens" class="column">' +
@@ -357,6 +361,50 @@ function verifyBuildingSelected(buildingNumber, buildingCheckID) {
 $("#game").append(bldSelectAddition);
 $("#game").append(spaceSelectAddition);
 
+var craftSelectAddition = '<div id="menuAC" style="display:none; margin-top:-260px; height: 570px !important; margin-left: 100px; width:400px; z-index: 1;" class="dialog help">' + 
+'<a href="#" onclick="$(\'#menuAC\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
+
+'	<div id="leftMenuAC" style="position: absolute; top: 70px; left: 40px;">' +    
+'	<br><input type="checkbox" id="woodChecker"><label for="woodChecker" onclick="$(\'.woodCheck\').click();"><b>Wood</b></label><br>' + 
+'	<input type="checkbox" id="woodCraft" class="woodCheck" onchange="verifyCraftSelected(\'0\', \'woodCraft\')"><label for="woodCraft">Wood</label><br>' + 
+'	<input type="checkbox" id="beamCraft" class="woodCheck" onchange="verifyCraftSelected(\'1\', \'beamCraft\')"><label for="beamCraft">Beam</label><br>' + 
+'	<input type="checkbox" id="scaffoldCraft" class="woodCheck" onchange="verifyCraftSelected(\'8\', \'scaffoldCraft\')"><label for="scaffoldCraft">Scaffold</label><br>' + 
+'	<input type="checkbox" id="shipCraft" class="woodCheck" onchange="verifyCraftSelected(\'12\', \'shipCraft\')"><label for="shipCraft">Trade Ship</label><br>' + 
+'	<input type="checkbox" id="tankerCraft" class="woodCheck" onchange="verifyCraftSelected(\'18\', \'tankerCraft\')"><label for="tankerCraft">Tanker</label><br><br>' + 
+
+'	<input type="checkbox" id="mineralsChecker"><label for="mineralsChecker" onclick="$(\'.mineralCheck\').click();"><b>Minerals</b></label><br>' + 
+'	<input type="checkbox" id="slabCraft" class="mineralCheck" onchange="verifyCraftSelected(\'2\', \'slabCraft\');"><label for="slabCraft">Slab</label><br>' + 
+'	<input type="checkbox" id="concreteCraft" class="mineralCheck" onchange="verifyCraftSelected(\'11\', \'concreteCraft\')"><label for="concreteCraft">Concrete</label><br><br>' + 
+
+'	<input type="checkbox" id="ironChecker"><label for="ironChecker" onclick="$(\'.ironCheck\').click();"><b>Iron</b></label><br>' + 
+'	<input type="checkbox" id="plateCraft" class="ironCheck" onchange="verifyCraftSelected(\'4\', \'plateCraft\')"><label for="plateCraft">Plate</label><br>' + 
+'	<input type="checkbox" id="steelCraft" class="ironCheck" onchange="verifyCraftSelected(\'3\', \'steelCraft\')"><label for="steelCraft">Steel</label><br>' + 
+'	<input type="checkbox" id="gearCraft" class="ironCheck" onchange="verifyCraftSelected(\'10\', \'gearCraft\')"><label for="gearCraft">Gear</label><br>' + 
+'	<input type="checkbox" id="alloyCraft" class="ironCheck" onchange="verifyCraftSelected(\'9\', \'alloyCraft\')"><label for="alloyCraft">Alloy</label><br><br>' +
+
+'	<input type="checkbox" id="scienceChecker"><label for="scienceChecker" onclick="$(\'.scienceCheck\').click();"><b>Science</b></label><br>' + 
+'	<input type="checkbox" id="parchCraft" class="scienceCheck" onchange="verifyCraftSelected(\'13\', \'parchCraft\')"><label for="parchCraft">Parchment</label><br>' + 
+'	<input type="checkbox" id="manuCraft" class="scienceCheck" onchange="verifyCraftSelected(\'14\', \'manuCraft\')"><label for="manuCraft">Manuscript</label><br>' + 
+'	<input type="checkbox" id="compCraft" class="scienceCheck" onchange="verifyCraftSelected(\'15\', \'compCraft\')"><label for="compCraft">Compendium</label><br>' + 
+'	<input type="checkbox" id="blueCraft" class="scienceCheck" onchange="verifyCraftSelected(\'16\', \'blueCraft\')"><label for="blueCraft">Blueprint</label><br><br>' + 
+
+'	<input type="checkbox" id="otherChecker"><label for="otherChecker" onclick="$(\'.otherCheck\').click();"><b>Other</b></label><br>' + 
+'	<input type="checkbox" id="megalithCraft" class="otherCheck" onchange="verifyCraftSelected(\'17\', \'megalithCraft\')"><label for="megalithCraft">Megalith</label><br>' + 
+'	<input type="checkbox" id="eludiumCraft" class="otherCheck" onchange="verifyCraftSelected(\'7\', \'eludiumCraft\')"><label for="eludiumCraft">Eludium</label><br>' + 
+'	<input type="checkbox" id="keroseneCraft" class="otherCheck" onchange="verifyCraftSelected(\'5\', \'keroseneCraft\')"><label for="keroseneCraft">Kerosene</label><br>' + 
+'	<input type="checkbox" id="thoriumCraft" class="otherCheck" onchange="verifyCraftSelected(\'6\', \'thoriumCraft\')"><label for="thoriumCraft">Thorium</label><br><br>' + 
+'	
+'	<label id="secResLabel"> Secondary Craft % </label>' + 
+'	<span id="secResSpan" title="Between 0 and 100"><input id="secResText" type="text" style="width:25px" onchange="secResRatio = this.value" value="30"></span></br></br>' + 
+'</div></div>'
+
+function verifyCraftSelected(craftNumber, craftCheckID) {
+	var craftIsChecked = document.getElementById(craftCheckID).checked;
+	crafts[craftNumber][3] = craftIsChecked;
+}
+
+$("#game").append(craftSelectAddition);
+
 function closeMenu() {
 	$("#menu").hide();
 }
@@ -383,10 +431,6 @@ function openACoptions() {
 
 function openAKoptions() {
 	$("#menuAK").toggle();
-}
-
-function setFurValue() {
-	furDerVal = $('#craftFur').val();
 }
 
 function clearScript() {
@@ -442,35 +486,43 @@ function switchAutoTrade()
 	}	
 }
 
-//Craft the fur derivatives
-
 function autoCraft() {
 	
-	for (var i = 0; i < furDerVal; i++) { // 1 2 3 4
-  		if (gamePage.workshop.getCraft(furDerivatives[i]).unlocked) { 
-			if (gamePage.science.get("drama").researched && game.calendar.festivalDays === 0) {
-				if ( i != 2) {
-					gamePage.craftAll(furDerivatives[i]); 
-				}
+	var calendar = gamePage.calendar;
+	for (var i = 0; i < 8; i++) { // Primary Resources
+  		if (crafts[i][3] == true) { 
+			var resource = gamePage.resPool.get(crafts[i][0]);
+			if(crafts[i][0] == 'catnip' && (resource.perTickUI < 0 || (calendar.season == 2 && calendar.day > 50))) {
+				
 			} else {
-				gamePage.craftAll(furDerivatives[i]); 
+				if ((resource.value / resource.maxValue) > 0.99 && gamePage.workshop.getCraft(crafts[i][1]).unlocked) {
+					gamePage.craftAll(crafts[i][1]);
+				}
 			}
+			
 		}
 	}
-}
-
-//Convert catnip to wood
-
-function autoCatnip() {
 	
-	var catnip = gamePage.resPool.get('catnip');
-	var calendar = gamePage.calendar;
-
-	// Only run if positive catnip and not in last half of Autumn
-	if (catnip.perTickUI < 0) { return; }
-	if (catnip.value / catnip.maxValue < 0.99) { return; }
-	if (calendar.season == 2 && calendar.day > 50) { return; }
-	gamePage.craftAll('wood');
+	for (var j = 8; j < 15; j++) { // Secondary Resources
+		var priRes = gamePage.resPool.get(crafts[j][0]);
+		var secRes = gamePage.resPool.get(crafts[j][1]);	
+		var resMath = priRes.value / secondaryResources[i][2];	
+		
+		if (resMath > 1 && secRes.value < (priRes.value * (secResRatio / 100)) && gamePage.workshop.getCraft(crafts[j][1]).unlocked) {
+			gamePage.craft(crafts[j][1], (resMath * (secResRatio / 100)));
+		}
+	}
+	
+	for (var k = 15; k < crafts.length; k++) {
+  		if (gamePage.workshop.getCraft(crafts[k]).unlocked) { 
+			if (crafts[i][0] == 'parchment' && gamePage.science.get("drama").researched && calendar.festivalDays === 0) {
+			
+			} else {
+				gamePage.craftAll(crafts[k]); 
+			}
+		}
+	}	
+	
 }
 
 function switchAutoCraft()
@@ -589,7 +641,7 @@ function autoSpace() {
 						if (result) {spcProg[i].update();}
 						});
 				} catch(err) {
-				console.log(err);
+					console.log(err);
 				}
 			}
 		}
@@ -720,6 +772,18 @@ function switchAutoUpgrade()
 	}	
 }
 
+function autoNip() { // New game
+	if (gamePage.bld.buildingsData[0].val < 30) { //Catnip field
+		$(".btnContent:contains('Gather')").trigger("click");
+	}
+}
+
+function autoWood() { // New game
+	if (gamePage.bld.buildingsData[0].val >= 30 && gamePage.bld.buildingsData[0].val < 40) {
+		$(".btnContent:contains('Refine')").trigger("click");
+	}
+}
+
 clearInterval(runAllAutomation);
 var runAllAutomation = setInterval(function() {  
 	
@@ -729,27 +793,11 @@ var runAllAutomation = setInterval(function() {
 	if (nm == 1){
 		nightMode();
 	}
-	if (at == 1){
-		autoTrade();
-	}
-	if (ac == 1){
-		autoCraft();
-	}
-	if (ak == 1){
-		autoKittens();
-	}
 	if (ab == 1){
 		autoBuild();
 	}
-	if (as == 1){
-		autoScience();
-	}
-	if (au == 1){
-		autoUpgrade();
-	}
-	if (aspace == 1){
-		autoSpace();
-	}
+	autoNip();
+	autoWood();
 	
 	//day
 	if (gamePage.timer.ticksTotal % 3 === 0) {
@@ -759,11 +807,33 @@ var runAllAutomation = setInterval(function() {
 		if (ah == 1){
 			autoHunt();
 		}
+		if (ac == 1){
+			autoCraft();
+		}
+		if (ak == 1){
+			autoKittens();
+		}
+
 	} 
+	
+	if (gamePage.timer.ticksTotal % 10 === 0) {
+		if (aspace == 1){
+			autoSpace();
+		}
+	}
 	
 	if (gamePage.timer.ticksTotal % 25 === 0) {
 		if (ap == 1){
 			autoParty();
+		}
+		if (as == 1){
+			autoScience();
+		}
+		if (au == 1){
+			autoUpgrade();
+		}
+		if (at == 1){
+			autoTrade();
 		}
 	}
 	
