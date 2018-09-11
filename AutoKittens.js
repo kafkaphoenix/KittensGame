@@ -236,12 +236,12 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
 $("#footerLinks").append(htmlMenuAddition);
 
-var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-210px; height: 500px !important; margin-left: 100px; width:400px; z-index: 1;" class="dialog help">' + 
+var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-260px; height: 570px !important; margin-left: 100px; width:400px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuAB\').hide(); $(\'#menuASpace\').toggle();" style="position: absolute; top: 10px; left: 15px;">Space</a>' + 
 '<a href="#" onclick="$(\'#menuAB\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
+'	<div id="leftMenuAB" style="position: absolute; top: 90px; left: 40px;">' +    
 '	<br><input type="checkbox" id="prodChecker"><label for="prodChecker" onclick="$(\'.prodCheck\').click();"><b>Food Production</b></label><br>' + 
-'	<div id="leftMenuAB" style="position: absolute; top: 90px; left: 40px;">' +
 '	<input type="checkbox" id="fieldBld" class="prodCheck" onchange="verifyBuildingSelected(\'0\', \'fieldBld\')"><label for="fieldBld">Catnip Field</label><br>' + 
 '	<input type="checkbox" id="pastureBld" class="prodCheck" onchange="verifyBuildingSelected(\'1\', \'pastureBld\')"><label for="pastureBld">Pasture / Solar</label><br>' + 
 '	<input type="checkbox" id="aqueductBld" class="prodCheck" onchange="verifyBuildingSelected(\'2\', \'aqueductBld\')"><label for="aqueductBld">Aqueduct / Hydro</label><br><br>' + 
@@ -296,7 +296,7 @@ var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-210px
 
 '</div>'
 
-var spaceSelectAddition = '<div id="menuASpace" style="display:none; margin-top:-210px; height: 500px !important; margin-left: 100px; width:400px; z-index: 1;" class="dialog help">' + 
+var spaceSelectAddition = '<div id="menuASpace" style="display:none; margin-top:-260px; height: 500px !important; margin-left: 100px; width:400px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuASpace\').hide(); $(\'#menuAB\').toggle();" style="position: absolute; top: 10px; left: 15px;">Cath</a>' + 
 '<a href="#" onclick="$(\'#menuASpace\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
@@ -501,34 +501,41 @@ function switchAutoKittens()
 
 function autoBuild()
 {
-	if (gamePage.ui.activeTabId == 'Bonfire') {
+	var origTab = gamePage.ui.activeTabId;	
+	
+	var btn = gamePage.tabs[0].buttons;
 
-		var btn = gamePage.tabs[0].buttons;
+	for (var z = 0; z < 34; z++) { // total buildings
+		if (buildings[z][1] != false) {
+			if (gamePage.bld.getBuildingExt(buildingsList[z]).meta.unlocked) {
+				for (i = 2 ;i < gamePage.tabs[0].buttons.length; i++) { // 0 gather 1 refine
+					try { 	
+						if (gamePage.ui.activeTabId != "Bonfire") {
+							gamePage.ui.activeTabId = 'Bonfire'; gamePage.render(); // Change the tab so that we can build
 
-		for (var z = 0; z < 34; z++) { // total buildings
-			if (buildings[z][1] != false) {
-				if (gamePage.bld.getBuildingExt(buildingsList[z]).meta.unlocked) {
-					for (i = 2 ;i < gamePage.tabs[0].buttons.length; i++) { // 0 gather 1 refine
-						try { 			
 							if (btn[i].model.metadata.name == buildingsList[z]) {
 								btn[i].controller.buyItem(btn[i].model, {}, function(result) {
 									if (result) {btn[i].update();}
-									});
-								} 
-						} catch(err) {
-						console.log(err);
+								});
+							} 
 						}
+					} catch(err) {
+					console.log(err);
 					}
-				}	
-			}
+				}
+			}	
 		}
+	}
 
-		if (gamePage.getResourcePerTick('coal') > 0.01 && steamOn < 1) {
-			gamePage.bld.getBuildingExt('steamworks').meta.on = gamePage.bld.getBuildingExt('steamworks').meta.val;
-			steamOn = 1;
-		}
+	if (gamePage.getResourcePerTick('coal') > 0.01 && steamOn < 1) {
+		gamePage.bld.getBuildingExt('steamworks').meta.on = gamePage.bld.getBuildingExt('steamworks').meta.val;
+		steamOn = 1;
+	}
+	
+        if (origTab != gamePage.ui.activeTabId) {
+		gamePage.ui.activeTabId = origTab; gamePage.render(); // Return to the original tab
+	}
 
-	}	
 }
 
 function switchAutoBuild()
@@ -594,9 +601,9 @@ function autoSpace() {
 		}
 	}
 	
-	      if (origTab != gamePage.ui.activeTabId) {
-        gamePage.ui.activeTabId = origTab; gamePage.render(); // Return to the original tab
-		  }
+	if (origTab != gamePage.ui.activeTabId) {
+        	gamePage.ui.activeTabId = origTab; gamePage.render(); // Return to the original tab
+	}
 	
 }			
 
