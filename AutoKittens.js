@@ -574,10 +574,10 @@ function autoCraft() {
 	}
 	
 	for (var j = 8; j < 15; j++) { // Secondary Resources
-		if (crafts[i][3] == true) { 
+		if (crafts[j][3] == true) { 
 			var priRes = gamePage.resPool.get(crafts[j][0]);
 			var secRes = gamePage.resPool.get(crafts[j][1]);	
-			var resMath = priRes.value / crafts[i][2];	
+			var resMath = priRes.value / crafts[j][2];	
 
 			switch (crafts[j][1]) {
 				case "scaffold":
@@ -610,8 +610,8 @@ function autoCraft() {
 	}
 	
 	for (var k = 15; k < crafts.length; k++) {
-  		if (crafts[i][3] == true) { 
-			if (crafts[i][0] == 'parchment' && gamePage.science.get("drama").researched && calendar.festivalDays === 0) {
+  		if (crafts[k][3] == true) { 
+			if (crafts[k][0] == 'parchment' && gamePage.science.get("drama").researched && calendar.festivalDays === 0) {
 			
 			} else {
 				gamePage.craftAll(crafts[k][1]); 
@@ -638,7 +638,7 @@ function autoKittens()
 		if (gamePage.village.getJob(census[i][0]).unlocked && census[i][1] == true) {
 			for (var j = 1; j <= Math.min(census[i][2],gamePage.village.getFreeKittens()); j++) {
 				// TODO: to see unemployed kittens and better assign
-				gamePage.village.assignJob(gamePage.village.getJob(census[i]));
+				gamePage.village.assignJob(gamePage.village.getJob(census[i][0]));
 				census[i][2] --;
 			}
 		}
