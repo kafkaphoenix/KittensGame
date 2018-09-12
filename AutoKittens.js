@@ -224,14 +224,14 @@ var census = [
 ];
 
 var trades = [
+	["leviathans",false, "unobtainium", 5000],
+	["dragons",false, "titanium", 250],
+	["zebras",false, "slab", 50],
+	["spiders",false, "scaffold", 50],
 	["lizards",false, "minerals", 1000],
 	["sharks",false, "iron", 100],
 	["griffins",false, "wood", 500],
 	["nagas",false, "ivory", 500],
-	["zebras",false, "slab", 50],
-	["spiders",false, "scaffold", 50],
-	["dragons",false, "titanium", 250],
-	["leviathans",false, "unobtainium", 5000]
 ];
 
 var htmlMenuAddition = '<div id="autokittens" class="column">' +
@@ -486,14 +486,14 @@ var tradesSelectAddition = '<div id="menuAT" style="display:none; margin-top:-19
 
 '	<div id="leftMenuAT" style="position: absolute; top: 40px; left: 40px;">' +    
 '	<br><input type="checkbox" id="tradesChecker"><label for="tradesChecker" onclick="$(\'.tradesCheck\').click();"><b>Trades</b></label><br><br>' + 
-'	<input type="checkbox" id="lizards" class="tradesCheck" onchange="verifyTradeSelected(\'0\', \'lizards\')"><label for="lizards">Lizards</label><br><br>' + 
-'	<input type="checkbox" id="sharks" class="tradesCheck" onchange="verifyTradeSelected(\'1\', \'sharks\')"><label for="sharks">Sharks</label><br><br>' + 
-'	<input type="checkbox" id="griffins" class="tradesCheck" onchange="verifyTradeSelected(\'2\', \'griffins\')"><label for="griffins">Griffins</label><br><br>' + 
-'	<input type="checkbox" id="nagas" class="tradesCheck" onchange="verifyTradeSelected(\'3\', \'nagas\')"><label for="nagas">Nagas</label><br><br>' + 
-'	<input type="checkbox" id="zebras" class="tradesCheck" onchange="verifyTradeSelected(\'4\', \'zebras\')"><label for="zebras">Zebras</label><br><br>' + 
-'	<input type="checkbox" id="spiders" class="tradesCheck" onchange="verifyTradeSelected(\'5\', \'spiders\')"><label for="spiders">Spiders</label><br><br>' + 
-'	<input type="checkbox" id="dragons" class="tradesCheck" onchange="verifyTradeSelected(\'6\', \'dragons\')"><label for="dragons">Dragons</label><br><br>' +
-'	<input type="checkbox" id="leviathans" class="tradesCheck" onchange="verifyTradeSelected(\'7\', \'leviathans\')"><label for="leviathans">Leviathans</label><br>' +
+'	<input type="checkbox" id="lizards" class="tradesCheck" onchange="verifyTradeSelected(\'4\', \'lizards\')"><label for="lizards">Lizards</label><br><br>' + 
+'	<input type="checkbox" id="sharks" class="tradesCheck" onchange="verifyTradeSelected(\'5\', \'sharks\')"><label for="sharks">Sharks</label><br><br>' + 
+'	<input type="checkbox" id="griffins" class="tradesCheck" onchange="verifyTradeSelected(\'6\', \'griffins\')"><label for="griffins">Griffins</label><br><br>' + 
+'	<input type="checkbox" id="nagas" class="tradesCheck" onchange="verifyTradeSelected(\'7\', \'nagas\')"><label for="nagas">Nagas</label><br><br>' + 
+'	<input type="checkbox" id="zebras" class="tradesCheck" onchange="verifyTradeSelected(\'2\', \'zebras\')"><label for="zebras">Zebras</label><br><br>' + 
+'	<input type="checkbox" id="spiders" class="tradesCheck" onchange="verifyTradeSelected(\'3\', \'spiders\')"><label for="spiders">Spiders</label><br><br>' + 
+'	<input type="checkbox" id="dragons" class="tradesCheck" onchange="verifyTradeSelected(\'1\', \'dragons\')"><label for="dragons">Dragons</label><br><br>' +
+'	<input type="checkbox" id="leviathans" class="tradesCheck" onchange="verifyTradeSelected(\'0\', \'leviathans\')"><label for="leviathans">Leviathans</label><br>' +
 
 '</div></div>'
 
@@ -612,7 +612,7 @@ function autoTrade() {
 				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
 			} else if (trades[i][0] == "dragons" && gamePage.diplomacy.get(trades[i][0]).unlocked && res.value > trades[i][3]) {
 				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
-			} else if (gamePage.diplomacy.get(trades[i][0]).unlocked && calendar.season == season && res.value > trades[i][3]) {
+			} else if (trades[i][0] != "dragons" && trades[i][0] != "zebras" && trades[i][0] != "leviathans" && gamePage.diplomacy.get(trades[i][0]).unlocked && calendar.season == season && res.value > trades[i][3]) {
 				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
 			}
 			
