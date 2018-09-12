@@ -643,35 +643,35 @@ function autoKittens()
 			}
 			switch (i) {
 				case 0:
-					w0 = 0;
+					w0.value = 0;
 					break;
 					
 				case 1:
-					w1 = 0;
+					w1.value = 0;
 					break;
 					
 				case 2:
-					w2 = 0;
+					w2.value = 0;
 					break;
 					
 				case 3:
-					w3 = 0;
+					w3.value = 0;
 					break;
 					
 				case 4:
-					w4 = 0;
+					w4.value = 0;
 					break;
 					
 				case 5:
-					w5 = 0;
+					w5.value = 0;
 					break;
 					
 				case 6:
-					w6 = 0;
+					w6.value = 0;
 					break;
 					
 				case 7:
-					w7 = 0;
+					w7.value = 0;
 					break;
 			}
 					
