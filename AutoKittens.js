@@ -401,7 +401,7 @@ var craftSelectAddition = '<div id="menuAC" style="display:none; margin-top:-260
 
 '       </div><div id="centerMenuAC" style="position: absolute; top: 60px; left: 150px;">' +   
 
-'	<span id="ratioScaffold" title="Between 0 and 100"><input id="ratioScaffoldText" type="text" style="width:25px; position: absolute; top: 48px;" onchange="ratioScaffold = this.value" value="0">%</span>' + 
+'	<span id="ratioScaffold" title="Between 0 and 100"><input id="ratioScaffoldText" type="text" style="width:25px; position: absolute; top: 48px;" onchange="ratioScaffold = this.value" value="0">%</input></span>' + 
 '	<span id="ratioTradeship" title="Between 0 and 100"><input id="ratioTradeshipText" type="text" style="width:25px; position: absolute; top: 70px;" onchange="ratioTradeship = this.value" value="0">%</span>' + 
 '	<span id="ratioTanker" title="Between 0 and 100"><input id="ratioTankerText" type="text" style="width:25px; position: absolute; top: 92px;" onchange="ratioTanker = this.value" value="0">%</span>' +     
 '	<span id="ratioConcrate" title="Between 0 and 100"><input id="ratioConcrateText" type="text" style="width:25px; position: absolute; top: 160px; left: -10px;" onchange="ratioConcrate = this.value" value="0">%</span>' +     
