@@ -646,38 +646,40 @@ function autoKittens()
 				document.getElementById(census[i][0]).checked = false;
 				census[i][1] = false;
 			}
-			switch (i) {
-				case 0:
-					document.getElementById("w0").value = census[i][2];
-					break;
-					
-				case 1:
-					document.getElementById("w1").value = census[i][2];
-					break;
-					
-				case 2:
-					document.getElementById("w2").value = census[i][2];
-					break;
-					
-				case 3:
-					document.getElementById("w3").value = census[i][2];
-					break;
-					
-				case 4:
-					document.getElementById("w4").value = census[i][2];
-					break;
-					
-				case 5:
-					document.getElementById("w5").value = census[i][2];
-					break;
-					
-				case 6:
-					document.getElementById("w6").value = census[i][2];
-					break;
-					
-				case 7:
-					document.getElementById("w7").value = census[i][2];
-					break;
+			if (census[i][2] != document.getElementById("w0").value){
+				switch (i) {
+					case 0:
+						document.getElementById("w0").value = census[i][2];
+						break;
+
+					case 1:
+						document.getElementById("w1").value = census[i][2];
+						break;
+
+					case 2:
+						document.getElementById("w2").value = census[i][2];
+						break;
+
+					case 3:
+						document.getElementById("w3").value = census[i][2];
+						break;
+
+					case 4:
+						document.getElementById("w4").value = census[i][2];
+						break;
+
+					case 5:
+						document.getElementById("w5").value = census[i][2];
+						break;
+
+					case 6:
+						document.getElementById("w6").value = census[i][2];
+						break;
+
+					case 7:
+						document.getElementById("w7").value = census[i][2];
+						break;
+				}
 			}
 		}
 		
