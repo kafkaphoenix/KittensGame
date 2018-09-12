@@ -636,7 +636,7 @@ function autoKittens()
 {
 	for (var i = 0; i < census.length; i++) {
 		if (gamePage.village.getJob(census[i][0]).unlocked && census[i][1] == true) {
-			var jobless = Math.min(census[i][2],gamePage.village.getFreeKittens();
+			var jobless = Math.min(census[i][2],gamePage.village.getFreeKittens());
 			for (var j = 1; j <= jobless; j++) {
 				// TODO: to see unemployed kittens and better assign
 				gamePage.village.assignJob(gamePage.village.getJob(census[i][0]));
