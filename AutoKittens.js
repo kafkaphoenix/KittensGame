@@ -452,14 +452,14 @@ var kittensSelectAddition = '<div id="menuAK" style="display:none; margin-top:-1
 
 '   </div><div id="centerMenuAK" style="position: absolute; top: 40px; left: 150px;">' +   
 
-'	<span id="nWoodcutter"><input id="nWoodcutterText" type="text" style="width:25px; position: absolute; top: 48px;" onchange="census[0][2] = this.value" value="0"></span>' + 
-'	<span id="nFarmer"><input id="nFarmerText" type="text" style="width:25px; position: absolute; top: 70px;" onchange="census[1][2] = this.value" value="0"></span>' + 
-'	<span id="nScholar"><input id="nScholarText" type="text" style="width:25px; position: absolute; top: 92px;" onchange="census[2][2] = this.value" value="0"></span>' +     
-'	<span id="nHunter"><input id="nHunterText" type="text" style="width:25px; position: absolute; top: 160px; left: -10px;" onchange="census[3][2] = this.value" value="0"></span>' +     
-'	<span id="nMiner"><input id="nMinerText" type="text" style="width:25px; position: absolute; top: 247px; left: -40px;" onchange="census[4][2] = this.value" value="0"></span>' +     
-'	<span id="nPriest"><input id="nPriestText" type="text" style="width:25px; position: absolute; top: 269px; left: -40px;" onchange="census[5][2] = this.value" value="0"></span>' + 
-'	<span id="nGeologist"><input id="nGeologistText" type="text" style="width:25px; position: absolute; top: 269px; left: -40px;" onchange="census[6][2] = this.value" value="0"></span>' + 
-'	<span id="nEngineer"><input id="nEngineerText" type="text" style="width:25px; position: absolute; top: 269px; left: -40px;" onchange="census[7][2] = this.value" value="0"></span>' + 
+'	<span id="nWoodcutter"><input id="nWoodcutterText" type="text" style="width:25px; position: absolute; top: 50px;" onchange="census[0][2] = this.value" value="0"></span>' + 
+'	<span id="nFarmer"><input id="nFarmerText" type="text" style="width:25px; position: absolute; top: 90px; left: -30px;" onchange="census[1][2] = this.value" value="0"></span>' + 
+'	<span id="nScholar"><input id="nScholarText" type="text" style="width:25px; position: absolute; top: 125px; left: -30px;" onchange="census[2][2] = this.value" value="0"></span>' +     
+'	<span id="nHunter"><input id="nHunterText" type="text" style="width:25px; position: absolute; top: 160px; left: -30px;" onchange="census[3][2] = this.value" value="0"></span>' +     
+'	<span id="nMiner"><input id="nMinerText" type="text" style="width:25px; position: absolute; top: 195px; left: -30px;" onchange="census[4][2] = this.value" value="0"></span>' +     
+'	<span id="nPriest"><input id="nPriestText" type="text" style="width:25px; position: absolute; top: 233px; left: -30px;" onchange="census[5][2] = this.value" value="0"></span>' + 
+'	<span id="nGeologist"><input id="nGeologistText" type="text" style="width:25px; position: absolute; top: 269px; left: -20px;" onchange="census[6][2] = this.value" value="0"></span>' + 
+'	<span id="nEngineer"><input id="nEngineerText" type="text" style="width:25px; position: absolute; top: 305px; left: -20px;" onchange="census[7][2] = this.value" value="0"></span>' + 
     
 '</div></div>'
 
@@ -507,6 +507,11 @@ function clearScript() {
 	$("#scriptOptions").remove();
 	clearInterval(runAllAutomation);
 	htmlMenuAddition = null;
+	bldSelectAddition = null;
+	spaceSelectAddition = null;
+	craftSelectAddition = null;
+	kittensSelectAddition = null;
+	
 }
 
 function nightMode() {
@@ -878,7 +883,7 @@ function autoNip() { // New game
 }
 
 function autoWood() { // New game
-	if (gamePage.bld.buildingsData[0].val >= 30 && gamePage.resPool.get("wood").val < 50) {
+	if (gamePage.bld.buildingsData[0].val >= 30 && gamePage.resPool.get("wood").value < 50) {
 		$(".btnContent:contains('Refine')").trigger("click");
 	}
 }
