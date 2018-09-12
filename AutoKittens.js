@@ -202,7 +202,7 @@ var crafts = [
 	["beam", "scaffold", 50, false],
         ["steel", "alloy", 75, false],
 	["steel", "gear", 15, false],
-	["slab", "concrate", 2500, false],
+	["slab", "concrete", 2500, false],
 	["scaffold", "tradeship", 100, false],
 	["slab", "megalith", 50, false],
 	["tradeship", "tanker", 200, false],
@@ -387,7 +387,7 @@ var craftSelectAddition = '<div id="menuAC" style="display:none; margin-top:-260
 '	<input type="checkbox" id="beamCraft" class="woodCheck" onchange="verifyCraftSelected(\'1\', \'beamCraft\')"><label for="beamCraft">Beam</label><br>' + 
 '	<input type="checkbox" id="scaffoldCraft" class="woodCheck" onchange="verifyCraftSelected(\'8\', \'scaffoldCraft\')"><label for="scaffoldCraft">Scaffold</label><br>' + 
 '	<input type="checkbox" id="shipCraft" class="woodCheck" onchange="verifyCraftSelected(\'12\', \'shipCraft\')"><label for="shipCraft">Trade Ship</label><br>' + 
-'	<input type="checkbox" id="tankerCraft" class="woodCheck" onchange="verifyCraftSelected(\'18\', \'tankerCraft\')"><label for="tankerCraft">Tanker</label><br><br>' + 
+'	<input type="checkbox" id="tankerCraft" class="woodCheck" onchange="verifyCraftSelected(\'14\', \'tankerCraft\')"><label for="tankerCraft">Tanker</label><br><br>' + 
 
 '	<input type="checkbox" id="mineralsChecker"><label for="mineralsChecker" onclick="$(\'.mineralCheck\').click();"><b>Minerals</b></label><br>' + 
 '	<input type="checkbox" id="slabCraft" class="mineralCheck" onchange="verifyCraftSelected(\'2\', \'slabCraft\');"><label for="slabCraft">Slab</label><br>' + 
@@ -411,13 +411,13 @@ var craftSelectAddition = '<div id="menuAC" style="display:none; margin-top:-260
 '       </div><div id="rightMenuAC" style="position: absolute; top: 60px; right: 90px;">' +        
     
 '	<input type="checkbox" id="scienceChecker"><label for="scienceChecker" onclick="$(\'.scienceCheck\').click();"><b>Science</b></label><br>' + 
-'	<input type="checkbox" id="parchCraft" class="scienceCheck" onchange="verifyCraftSelected(\'13\', \'parchCraft\')"><label for="parchCraft">Parchment</label><br>' + 
-'	<input type="checkbox" id="manuCraft" class="scienceCheck" onchange="verifyCraftSelected(\'14\', \'manuCraft\')"><label for="manuCraft">Manuscript</label><br>' + 
-'	<input type="checkbox" id="compCraft" class="scienceCheck" onchange="verifyCraftSelected(\'15\', \'compCraft\')"><label for="compCraft">Compedium</label><br>' + 
-'	<input type="checkbox" id="blueCraft" class="scienceCheck" onchange="verifyCraftSelected(\'16\', \'blueCraft\')"><label for="blueCraft">Blueprint</label><br><br>' + 
+'	<input type="checkbox" id="parchCraft" class="scienceCheck" onchange="verifyCraftSelected(\'15\', \'parchCraft\')"><label for="parchCraft">Parchment</label><br>' + 
+'	<input type="checkbox" id="manuCraft" class="scienceCheck" onchange="verifyCraftSelected(\'16\', \'manuCraft\')"><label for="manuCraft">Manuscript</label><br>' + 
+'	<input type="checkbox" id="compCraft" class="scienceCheck" onchange="verifyCraftSelected(\'17\', \'compCraft\')"><label for="compCraft">Compedium</label><br>' + 
+'	<input type="checkbox" id="blueCraft" class="scienceCheck" onchange="verifyCraftSelected(\'18\', \'blueCraft\')"><label for="blueCraft">Blueprint</label><br><br>' + 
 
 '	<input type="checkbox" id="otherChecker"><label for="otherChecker" onclick="$(\'.otherCheck\').click();"><b>Other</b></label><br>' + 
-'	<input type="checkbox" id="megalithCraft" class="otherCheck" onchange="verifyCraftSelected(\'17\', \'megalithCraft\')"><label for="megalithCraft">Megalith</label><br>' + 
+'	<input type="checkbox" id="megalithCraft" class="otherCheck" onchange="verifyCraftSelected(\'13\', \'megalithCraft\')"><label for="megalithCraft">Megalith</label><br>' + 
 '	<input type="checkbox" id="eludiumCraft" class="otherCheck" onchange="verifyCraftSelected(\'7\', \'eludiumCraft\')"><label for="eludiumCraft">Eludium</label><br>' + 
 '	<input type="checkbox" id="keroseneCraft" class="otherCheck" onchange="verifyCraftSelected(\'5\', \'keroseneCraft\')"><label for="keroseneCraft">Kerosene</label><br>' + 
 '	<input type="checkbox" id="thoriumCraft" class="otherCheck" onchange="verifyCraftSelected(\'6\', \'thoriumCraft\')"><label for="thoriumCraft">Thorium</label><br><br>' + 
@@ -641,7 +641,39 @@ function autoKittens()
 				gamePage.village.assignJob(gamePage.village.getJob(census[i][0]));
 				census[i][2] --;
 			}
-			'w'+ census[i][0] = 0;
+			switch (i) {
+				case 0:
+					w0 = 0;
+					break;
+					
+				case 1:
+					w1 = 0;
+					break;
+					
+				case 2:
+					w2 = 0;
+					break;
+					
+				case 3:
+					w3 = 0;
+					break;
+					
+				case 4:
+					w4 = 0;
+					break;
+					
+				case 5:
+					w5 = 0;
+					break;
+					
+				case 6:
+					w6 = 0;
+					break;
+					
+				case 7:
+					w7 = 0;
+					break;
+					
 		}
 	}
 	
