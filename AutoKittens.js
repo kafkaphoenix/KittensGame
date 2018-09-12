@@ -643,35 +643,35 @@ function autoKittens()
 			}
 			switch (i) {
 				case 0:
-					w0.value = 0;
+					document.getElementById("w0").value = 0;
 					break;
 					
 				case 1:
-					w1.value = 0;
+					document.getElementById("w1").value = 0;
 					break;
 					
 				case 2:
-					w2.value = 0;
+					document.getElementById("w2").value = 0;
 					break;
 					
 				case 3:
-					w3.value = 0;
+					document.getElementById("w3").value = 0;
 					break;
 					
 				case 4:
-					w4.value = 0;
+					document.getElementById("w4").value = 0;
 					break;
 					
 				case 5:
-					w5.value = 0;
+					document.getElementById("w5").value = 0;
 					break;
 					
 				case 6:
-					w6.value = 0;
+					document.getElementById("w6").value = 0;
 					break;
 					
 				case 7:
-					w7.value = 0;
+					document.getElementById("w7").value = 0;
 					break;
 			}
 					
