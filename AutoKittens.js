@@ -213,7 +213,7 @@ var crafts = [
 ];
 
 var census = [
-	["ç",false, 0],
+	["woodcutter",false, 0],
 	["farmer",false, 0],
 	["scholar",false, 0],
 	["hunter",false, 0],
