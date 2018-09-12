@@ -440,14 +440,14 @@ var kittensSelectAddition = '<div id="menuAK" style="display:none; margin-top:-1
 
 '	<div id="leftMenuAK" style="position: absolute; top: 40px; left: 40px;">' +    
 '	<br><input type="checkbox" id="kittensChecker"><label for="kittensChecker" onclick="$(\'.kittenCheck\').click();"><b>Kittens</b></label><br><br>' + 
-'	<input type="checkbox" id="woodKitten" class="kittenCheck" onchange="verifyKittenSelected(\'0\', \'woodKitten\')"><label for="woodKitten">Woodcutter</label><br><br>' + 
-'	<input type="checkbox" id="catnipKitten" class="kittenCheck" onchange="verifyKittenSelected(\'1\', \'catnipKitten\')"><label for="catnipKitten">Farmer</label><br><br>' + 
-'	<input type="checkbox" id="scienceKitten" class="kittenCheck" onchange="verifyKittenSelected(\'2\', \'scienceKitten\')"><label for="scienceKitten">Scholar</label><br><br>' + 
-'	<input type="checkbox" id="catpowerKitten" class="kittenCheck" onchange="verifyKittenSelected(\'3\', \'catpowerKitten\')"><label for="catpowerKitten">Hunter</label><br><br>' + 
-'	<input type="checkbox" id="mineralKitten" class="kittenCheck" onchange="verifyKittenSelected(\'4\', \'mineralKitten\')"><label for="mineralKitten">Miner</label><br><br>' + 
-'	<input type="checkbox" id="faithKitten" class="kittenCheck" onchange="verifyKittenSelected(\'5\', \'faithKitten\')"><label for="faithKitten">Priest</label><br><br>' + 
-'	<input type="checkbox" id="coalKitten" class="kittenCheck" onchange="verifyKittenSelected(\'6\', \'coalKitten\')"><label for="coalKitten">Geologist</label><br><br>' +
-'	<input type="checkbox" id="machineKitten" class="kittenCheck" onchange="verifyKittenSelected(\'7\', \'machineKitten\')"><label for="machineKitten">Engineer</label><br>' +
+'	<input type="checkbox" id="woodcutter" class="kittenCheck" onchange="verifyKittenSelected(\'0\', \'woodKitten\')"><label for="woodKitten">Woodcutter</label><br><br>' + 
+'	<input type="checkbox" id="farmer" class="kittenCheck" onchange="verifyKittenSelected(\'1\', \'catnipKitten\')"><label for="catnipKitten">Farmer</label><br><br>' + 
+'	<input type="checkbox" id="scholar" class="kittenCheck" onchange="verifyKittenSelected(\'2\', \'scienceKitten\')"><label for="scienceKitten">Scholar</label><br><br>' + 
+'	<input type="checkbox" id="hunter" class="kittenCheck" onchange="verifyKittenSelected(\'3\', \'catpowerKitten\')"><label for="catpowerKitten">Hunter</label><br><br>' + 
+'	<input type="checkbox" id="miner" class="kittenCheck" onchange="verifyKittenSelected(\'4\', \'mineralKitten\')"><label for="mineralKitten">Miner</label><br><br>' + 
+'	<input type="checkbox" id="priest" class="kittenCheck" onchange="verifyKittenSelected(\'5\', \'faithKitten\')"><label for="faithKitten">Priest</label><br><br>' + 
+'	<input type="checkbox" id="geologist" class="kittenCheck" onchange="verifyKittenSelected(\'6\', \'coalKitten\')"><label for="coalKitten">Geologist</label><br><br>' +
+'	<input type="checkbox" id="engineer" class="kittenCheck" onchange="verifyKittenSelected(\'7\', \'machineKitten\')"><label for="machineKitten">Engineer</label><br>' +
 
 
 '   </div><div id="centerMenuAK" style="position: absolute; top: 40px; left: 150px;">' +   
@@ -642,7 +642,12 @@ function autoKittens()
 				gamePage.village.assignJob(gamePage.village.getJob(census[i][0]));
 				census[i][2] = census[i][2] - 1;
 			}
-			switch (i) {
+			if (census[i][2] == 0) {
+				document.getElementById(census[i][0]).checked = false;
+				census[i][1] = false;
+			}
+		}
+		switch (i) {
 				case 0:
 					document.getElementById("w0").value = census[i][2];
 					break;
@@ -675,8 +680,6 @@ function autoKittens()
 					document.getElementById("w7").value = census[i][2];
 					break;
 			}
-					
-		}
 	}
 	
 	//gamePage.village.optimizeJobs
