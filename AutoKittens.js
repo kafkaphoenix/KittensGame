@@ -636,7 +636,8 @@ function autoKittens()
 {
 	for (var i = 0; i < census.length; i++) {
 		if (gamePage.village.getJob(census[i][0]).unlocked && census[i][1] == true) {
-			for (var j = 1; j <= Math.min(census[i][2],gamePage.village.getFreeKittens()); j++) {
+			var jobless = Math.min(census[i][2],gamePage.village.getFreeKittens();
+			for (var j = 1; j <= jobless; j++) {
 				// TODO: to see unemployed kittens and better assign
 				gamePage.village.assignJob(gamePage.village.getJob(census[i][0]));
 				census[i][2] = census[i][2] - 1;
@@ -927,7 +928,7 @@ function autoNip() { // New game
 }
 
 function autoWood() { // New game
-	if (gamePage.bld.buildingsData[0].val >= 30 && gamePage.resPool.get("wood").value < 50) {
+	if (gamePage.bld.buildingsData[0].val >= 30 && !gamePage.village.getJob(census[0][0]).unlocked ) {
 		$(".btnContent:contains('Refine')").trigger("click");
 	}
 }
