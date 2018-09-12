@@ -435,11 +435,11 @@ function verifyCraftSelected(craftNumber, craftCheckID) {
 
 $("#game").append(craftSelectAddition);
 
-var kittensSelectAddition = '<div id="menuAK" style="display:none; margin-top:-260px; height: 220px !important; margin-left: 100px; width:200px; z-index: 1;" class="dialog help">' + 
+var kittensSelectAddition = '<div id="menuAK" style="display:none; margin-top:-190px; height: 360px !important; margin-left: 400px; width:200px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuAK\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
 '	<div id="leftMenuAK" style="position: absolute; top: 40px; left: 40px;">' +    
-'	<br><input type="checkbox" id="kittensChecker"><label for="kittensChecker" onclick="$(\'.kittenCheck\').click();"><b>Kittens</b></label><br>' + 
+'	<br><input type="checkbox" id="kittensChecker"><label for="kittensChecker" onclick="$(\'.kittenCheck\').click();"><b>Kittens</b></label><br><br>' + 
 '	<input type="checkbox" id="woodKitten" class="kittenCheck" onchange="verifyKittenSelected(\'0\', \'woodKitten\')"><label for="woodKitten">Woodcutter</label><br><br>' + 
 '	<input type="checkbox" id="catnipKitten" class="kittenCheck" onchange="verifyKittenSelected(\'1\', \'catnipKitten\')"><label for="catnipKitten">Farmer</label><br><br>' + 
 '	<input type="checkbox" id="scienceKitten" class="kittenCheck" onchange="verifyKittenSelected(\'2\', \'scienceKitten\')"><label for="scienceKitten">Scholar</label><br><br>' + 
