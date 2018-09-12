@@ -213,7 +213,7 @@ var crafts = [
 ];
 
 var census = [
-	["woodcutter",false, 0],
+	["ç",false, 0],
 	["farmer",false, 0],
 	["scholar",false, 0],
 	["hunter",false, 0],
@@ -641,10 +641,6 @@ function autoKittens()
 				// TODO: to see unemployed kittens and better assign
 				gamePage.village.assignJob(gamePage.village.getJob(census[i][0]));
 				census[i][2] = census[i][2] - 1;
-			}
-			if (census[i][2] == 0) {
-				document.getElementById(census[i][0]).checked = false;
-				census[i][1] = false;
 			}
 		}
 		switch (i) {
