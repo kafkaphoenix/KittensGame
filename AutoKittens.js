@@ -435,19 +435,19 @@ function verifyCraftSelected(craftNumber, craftCheckID) {
 
 $("#game").append(craftSelectAddition);
 
-var kittensSelectAddition = '<div id="menuAK" style="display:none; margin-top:-260px; height: 380px !important; margin-left: 100px; width:400px; z-index: 1;" class="dialog help">' + 
+var kittensSelectAddition = '<div id="menuAK" style="display:none; margin-top:-260px; height: 220px !important; margin-left: 100px; width:200px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuAK\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
 '	<div id="leftMenuAK" style="position: absolute; top: 40px; left: 40px;">' +    
 '	<br><input type="checkbox" id="kittensChecker"><label for="kittensChecker" onclick="$(\'.kittenCheck\').click();"><b>Kittens</b></label><br>' + 
-'	<input type="checkbox" id="woodKitten" class="kittenCheck" onchange="verifyKittenSelected(\'0\', \'woodKitten\')"><label for="woodKitten">Woodcutter</label><br>' + 
-'	<input type="checkbox" id="catnipKitten" class="kittenCheck" onchange="verifyKittenSelected(\'1\', \'catnipKitten\')"><label for="catnipKitten">Farmer</label><br>' + 
-'	<input type="checkbox" id="scienceKitten" class="kittenCheck" onchange="verifyKittenSelected(\'2\', \'scienceKitten\')"><label for="scienceKitten">Scholar</label><br>' + 
-'	<input type="checkbox" id="catpowerKitten" class="kittenCheck" onchange="verifyKittenSelected(\'3\', \'catpowerKitten\')"><label for="catpowerKitten">Hunter</label><br>' + 
-'	<input type="checkbox" id="mineralKitten" class="kittenCheck" onchange="verifyKittenSelected(\'4\', \'mineralKitten\')"><label for="mineralKitten">Miner</label><br>' + 
-'	<input type="checkbox" id="faithKitten" class="kittenCheck" onchange="verifyKittenSelected(\'5\', \'faithKitten\')"><label for="faithKitten">Priest</label><br>' + 
-'	<input type="checkbox" id="coalKitten" class="kittenCheck" onchange="verifyKittenSelected(\'6\', \'coalKitten\')"><label for="coalKitten">Geologist</label><br>' +
-'	<input type="checkbox" id="machineKitten" class="kittenCheck" onchange="verifyKittenSelected(\'7\', \'machineKitten\')"><label for="machineKitten">Engineer</label><br><br>' +
+'	<input type="checkbox" id="woodKitten" class="kittenCheck" onchange="verifyKittenSelected(\'0\', \'woodKitten\')"><label for="woodKitten">Woodcutter</label><br><br>' + 
+'	<input type="checkbox" id="catnipKitten" class="kittenCheck" onchange="verifyKittenSelected(\'1\', \'catnipKitten\')"><label for="catnipKitten">Farmer</label><br><br>' + 
+'	<input type="checkbox" id="scienceKitten" class="kittenCheck" onchange="verifyKittenSelected(\'2\', \'scienceKitten\')"><label for="scienceKitten">Scholar</label><br><br>' + 
+'	<input type="checkbox" id="catpowerKitten" class="kittenCheck" onchange="verifyKittenSelected(\'3\', \'catpowerKitten\')"><label for="catpowerKitten">Hunter</label><br><br>' + 
+'	<input type="checkbox" id="mineralKitten" class="kittenCheck" onchange="verifyKittenSelected(\'4\', \'mineralKitten\')"><label for="mineralKitten">Miner</label><br><br>' + 
+'	<input type="checkbox" id="faithKitten" class="kittenCheck" onchange="verifyKittenSelected(\'5\', \'faithKitten\')"><label for="faithKitten">Priest</label><br><br>' + 
+'	<input type="checkbox" id="coalKitten" class="kittenCheck" onchange="verifyKittenSelected(\'6\', \'coalKitten\')"><label for="coalKitten">Geologist</label><br><br>' +
+'	<input type="checkbox" id="machineKitten" class="kittenCheck" onchange="verifyKittenSelected(\'7\', \'machineKitten\')"><label for="machineKitten">Engineer</label><br>' +
 
 
 '   </div><div id="centerMenuAK" style="position: absolute; top: 40px; left: 150px;">' +   
