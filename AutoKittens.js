@@ -673,6 +673,7 @@ function autoKittens()
 				case 7:
 					w7 = 0;
 					break;
+			}
 					
 		}
 	}
