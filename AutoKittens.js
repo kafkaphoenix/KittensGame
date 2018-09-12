@@ -223,6 +223,17 @@ var census = [
 	["engineer",false, 0]
 ];
 
+var trades = [
+	["lizards",false, "minerals", 1000],
+	["sharks",false, "iron", 100],
+	["griffins",false, "wood", 500],
+	["nagas",false, "ivory", 500],
+	["zebras",false, "slab", 50],
+	["spiders",false, "scaffold", 50],
+	["dragons",false, "titanium", 250],
+	["leviathans",false, "unobtainium", 5000]
+];
+
 var htmlMenuAddition = '<div id="autokittens" class="column">' +
 
 '<a id="scriptOptions" onclick="openMenu()"> | AutoKittens </a>' + 
@@ -470,6 +481,29 @@ function verifyKittenSelected(kittenNumber, kittenCheckID) {
 
 $("#game").append(kittensSelectAddition);
 
+var tradesSelectAddition = '<div id="menuAT" style="display:none; margin-top:-190px; height: 360px !important; margin-left: 400px; width:200px; z-index: 1;" class="dialog help">' + 
+'<a href="#" onclick="$(\'#menuAT\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
+
+'	<div id="leftMenuAT" style="position: absolute; top: 40px; left: 40px;">' +    
+'	<br><input type="checkbox" id="tradesChecker"><label for="tradesChecker" onclick="$(\'.tradesCheck\').click();"><b>Trades</b></label><br><br>' + 
+'	<input type="checkbox" id="lizards" class="tradesCheck" onchange="verifyTradeSelected(\'0\', \'lizards\')"><label for="lizards">Lizards</label><br><br>' + 
+'	<input type="checkbox" id="sharks" class="tradesCheck" onchange="verifyTradeSelected(\'1\', \'sharks\')"><label for="sharks">Sharks</label><br><br>' + 
+'	<input type="checkbox" id="griffins" class="tradesCheck" onchange="verifyTradeSelected(\'2\', \'griffins\')"><label for="griffins">Griffins</label><br><br>' + 
+'	<input type="checkbox" id="nagas" class="tradesCheck" onchange="verifyTradeSelected(\'3\', \'nagas\')"><label for="nagas">Nagas</label><br><br>' + 
+'	<input type="checkbox" id="zebras" class="tradesCheck" onchange="verifyTradeSelected(\'4\', \'zebras\')"><label for="zebras">Zebras</label><br><br>' + 
+'	<input type="checkbox" id="spiders" class="tradesCheck" onchange="verifyTradeSelected(\'5\', \'spiders\')"><label for="spiders">Spiders</label><br><br>' + 
+'	<input type="checkbox" id="dragons" class="tradesCheck" onchange="verifyTradeSelected(\'6\', \'dragons\')"><label for="dragons">Dragons</label><br><br>' +
+'	<input type="checkbox" id="leviathans" class="tradesCheck" onchange="verifyTradeSelected(\'7\', \'leviathans\')"><label for="leviathans">Leviathans</label><br>' +
+
+'</div></div>'
+
+function verifyTradeSelected(tradeNumber, tradeCheckID) {
+	var tradeIsChecked = document.getElementById(tradeCheckID).checked;
+	trades[tradeNumber][1] = tradeIsChecked;
+}
+
+$("#game").append(tradesSelectAddition);
+
 function closeMenu() {
 	$("#menu").hide();
 }
@@ -504,6 +538,7 @@ function clearScript() {
 	$("#menuAK").remove();
 	$("#menuAB").remove();
 	$("#menuAT").remove();
+	$("#menuASpace").remove();
 	$("#scriptOptions").remove();
 	clearInterval(runAllAutomation);
 	htmlMenuAddition = null;
@@ -511,6 +546,7 @@ function clearScript() {
 	spaceSelectAddition = null;
 	craftSelectAddition = null;
 	kittensSelectAddition = null;
+	tradesSelectAddition = null;
 	
 }
 
@@ -538,10 +574,49 @@ function switchNightMode ()
 
 		// Trade automatically
 function autoTrade() {
-	
-	var slab = gamePage.resPool.get('slab');
-	if (gamePage.calendar.season == 1 && slab.value >= 50) {
-		gamePage.diplomacy.tradeMultiple(game.diplomacy.get("zebras"), Math.floor(game.resPool.get("slab")).value / 50);
+	for (var i = 0; i < trades.length; i++) {
+		if (trades[i][1] == true) { 
+			var calendar = gamePage.calendar;
+			var season = "";
+			switch (trades[i][0])
+			{
+				case "lizards":
+					season = 1;
+					break;
+				case "sharks":
+					season = 3;
+					break;
+				case "griffins":
+					season = 2;
+					break;
+				case "nagas":
+					season = 0;
+					break;
+				case "zebras":
+					season = 1;
+					break;
+				case "spiders":
+					season = 2;
+					break;
+				case "dragons":
+					season = 4; //whatever
+					break;
+				case "leviathans":
+					season = 4; //whatever
+					break;	
+			}
+			var res = gamePage.resPool.get(trades[i][2]);
+			if (trades[i][0] == "leviathans" && res.value > trades[i][3] && gamePage.diplomacy.get(trades[i][0]).unlocked && gamePage.diplomacy.get(trades[i][0]).duration != 0) {
+				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
+			} else if (trades[i][0] == "zebras" && res.value < (res.maxValue * 0.9) && gamePage.diplomacy.get(trades[i][0]).unlocked && calendar.season == season) {
+				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
+			} else if (trades[i][0] == "dragons" && gamePage.diplomacy.get(trades[i][0]).unlocked && res.value > trades[i][3]) {
+				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
+			} else if (gamePage.diplomacy.get(trades[i][0]).unlocked && calendar.season == season && res.value > trades[i][3]) {
+				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
+			}
+			
+		}
 	}
 }
 
