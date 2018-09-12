@@ -635,7 +635,7 @@ function switchAutoCraft()
 function autoKittens()
 {
 	for (var i = 0; i < census.length; i++) {
-		if (gamePage.village.getJob(census[i]).unlocked && census[i][1] == true) {
+		if (gamePage.village.getJob(census[i][0]).unlocked && census[i][1] == true) {
 			for (var j = 1; j <= Math.min(census[i][2],gamePage.village.getFreeKittens()); j++) {
 				// TODO: to see unemployed kittens and better assign
 				gamePage.village.assignJob(gamePage.village.getJob(census[i]));
