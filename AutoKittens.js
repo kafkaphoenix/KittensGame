@@ -646,8 +646,7 @@ function autoKittens()
 				document.getElementById(census[i][0]).checked = false;
 				census[i][1] = false;
 			}
-		}
-		switch (i) {
+			switch (i) {
 				case 0:
 					document.getElementById("w0").value = census[i][2];
 					break;
@@ -680,6 +679,8 @@ function autoKittens()
 					document.getElementById("w7").value = census[i][2];
 					break;
 			}
+		}
+		
 	}
 	
 	//gamePage.village.optimizeJobs
