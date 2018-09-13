@@ -446,7 +446,7 @@ function verifyCraftSelected(craftNumber, craftCheckID) {
 
 $("#game").append(craftSelectAddition);
 
-var kittensSelectAddition = '<div id="menuAK" style="display:none; margin-top:-190px; height: 360px !important; margin-left: 400px; width:200px; z-index: 1;" class="dialog help">' + 
+var kittensSelectAddition = '<div id="menuAK" style="display:none; margin-top:-190px; height: 325px !important; margin-left: 400px; width:200px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuAK\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
 '	<div id="leftMenuAK" style="position: absolute; top: 20px; left: 40px;">' +    
@@ -464,13 +464,13 @@ var kittensSelectAddition = '<div id="menuAK" style="display:none; margin-top:-1
 '   </div><div id="centerMenuAK" style="position: absolute; top: 20px; left: 150px;">' +   
 
 '	<span id="nWoodcutter"><input id="w0" type="text" style="width:25px; position: absolute; top: 50px;" onchange="census[0][2] = this.value" value="0"></span>' + 
-'	<span id="nFarmer"><input id="w1" type="text" style="width:25px; position: absolute; top: 90px; left: -30px;" onchange="census[1][2] = this.value" value="0"></span>' + 
-'	<span id="nScholar"><input id="w2" type="text" style="width:25px; position: absolute; top: 125px; left: -30px;" onchange="census[2][2] = this.value" value="0"></span>' +     
-'	<span id="nHunter"><input id="w3" type="text" style="width:25px; position: absolute; top: 160px; left: -30px;" onchange="census[3][2] = this.value" value="0"></span>' +     
-'	<span id="nMiner"><input id="w4" type="text" style="width:25px; position: absolute; top: 195px; left: -30px;" onchange="census[4][2] = this.value" value="0"></span>' +     
-'	<span id="nPriest"><input id="w5" type="text" style="width:25px; position: absolute; top: 233px; left: -30px;" onchange="census[5][2] = this.value" value="0"></span>' + 
-'	<span id="nGeologist"><input id="w6" type="text" style="width:25px; position: absolute; top: 269px; left: -20px;" onchange="census[6][2] = this.value" value="0"></span>' + 
-'	<span id="nEngineer"><input id="w7" type="text" style="width:25px; position: absolute; top: 305px; left: -20px;" onchange="census[7][2] = this.value" value="0"></span>' + 
+'	<span id="nFarmer"><input id="w1" type="text" style="width:25px; position: absolute; top: 86px; left: -30px;" onchange="census[1][2] = this.value" value="0"></span>' + 
+'	<span id="nScholar"><input id="w2" type="text" style="width:25px; position: absolute; top: 120px; left: -30px;" onchange="census[2][2] = this.value" value="0"></span>' +     
+'	<span id="nHunter"><input id="w3" type="text" style="width:25px; position: absolute; top: 155px; left: -30px;" onchange="census[3][2] = this.value" value="0"></span>' +     
+'	<span id="nMiner"><input id="w4" type="text" style="width:25px; position: absolute; top: 190px; left: -30px;" onchange="census[4][2] = this.value" value="0"></span>' +     
+'	<span id="nPriest"><input id="w5" type="text" style="width:25px; position: absolute; top: 226px; left: -30px;" onchange="census[5][2] = this.value" value="0"></span>' + 
+'	<span id="nGeologist"><input id="w6" type="text" style="width:25px; position: absolute; top: 260px; left: -20px;" onchange="census[6][2] = this.value" value="0"></span>' + 
+'	<span id="nEngineer"><input id="w7" type="text" style="width:25px; position: absolute; top: 296px; left: -20px;" onchange="census[7][2] = this.value" value="0"></span>' + 
     
 '</div></div>'
 
