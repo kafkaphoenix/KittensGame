@@ -26,7 +26,7 @@ var programBuild = false;
 var ratioScaffold = 0;
 var ratioAlloy = 0;
 var ratioGear = 0;
-var ratioConcrate = 0;
+var ratioConcrete = 0;
 var ratioTradeship = 0;
 var ratioMegalith = 0;
 var ratioTanker = 0;
@@ -415,7 +415,7 @@ var craftSelectAddition = '<div id="menuAC" style="display:none; margin-top:-260
 '	<span id="ratioScaffold" title="Between 0 and 100"><input id="ratioScaffoldText" type="text" style="width:25px; position: absolute; top: 48px;" onchange="ratioScaffold = this.value" value="0"></span>' + 
 '	<span id="ratioTradeship" title="Between 0 and 100"><input id="ratioTradeshipText" type="text" style="width:25px; position: absolute; top: 70px;" onchange="ratioTradeship = this.value" value="0"></span>' + 
 '	<span id="ratioTanker" title="Between 0 and 100"><input id="ratioTankerText" type="text" style="width:25px; position: absolute; top: 92px;" onchange="ratioTanker = this.value" value="0"></span>' +     
-'	<span id="ratioConcrate" title="Between 0 and 100"><input id="ratioConcrateText" type="text" style="width:25px; position: absolute; top: 160px; left: -10px;" onchange="ratioConcrate = this.value" value="0"></span>' +     
+'	<span id="ratioConcrete" title="Between 0 and 100"><input id="ratioConcreteText" type="text" style="width:25px; position: absolute; top: 160px; left: -10px;" onchange="ratioConcrete = this.value" value="0"></span>' +     
 '	<span id="ratioGear"  title="Between 0 and 100"><input id="ratioGearText" type="text" style="width:25px; position: absolute; top: 247px; left: -40px;" onchange="ratioGear = this.value" value="0"></span>' +     
 '	<span id="ratioAlloy" title="Between 0 and 100"><input id="ratioAlloyText" type="text" style="width:25px; position: absolute; top: 269px; left: -40px;" onchange="ratioAlloy = this.value" value="0"></span>' + 
     
@@ -610,7 +610,7 @@ function autoTrade() {
 				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
 			} else if (trades[i][0] == "zebras" && gamePage.resPool.get("titanium").value < (gamePage.resPool.get("titanium").maxValue * 0.9) && gamePage.diplomacy.get(trades[i][0]).unlocked && calendar.season == season) {
 				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
-			} else if (trades[i][0] == "dragons" && gamePage.diplomacy.get(trades[i][0]).unlocked && res.value > trades[i][3]) {
+			} else if (trades[i][0] == "dragons" && gamePage.resPool.get("uranium").value < (gamePage.resPool.get("uranium").maxValue * 0.9) && gamePage.diplomacy.get(trades[i][0]).unlocked && res.value > trades[i][3]) {
 				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
 			} else if (trades[i][0] != "dragons" && trades[i][0] != "zebras" && trades[i][0] != "leviathans" && gamePage.diplomacy.get(trades[i][0]).unlocked && calendar.season == season && res.value > trades[i][3]) {
 				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
@@ -664,8 +664,8 @@ function autoCraft() {
 				case "gear":
 					secResRatio = ratioGear;
 					break;
-				case "concrate":
-					secResRatio = ratioConcrate;
+				case "concrete":
+					secResRatio = ratioConcrete;
 					break;
 				case "tradeship":
 					secResRatio = ratioTradeship;
