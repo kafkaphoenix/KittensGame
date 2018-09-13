@@ -608,7 +608,7 @@ function autoTrade() {
 			var res = gamePage.resPool.get(trades[i][2]);
 			if (trades[i][0] == "leviathans" && res.value > trades[i][3] && gamePage.diplomacy.get(trades[i][0]).unlocked && gamePage.diplomacy.get(trades[i][0]).duration != 0) {
 				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
-			} else if (trades[i][0] == "zebras" && res.value < (res.maxValue * 0.9) && gamePage.diplomacy.get(trades[i][0]).unlocked && calendar.season == season) {
+			} else if (trades[i][0] == "zebras" && gamePage.resPool.get("titanium").value < (gamePage.resPool.get("titanium").maxValue * 0.9) && gamePage.diplomacy.get(trades[i][0]).unlocked && calendar.season == season) {
 				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
 			} else if (trades[i][0] == "dragons" && gamePage.diplomacy.get(trades[i][0]).unlocked && res.value > trades[i][3]) {
 				gamePage.diplomacy.tradeAll(game.diplomacy.get(trades[i][0]));
