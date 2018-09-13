@@ -449,7 +449,7 @@ $("#game").append(craftSelectAddition);
 var kittensSelectAddition = '<div id="menuAK" style="display:none; margin-top:-190px; height: 360px !important; margin-left: 400px; width:200px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuAK\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
-'	<div id="leftMenuAK" style="position: absolute; top: 40px; left: 40px;">' +    
+'	<div id="leftMenuAK" style="position: absolute; top: 20px; left: 40px;">' +    
 '	<br><input type="checkbox" id="kittensChecker"><label for="kittensChecker" onclick="$(\'.kittenCheck\').click();"><b>Kittens</b></label><br><br>' + 
 '	<input type="checkbox" id="woodcutter" class="kittenCheck" onchange="verifyKittenSelected(\'0\', \'woodcutter\')"><label for="woodcutter">Woodcutter</label><br><br>' + 
 '	<input type="checkbox" id="farmer" class="kittenCheck" onchange="verifyKittenSelected(\'1\', \'farmer\')"><label for="farmer">Farmer</label><br><br>' + 
@@ -461,7 +461,7 @@ var kittensSelectAddition = '<div id="menuAK" style="display:none; margin-top:-1
 '	<input type="checkbox" id="engineer" class="kittenCheck" onchange="verifyKittenSelected(\'7\', \'engineer\')"><label for="engineer">Engineer</label><br>' +
 
 
-'   </div><div id="centerMenuAK" style="position: absolute; top: 40px; left: 150px;">' +   
+'   </div><div id="centerMenuAK" style="position: absolute; top: 20px; left: 150px;">' +   
 
 '	<span id="nWoodcutter"><input id="w0" type="text" style="width:25px; position: absolute; top: 50px;" onchange="census[0][2] = this.value" value="0"></span>' + 
 '	<span id="nFarmer"><input id="w1" type="text" style="width:25px; position: absolute; top: 90px; left: -30px;" onchange="census[1][2] = this.value" value="0"></span>' + 
@@ -481,10 +481,10 @@ function verifyKittenSelected(kittenNumber, kittenCheckID) {
 
 $("#game").append(kittensSelectAddition);
 
-var tradesSelectAddition = '<div id="menuAT" style="display:none; margin-top:-190px; height: 360px !important; margin-left: 400px; width:200px; z-index: 1;" class="dialog help">' + 
+var tradesSelectAddition = '<div id="menuAT" style="display:none; margin-top:-190px; height: 324px !important; margin-left: 400px; width:200px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuAT\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
-'	<div id="leftMenuAT" style="position: absolute; top: 40px; left: 40px;">' +    
+'	<div id="leftMenuAT" style="position: absolute; top: 20px; left: 40px;">' +    
 '	<br><input type="checkbox" id="tradesChecker"><label for="tradesChecker" onclick="$(\'.tradesCheck\').click();"><b>Trades</b></label><br><br>' + 
 '	<input type="checkbox" id="lizards" class="tradesCheck" onchange="verifyTradeSelected(\'4\', \'lizards\')"><label for="lizards">Lizards</label><br><br>' + 
 '	<input type="checkbox" id="sharks" class="tradesCheck" onchange="verifyTradeSelected(\'5\', \'sharks\')"><label for="sharks">Sharks</label><br><br>' + 
