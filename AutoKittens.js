@@ -3,12 +3,12 @@ var nightModeMsg = "Night mode activated!";
 var tradeMsg = "Auto Trade activated!";
 var craftMsg = "Auto Craft activated!";
 var kittensMsg = "Auto Kittens activated!";
-var buildMsg = "Auto Build activated!"
+var buildMsg = "Auto Build activated!";
 var huntMsg = "Auto Hunt activated!";
 var praiseMsg = "Auto Praise activated!";
 var scienceMsg = "Auto Science activated!";
 var upgradeMsg = "Auto Upgrade activated!";
-var partyMsg = "Party time!"
+var partyMsg = "Party time!";
 var spaceMsg = "Auto Space activated!";
 var nm = 0;
 var at = 0;
@@ -32,48 +32,48 @@ var ratioMegalith = 0;
 var ratioTanker = 0;
 
 var buildings = [
-        ["Field", false], 
+	["Field", false], 
 	["Pasture", false],
-        ["Aqueduct", false], 
+    ["Aqueduct", false], 
 
-        ["Hut", false], 
+    ["Hut", false], 
 	["Log House", false],
-        ["Mansion", false],
+    ["Mansion", false],
 
-        ["Library", false], 
+    ["Library", false], 
 	["Academy", false], 
 	["Observatory", false], 
-        ["Bio Lab", false], 
+    ["Bio Lab", false], 
 
-        ["Barn", false],
-        ["Warehouse", false],  
-	["Harbour", false], 
-		
-        ["Mine", false],
-        ["Quarry", false], 
+    ["Barn", false],
+    ["Warehouse", false],  
+	["Harbour", false],
+	
+    ["Mine", false],
+    ["Quarry", false], 
 	["Lumber Mill", false], 
 	["Oil Well", false], 
-        ["Accelerator", false],  
+    ["Accelerator", false],  
 
-        ["Steamworks", false], 
+    ["Steamworks", false], 
 	["Magneto", false], 
 	["Smelter", false], 
 	["Calciner", false],
-        ["Factory", false], 
+    ["Factory", false], 
 	["Reactor", false],
 
-        ["Amphitheatre", false],
-        ["Chapel", false], 
+    ["Amphitheatre", false],
+    ["Chapel", false], 
 	["Temple", false],
 
 	["Workshop", false], 
 	["Tradepost", false],
-        ["Mint", false],
-        ["Unicorn Pasture", false], 
+    ["Mint", false],
+    ["Unicorn Pasture", false], 
 
 	["Ziggurat", false],
-        ["Chronosphere", false],
-        ["AI Core", false],
+    ["Chronosphere", false],
+    ["AI Core", false],
 
 
 
@@ -93,8 +93,8 @@ var buildings = [
 
 	["Sunlifter", false, 4],
 	["Containment Chamber", false, 4],
-        ["Heatsink", false, 4],
-        ["Sunforge", false, 4],
+    ["Heatsink", false, 4],
+    ["Sunforge", false, 4],
 
 	["Cryostation", false, 5],
 
@@ -103,15 +103,15 @@ var buildings = [
 	["Terraforming Station", false, 7],
 	["Hydroponics", false, 7],
 
-        ["HR Harvester", false, 8],
+    ["HR Harvester", false, 8],
 
-        ["Entanglement Station", false, 9],
+    ["Entanglement Station", false, 9],
 
 	["Tectonic", false, 10]
 ];	
 
 var buildingsList = [
-        ["field"], 
+    ["field"], 
 	["pasture"], 
 	["aqueduct"], 
 
@@ -119,26 +119,26 @@ var buildingsList = [
 	["logHouse"], 
 	["mansion"],
         
-        ["library"], 
+    ["library"], 
 	["academy"], 
 	["observatory"],
-        ["biolab"],
+    ["biolab"],
 
-        ["barn"], 
+    ["barn"], 
 	["warehouse"], 
-        ["harbor"], 
+    ["harbor"], 
 
-        ["mine"],  
+    ["mine"],  
 	["quarry"],
-        ["lumberMill"], 
-        ["oilWell"], 
-        ["accelerator"], 
+    ["lumberMill"], 
+    ["oilWell"], 
+    ["accelerator"], 
 
-        ["steamworks"], 
+    ["steamworks"], 
 	["magneto"], 
 	["smelter"], 
 	["calciner"], 
-        ["factory"], 
+    ["factory"], 
 	["reactor"], 
 
 	["amphitheatre"], 
@@ -147,12 +147,12 @@ var buildingsList = [
 
 	["workshop"], 
 	["tradepost"],
-        ["mint"], 
+    ["mint"], 
 	["unicornPasture"],
 
-        ["ziggurat"],
-        ["chronosphere"],
-        ["aiCore"],
+    ["ziggurat"],
+    ["chronosphere"],
+    ["aiCore"],
 
 
 
@@ -172,35 +172,35 @@ var buildingsList = [
 
 	["sunlifter"],
 	["containmentChamber"],
-        ["heatsink"],
-        ["sunforge"],
+    ["heatsink"],
+    ["sunforge"],
 
 	["cryostation"],
 
 	["spaceBeacon"],
 
-        ["terraformingStation"],
-        ["hydroponics"],
+    ["terraformingStation"],
+    ["hydroponics"],
 
-        ["hrHarvester"],
+    ["hrHarvester"],
 
-        ["entangler"],
+    ["entangler"],
 
 	["tectonic"]
 ];		
 
 var crafts = [
-       	["catnip", "wood", 50, false],
-        ["wood", "beam", 175, false],
-        ["minerals", "slab", 250, false],
-        ["coal", "steel", 100, false],
-        ["iron", "plate", 125, false],
-        ["oil", "kerosene", 7500, false],
-        ["uranium", "thorium", 250, false],
+    ["catnip", "wood", 50, false],
+    ["wood", "beam", 175, false],
+    ["minerals", "slab", 250, false],
+    ["coal", "steel", 100, false],
+    ["iron", "plate", 125, false],
+    ["oil", "kerosene", 7500, false],
+    ["uranium", "thorium", 250, false],
 	["unobtainium", "eludium", 1000, false],
 
 	["beam", "scaffold", 50, false],
-        ["steel", "alloy", 75, false],
+    ["steel", "alloy", 75, false],
 	["steel", "gear", 15, false],
 	["slab", "concrete", 2500, false],
 	["scaffold", "tradeship", 100, false],
@@ -319,12 +319,12 @@ var bldSelectAddition = '<div id="menuAB" style="display:none; margin-top:-260px
 '	<input type="checkbox" id="workshopBld" class="otherCheck" onchange="verifyBuildingSelected(\'27\', \'workshopBld\')"><label for="workshopBld">Workshop</label><br>' + 
 '	<input type="checkbox" id="tradeBld" class="otherCheck" onchange="verifyBuildingSelected(\'28\', \'tradeBld\')"><label for="tradeBld">Tradepost</label><br>' + 
 '	<input type="checkbox" id="mintBld" class="otherCheck" onchange="verifyBuildingSelected(\'29\', \'mintBld\')"><label for="mintBld">Mint</label><br>' + 
-'	<input type="checkbox" id="unicBld" class="otherCheck" onchange="verifyBuildingSelected(\'30\', \'unicBld\')"><label for="unicBld">Unicorn Pasture</label><br></br>' + 
+'	<input type="checkbox" id="unicBld" class="otherCheck" onchange="verifyBuildingSelected(\'30\', \'unicBld\')"><label for="unicBld">Unicorn Pasture</label><br><br>' + 
 
 '	<input type="checkbox" id="megaStructuresChecker"><label for="megaStructuresChecker" onclick="$(\'.megaStructuresCheck\').click();"><b>Mega Structures</b></label><br>' + 
 '	<input type="checkbox" id="zigguratBld" class="megaStructuresCheck" onchange="verifyBuildingSelected(\'31\', \'zigguratBld\')"><label for="zigguratBld">Ziggurat</label><br>' + 
 '	<input type="checkbox" id="chronosphereBld" class="megaStructuresCheck" onchange="verifyBuildingSelected(\'32\', \'chronosphereBld\')"><label for="chronospereBld">Chronosphere</label><br>' + 
-'	<input type="checkbox" id="aiCoreBld" class="megaStructuresCheck" onchange="verifyBuildingSelected(\'33\', \'aiCoreBld\')"><label for="aiCoreBld">AI Core</label><br>' +
+'	<input type="checkbox" id="aiCoreBld" class="megaStructuresCheck" onchange="verifyBuildingSelected(\'33\', \'aiCoreBld\')"><label for="aiCoreBld">AI Core</label><br><br>' +
 
 '</div>'
 
@@ -421,17 +421,17 @@ var craftSelectAddition = '<div id="menuAC" style="display:none; margin-top:-260
     
 '       </div><div id="rightMenuAC" style="position: absolute; top: 60px; right: 90px;">' +        
     
-'	<input type="checkbox" id="scienceChecker"><label for="scienceChecker" onclick="$(\'.scienceCheck\').click();"><b>Science</b></label><br>' + 
-'	<input type="checkbox" id="parchCraft" class="scienceCheck" onchange="verifyCraftSelected(\'15\', \'parchCraft\')"><label for="parchCraft">Parchment</label><br>' + 
-'	<input type="checkbox" id="manuCraft" class="scienceCheck" onchange="verifyCraftSelected(\'16\', \'manuCraft\')"><label for="manuCraft">Manuscript</label><br>' + 
-'	<input type="checkbox" id="compCraft" class="scienceCheck" onchange="verifyCraftSelected(\'17\', \'compCraft\')"><label for="compCraft">Compedium</label><br>' + 
-'	<input type="checkbox" id="blueCraft" class="scienceCheck" onchange="verifyCraftSelected(\'18\', \'blueCraft\')"><label for="blueCraft">Blueprint</label><br><br>' + 
+'	<input type="checkbox" id="scienceChecker2"><label for="scienceChecker2" onclick="$(\'.scienceCheck2\').click();"><b>Science</b></label><br>' + 
+'	<input type="checkbox" id="parchCraft" class="scienceCheck2" onchange="verifyCraftSelected(\'15\', \'parchCraft\')"><label for="parchCraft">Parchment</label><br>' + 
+'	<input type="checkbox" id="manuCraft" class="scienceCheck2" onchange="verifyCraftSelected(\'16\', \'manuCraft\')"><label for="manuCraft">Manuscript</label><br>' + 
+'	<input type="checkbox" id="compCraft" class="scienceCheck2" onchange="verifyCraftSelected(\'17\', \'compCraft\')"><label for="compCraft">Compedium</label><br>' + 
+'	<input type="checkbox" id="blueCraft" class="scienceCheck2" onchange="verifyCraftSelected(\'18\', \'blueCraft\')"><label for="blueCraft">Blueprint</label><br><br>' + 
 
-'	<input type="checkbox" id="otherChecker"><label for="otherChecker" onclick="$(\'.otherCheck\').click();"><b>Other</b></label><br>' + 
-'	<input type="checkbox" id="megalithCraft" class="otherCheck" onchange="verifyCraftSelected(\'13\', \'megalithCraft\')"><label for="megalithCraft">Megalith</label><br>' + 
-'	<input type="checkbox" id="eludiumCraft" class="otherCheck" onchange="verifyCraftSelected(\'7\', \'eludiumCraft\')"><label for="eludiumCraft">Eludium</label><br>' + 
-'	<input type="checkbox" id="keroseneCraft" class="otherCheck" onchange="verifyCraftSelected(\'5\', \'keroseneCraft\')"><label for="keroseneCraft">Kerosene</label><br>' + 
-'	<input type="checkbox" id="thoriumCraft" class="otherCheck" onchange="verifyCraftSelected(\'6\', \'thoriumCraft\')"><label for="thoriumCraft">Thorium</label><br><br>' + 
+'	<input type="checkbox" id="otherChecker2"><label for="otherChecker2" onclick="$(\'.otherCheck2\').click();"><b>Other</b></label><br>' + 
+'	<input type="checkbox" id="megalithCraft" class="otherCheck2" onchange="verifyCraftSelected(\'13\', \'megalithCraft\')"><label for="megalithCraft">Megalith</label><br>' + 
+'	<input type="checkbox" id="eludiumCraft" class="otherCheck2" onchange="verifyCraftSelected(\'7\', \'eludiumCraft\')"><label for="eludiumCraft">Eludium</label><br>' + 
+'	<input type="checkbox" id="keroseneCraft" class="otherCheck2" onchange="verifyCraftSelected(\'5\', \'keroseneCraft\')"><label for="keroseneCraft">Kerosene</label><br>' + 
+'	<input type="checkbox" id="thoriumCraft" class="otherCheck2" onchange="verifyCraftSelected(\'6\', \'thoriumCraft\')"><label for="thoriumCraft">Thorium</label><br><br>' + 
     
 '       </div><div id="rightMenu2AC" style="position: absolute; top: 60px; right: 30px;">' +
     
