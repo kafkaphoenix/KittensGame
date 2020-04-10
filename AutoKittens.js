@@ -380,7 +380,7 @@ var spaceSelectAddition = '<div id="menuASpace" style="display:none; margin-top:
 '	<input type="checkbox" id="esSBld" class="charonCheck" onchange="verifyBuildingSelected(\'53\', \'esSBld\');"><label for="esSBld">Entanglement Station</label></br></br>' + 
 
 '	<input type="checkbox" id="centaurusChecker"><label for="centaurusChecker" onclick="$(\'.centaurusCheck\').click();"><b>Centaurus System</b></label></br>' + 
-'	<input type="checkbox" id="tecSBld" class="centaurusCheck" onchange="verifyBuildingSelected(\'54\', \'tecSBld\');"><label for="tecSBld">Tectonic</label></br></br>' + 
+'	<input type="checkbox" id="tecSBld" class="centaurusCheck" onchange="verifyBuildingSelected(\'54\', \'tecSBld\');"><label for="tecSBld">Tectonic</label></br>' + 
 '    	<input type="checkbox" id="mcSBld" class="centaurusCheck" onchange="verifyBuildingSelected(\'55\', \'mcSBld\');"><label for="mcSBld">Molten Core</label></br></br>' + 
 
 '</div></div>'
