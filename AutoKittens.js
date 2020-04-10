@@ -612,6 +612,7 @@ nightMode = function nightMode(){
 	document.getElementById('autoCraft').click();
 	
 	// kittens (All to Priest by default)
+	document.getElementById('priest').click()
 	document.getElementById('w5').value = 1000000;
 	census[5][2] = 1000000;
 	document.getElementById('autoKittens').click();
