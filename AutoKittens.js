@@ -679,7 +679,7 @@ function autoCraft() {
 					break;
 			}
 
-			if (resMath > 1 && secRes.value < (priRes.value * (secResRatio / 100)) && gamePage.workshop.getCraft(crafts[j][1]).unlocked) {
+			if (resMath > 1 && /*secRes.value < (priRes.value * (secResRatio / 100)) &&*/ gamePage.workshop.getCraft(crafts[j][1]).unlocked) {
 				gamePage.craft(crafts[j][1], (resMath * (secResRatio / 100)));
 			}
 		}
