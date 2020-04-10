@@ -107,7 +107,9 @@ var buildings = [
 
     ["Entanglement Station", false, 9],
 
-	["Tectonic", false, 10]
+	["Tectonic", false, 10],
+	["Molten Core", false, 10]
+		
 ];	
 
 var buildingsList = [
@@ -186,7 +188,8 @@ var buildingsList = [
 
     ["entangler"],
 
-	["tectonic"]
+	["tectonic"],
+	["moltenCore"]
 ];		
 
 var crafts = [
@@ -202,7 +205,7 @@ var crafts = [
 	["beam", "scaffold", 50, false],
     ["steel", "alloy", 75, false],
 	["steel", "gear", 15, false],
-	["slab", "concrete", 2500, false],
+	["slab", "concrate", 2500, false],
 	["scaffold", "ship", 100, false],
 	["slab", "megalith", 50, false],
 	["ship", "tanker", 200, false],
@@ -378,6 +381,7 @@ var spaceSelectAddition = '<div id="menuASpace" style="display:none; margin-top:
 
 '	<input type="checkbox" id="centaurusChecker"><label for="centaurusChecker" onclick="$(\'.centaurusCheck\').click();"><b>Centaurus System</b></label></br>' + 
 '	<input type="checkbox" id="tecSBld" class="centaurusCheck" onchange="verifyBuildingSelected(\'54\', \'tecSBld\');"><label for="tecSBld">Tectonic</label></br></br>' + 
+'    	<input type="checkbox" id="mcSBld" class="centaurusCheck" onchange="verifyBuildingSelected(\'55\', \'mcSBld\');"><label for="mcSBld">Molten Core</label></br></br>' + 
 
 '</div></div>'
 
