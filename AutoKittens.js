@@ -554,13 +554,73 @@ function clearScript() {
 	
 }
 
-function nightMode() {
-	for (var i = 0; i < resources.length; i++) {
-	    var resource = gamePage.resPool.get(resources[i][0]);
-	    if ((resource.value / resource.maxValue) > 0.99 && gamePage.workshop.getCraft(resources[i][1]).unlocked) {
-		gamePage.craftAll(resources[i][1]);
-	    }
-	}
+nightMode = function nightMode(){
+	
+	// trades
+	$('#zebras').click(); $('#leviathans').click();
+	document.getElementById('autoTrade').click();
+	
+	// builds
+	$('.prodCheck').click();
+	$('.hutCheck').click();
+	$('.scienceCheck').click();
+	$('.storageCheck').click();
+	$('.resourcesCheck').click();
+	$('.industryCheck').click();
+	$('.cultureCheck').click();
+	$('.otherCheck').click();
+	$('.megaStructuresCheck').click();
+	aiCoreBld.click();
+	document.getElementById('autoBuild').click();
+	
+	// space builds
+	$('.spaceCheck').click();
+	$('.moonCheck').click();
+	$('.duneCheck').click();
+	$('.piscineCheck').click();
+	$('.heliosCheck').click();
+	contSBld.click();
+	$('.terminusCheck').click();
+	$('.kairoCheck').click();
+	$('.yarnCheck').click();
+	$('.umbraCheck').click();
+	$('.charonCheck').click();
+	$('.centaurusCheck').click();
+	document.getElementById('autoSpace').click();
+	
+	// crafts
+	$('.woodCheck').click();
+	document.getElementById('ratioScaffoldText').value = 40;
+	ratioScaffold = 40;
+	document.getElementById('ratioTradeshipText').value = 50;
+	ratioTradeship = 50;
+	document.getElementById('ratioTankerText').value = 30;
+	ratioTanker = 30;
+	$('.mineralCheck').click();
+	document.getElementById('ratioConcreteText').value = 40;
+	ratioConcrete = 40;
+	$('.ironCheck').click();
+	document.getElementById('ratioGearText').value = 30;
+	ratioGear = 30;
+	document.getElementById('ratioAlloyText').value = 50;
+	ratioAlloy = 50;
+	$('.scienceCheck2').click();
+	blueCraft.click();
+	$('.otherCheck2').click();
+	document.getElementById('ratioMegalithText').value = 30;
+	ratioMegalith = 30;
+	document.getElementById('autoCraft').click();
+	
+	// kittens (All to Priest by default)
+	document.getElementById('w5').value = 1000000;
+	census[5][2] = 1000000;
+	document.getElementById('autoKittens').click();
+	
+	document.getElementById('autoHunt').click();
+	document.getElementById('autoPraise').click();
+	document.getElementById('autoParty').click();
+	
+	switchNightMode();
 }
 
 function switchNightMode ()
@@ -568,10 +628,8 @@ function switchNightMode ()
 	nm = nm == 0 ? 1 : 0;
 	
 	if (nm == 1) {
-		furDerVal = 4;
 		nightModeMsg = "Night mode activated!";
 	} else {
-		furDerVal = 1;
 		nightModeMsg = "Night mode deactivated!";
 	}	
 }
@@ -762,10 +820,9 @@ function autoKittens()
 		}
 		
 	}
-	
-	gamePage.village.optimizeJobs
-			  .promoteKittens()
+	//gamePage.village
 	//		  .unassignJob()
+	//		  .optimizeJobs()
 	//		  .getResProduction()
 	//		  .leader
 	//		  .getFreeKittens()
@@ -1055,9 +1112,6 @@ var runAllAutomation = setInterval(function() {
 	}
 	
 	if (gamePage.timer.ticksTotal % 25 === 0) {
-		if (ap == 1){
-			autoParty();
-		}
 		if (as == 1){
 			autoScience();
 		}
@@ -1066,6 +1120,13 @@ var runAllAutomation = setInterval(function() {
 		}
 		if (at == 1){
 			autoTrade();
+		}
+	}
+	
+	if (gamePage.timer.ticksTotal % 200 === 0) {
+		gamePage.village.promoteKittens();
+		if (ap == 1){
+			autoParty();
 		}
 	}
 	
