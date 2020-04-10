@@ -668,7 +668,7 @@ function autoCraft() {
 				case "concrete":
 					secResRatio = ratioConcrete;
 					break;
-				case "tradeship":
+				case "ship":
 					secResRatio = ratioTradeship;
 					break;
 				case "megalith":
