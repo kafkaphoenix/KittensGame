@@ -190,7 +190,7 @@ var buildingsList = [
 ];		
 
 var crafts = [
-    ["catnip", "wood", 50, false],
+    ["catnip", "wood", 100, false],
     ["wood", "beam", 175, false],
     ["minerals", "slab", 250, false],
     ["coal", "steel", 100, false],
@@ -203,9 +203,9 @@ var crafts = [
     ["steel", "alloy", 75, false],
 	["steel", "gear", 15, false],
 	["slab", "concrete", 2500, false],
-	["scaffold", "tradeship", 100, false],
+	["scaffold", "ship", 100, false],
 	["slab", "megalith", 50, false],
-	["tradeship", "tanker", 200, false],
+	["ship", "tanker", 200, false],
 	["furs", "parchment", 175, false],
 	["parchment", "manuscript", 25, false],
 	["manuscript", "compedium", 50, false],
