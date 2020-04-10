@@ -763,8 +763,8 @@ function autoKittens()
 		
 	}
 	
-	//gamePage.village.optimizeJobs
-	//		  .promoteKittens
+	gamePage.village.optimizeJobs
+			  .promoteKittens()
 	//		  .unassignJob()
 	//		  .getResProduction()
 	//		  .leader
@@ -836,17 +836,16 @@ function autoSpace() {
 		// Build space buildings
 	for (var z = 34; z < buildings.length; z++) {
 		if (buildings[z][1] != false) {		
-			
+		
+		if (gamePage.ui.activeTabId != "Space") {
+			gamePage.ui.activeTabId = 'Space'; gamePage.render(); // Change the tab so that we can build
+		}	
+		//We need to load space tab to load the planet panels otherwise crash until we click that panel	
 		var spBuild = gamePage.tabs[6].planetPanels[buildings[z][2]].children;
 		
 			try { 			
 				for (i = 0 ;i < spBuild.length; i++) {
 					if (spBuild[i].model.metadata.name == buildingsList[z]) {
-						
-						if (gamePage.ui.activeTabId != "Space") {
-							gamePage.ui.activeTabId = 'Space'; gamePage.render(); // Change the tab so that we can build
-						}
-						
 						spBuild[i].controller.buyItem(spBuild[i].model, {}, function(result) {
 							if (result) {spBuild[i].update();}
 							});
