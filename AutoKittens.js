@@ -593,7 +593,8 @@ function autoTrade() {
 					season = 0;
 					break;
 				case "zebras":
-					season = 1;
+					//season = 1;
+					season = 4;
 					break;
 				case "spiders":
 					season = 2;
