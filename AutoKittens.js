@@ -1164,7 +1164,7 @@ function sacrificeAlicorns () {
 }
 
 // ** Timer
-function automateShatter () {
+automateShatter = function automateShatter () {
 	if (ata == 1){
 		sacrificeAlicorns();
 		$('#leviathans').click();
