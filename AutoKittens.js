@@ -1167,10 +1167,9 @@ function sacrificeAlicorns () {
 automateShatter = function automateShatter () {
 	if (ata == 1){
 		sacrificeAlicorns();
-		$('#leviathans').click();
-		document.getElementById('autoTrade').click();
+		//$('#leviathans').click();
+		//document.getElementById('autoTrade').click();
 		shatterTCTime();
-		switchAutoTC();
 	}
 }
 
