@@ -9,7 +9,8 @@ var praiseMsg = "Auto Praise activated!";
 var scienceMsg = "Auto Science activated!";
 var upgradeMsg = "Auto Upgrade activated!";
 var partyMsg = "Party time!";
-var spaceMsg = "Auto Space activated!";
+var tcMsg = "Auto Time Crystal & Alicorns activated!";
+var auto
 var nm = 0;
 var at = 0;
 var ac = 0;
@@ -20,6 +21,7 @@ var ap = 0;
 var as = 0;
 var au = 0;
 var apr = 0;
+var ata = 0;
 var aspace = 0;
 var steamOn = 0;
 var programBuild = false;
@@ -242,17 +244,20 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 '<a id="scriptOptions" onclick="openMenu()"> | AutoKittens </a>' + 
 
 '<div id="menu" style="display:none; margin-top:-450px; margin-left:-100px; width:220px; height:375px !important" class="dialog help">' + 
-'<a href="#" class="close" onclick="closeMenu();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
+'<input type="button" value="Close" style="position: absolute;left: 170px;top: 20px;box-sizing: content-box;" id="closeScript" class="close" onclick="closeMenu();"> + 
 
 '<input type="button" value="Stop Script" style="position: absolute; left: 15px; top: 20px; width: 130px;" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);">' +
 '<input type="button" value="NightMode" style="position: absolute; left: 15px; top: 50px; width: 130px;" id="nightMode" onclick="switchNightMode(); gamePage.msg(nightModeMsg);">' +    
 
+'<input type="button" value="Data" style="position: absolute;left: 170px;top: 50px;width: 85.2px;" id="dataScript" onclick="openData();">'	+
+	
 '<input type="button" value="AutoTrade" style="position: absolute; left: 15px; top: 100px; width: 130px;" id="autoTrade" onclick="switchAutoTrade(); gamePage.msg(tradeMsg);">' +      
 '<input type="button" value="AutoBuild" style="position: absolute; left: 15px; top: 130px; width: 130px;" id="autoBuild" onclick="switchAutoBuild(); gamePage.msg(buildMsg);">' +      
 '<input type="button" value="AutoSpace" style="position: absolute; left: 15px; top: 160px; width: 130px;" id="autoSpace" onclick="switchAutoSpace(); gamePage.msg(spaceMsg);">' +      
 '<input type="button" value="AutoCraft" style="position: absolute; left: 15px; top: 190px; width: 130px;" id="autoCraft" onclick="switchAutoCraft(); gamePage.msg(craftMsg);">' +      
 '<input type="button" value="AutoKittens" style="position: absolute; left: 15px; top: 220px; width: 130px;" id="autoKittens" onclick="switchAutoKittens(); gamePage.msg(kittensMsg);">' +  
 '<input type="button" value="AutoHunt" style="position: absolute; left: 15px; top: 250px; width: 130px;" id="autoHunt" onclick="switchAutoHunt(); gamePage.msg(huntMsg);">' +  
+'<input type="button" value="AutoTC/AC" style="position: absolute;left: 150px;top: 250px;width: 105px;" id="autoTC" onclick="switchAutoTC(); gamePage.msg(tcMsg);">' +
 '<input type="button" value="AutoPraise" style="position: absolute; left: 15px; top: 280px; width: 130px;" id="autoPraise" onclick="switchAutoPraise(); gamePage.msg(praiseMsg);">' +      
 '<input type="button" value="AutoParty" style="position: absolute; left: 15px; top: 310px; width: 130px;" id="autoParty" onclick="switchAutoParty(); gamePage.msg(partyMsg);">' +  
 '<input type="button" value="AutoUpgrade" style="position: absolute; left: 15px; top: 340px; width: 130px;" id="autoUpgrade" onclick="switchAutoUpgrade(); gamePage.msg(upgradeMsg);">' +  
@@ -508,6 +513,16 @@ function verifyTradeSelected(tradeNumber, tradeCheckID) {
 
 $("#game").append(tradesSelectAddition);
 
+var dataMenuAddition = '<div id="menuData" style="display:none; margin-top:-190px; height: 324px !important; margin-left: 400px; width:200px; z-index: 1;" class="dialog help">' + 
+'<a href="#" onclick="$(\'#menuData\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
+
+'<div id="leftMenuData" style="position: absolute; top: 20px; left: 40px;">' +    
+'<textarea id="TCData"></textarea>' +
+'<button onclick="getTCProfitability()"> Update </button>' +
+'</div></div>'
+
+$("#game").append(dataMenuAddition);
+
 function closeMenu() {
 	$("#menu").hide();
 }
@@ -536,6 +551,10 @@ function openAKoptions() {
 	$("#menuAK").toggle();
 }
 
+function openData() {
+	$("#menuData").toggle();
+}
+
 function clearScript() {
 	$("#menu").remove();
 	$("#menuAC").remove();
@@ -543,21 +562,25 @@ function clearScript() {
 	$("#menuAB").remove();
 	$("#menuAT").remove();
 	$("#menuASpace").remove();
+	$("#menuData").remove();
 	$("#scriptOptions").remove();
 	clearInterval(runAllAutomation);
+	clearInterval(shatterInterval);
+	
 	htmlMenuAddition = null;
 	bldSelectAddition = null;
 	spaceSelectAddition = null;
 	craftSelectAddition = null;
 	kittensSelectAddition = null;
 	tradesSelectAddition = null;
+	dataMenuAddition = null;
 	
 }
 
 nightMode = function nightMode(){
 	
 	// trades
-	$('#zebras').click(); $('#leviathans').click();
+	$('#leviathans').click();
 	document.getElementById('autoTrade').click();
 	
 	// builds
@@ -1074,6 +1097,101 @@ function autoWood() { // New game
 	}
 }
 
+
+function switchAutoTC()
+{
+	ata = ata == 0 ? 1 : 0;
+	
+	if (ata == 1) {
+		tcMsg = "Auto Time Crystal & Alicorns activated!";
+	} else {
+		tcMsg = "Auto Time Crystal & Alicorns deactivated!";
+	}	
+}
+
+//https://zinsho.github.io/incremental_musings/scripts/js/kg-intellishatter.js
+// ** Crystal Shattering
+var shatterPerTick = false
+var shatterPadding = 0 // Additional seconds to delay shatter
+
+function getTimePer10Heat(furnaces = 0) {
+    var heat = game.challenges.getChallenge('1000Years').researched,
+        heat = heat ? 5 : 10,
+        heatDown = game.time.getCFU('blastFurnace').effects.heatPerTick,
+        heatPerTick = heatDown * furnaces - 0.01
+    return Math.ceil(Math.abs(heat / ((shatterPerTick ? 1 : 5) *
+                                    heatPerTick))) +
+        (shatterPadding * (shatterPerTick ? 5 : 1))
+}
+
+function createShatterWidget () {
+    var shatterWidget = new classes.ui.ChronoforgeWgt(game),
+        shatterButton = shatterWidget.children.find(
+            button => button.opts.name === 'Combust TC'
+        );
+
+    shatterWidget.render()
+    return shatterButton
+}
+
+var shatterButton = createShatterWidget()
+
+var slowRedmoon = true
+var counter = 1 // Start at 1 for increment
+function shatterTCTime () {
+    if (slowRedmoon && game.calendar.cycle == 5) {
+        return
+    }
+    var furnaces = game.time.getCFU('blastFurnace').on
+    if (counter % getTimePer10Heat(furnaces) == 0) {
+        shatterButton.controller.doShatterAmt(
+            shatterButton.model, false, () => { }, 1
+        )
+        counter = 1
+    } else {
+        counter++
+    }
+}
+
+// ** Alicorns
+// Load religion buttons into memory
+game.religionTab.render()
+var model = Object.assign({}, game.religionTab.sacrificeAlicornsBtn.model)
+
+var alicornButton = new classes.ui.religion.SacrificeBtn(
+    {
+        controller: new classes.ui.religion.SacrificeAlicornsBtnController(
+            game
+        ),
+        prices: model.prices},
+    game
+)
+
+function sacrificeAlicorns () {
+    alicornButton.render()
+    alicornButton.controller.sacrificeAll(
+        alicornButton.model,
+        false,
+        () => {}
+    )
+}
+
+// ** Timer
+function automateShatter () {
+    sacrificeAlicorns()
+    $('#leviathans').click();
+    document.getElementById('autoTrade').click();
+    shatterTCTime()
+}
+
+clearInterval(shatterInterval)
+if (gamePage.resPool.get('timeCrystal').unlocked && ata == 1) {
+    var shatterInterval = setInterval(automateShatter,
+				      shatterPerTick ? 200 : 1000)
+} else {
+    console.log("Time Crystals not available")
+}
+
 clearInterval(runAllAutomation);
 var runAllAutomation = setInterval(function() {  
 	
@@ -1132,3 +1250,63 @@ var runAllAutomation = setInterval(function() {
 	}
 	
 }, 200);
+
+//https://zinsho.github.io/incremental_musings/scripts/js/kg-shatterProfits.js
+
+function getTCProfitability() {
+    var currFurnace = game.time.getCFU('blastFurnace').on
+    var inTC = getTCPerShatter(currFurnace),
+        outTC = shatterButton.controller
+            .getPrices(shatterButton.model)
+            .find(x => x.name === 'timeCrystal').val
+    var curr = inTC - outTC,
+        next = getTCPerShatter(currFurnace +1) - outTC
+    document.getElementById("TCData").value = "Current: "+curr+"\nNext Furnace: "+next);
+}
+
+function getTCPerShatter(furnace) {
+    var rr = game.getEffect('shatterTCGain') *
+        (1 + game.getEffect('rrRatio')),
+        delay = getTimePer10Heat(furnace)
+    var unobt = getUnobtPerShatter(rr, delay),
+        tcPerUnobt = getTCPerTrade() / 5000,
+        ali = getAlicornPerShatter(rr, delay),
+        tcPerAli = (1 + game.getEffect('tcRefineRatio')) / 25,
+        heatChallenge = game.challenges.getChallenge("1000Years").researched,
+        furnaceBoost = (heatChallenge ? 5 : 10) / 100
+
+    return (unobt * tcPerUnobt + ali * tcPerAli) * (1 + furnaceBoost)
+}
+
+function getUnobtPerShatter(ratio, delay) {
+    var n = 'unobtainium',
+        unobt = game.resPool.get(n),
+        unProd = game.getResourcePerTick(n) * 5 * (game.time.isAccelerated ? 1.5 : 1),
+        unYr = unProd * 800,
+        unIdle = unProd * (shatterPerTick ? delay/5 : delay)
+        unShatter = unYr * ratio + unIdle
+
+    // return per shatter or max
+    return Math.min(unShatter, unobt.maxValue)
+}
+
+function getAlicornPerShatter(ratio, delay) {
+    var n = 'alicorn',
+        aliProd = game.getResourcePerTick(n) * 5 * (game.time.isAccelerated ? 1.5 : 1),
+        aliYr = aliProd * 800,
+        aliIdle = aliProd * (shatterPerTick ? delay/5 : delay)
+
+    return aliYr * ratio + aliIdle
+}
+
+function getTCPerTrade() {
+    var leviRace = game.diplomacy.races.find(
+        race => race.name === 'leviathans')
+
+    var ratio = game.diplomacy.getTradeRatio(),
+        tc = leviRace.sells.find(
+            res => res.name === 'timeCrystal'),
+        amt = (tc.value - (tc.value * (tc.delta / 2))) * tc.chance/100
+
+    return amt * (1 + ratio) * (1 + (0.02 * leviRace.energy))
+}
