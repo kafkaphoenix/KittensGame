@@ -1170,8 +1170,8 @@ automateShatter = function automateShatter () {
 		$('#leviathans').click();
 		document.getElementById('autoTrade').click();
 		shatterTCTime();
+		switchAutoTC();
 	}
-	switchAutoTC()
 }
 
 clearInterval(shatterInterval)
