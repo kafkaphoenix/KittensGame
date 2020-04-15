@@ -1261,7 +1261,7 @@ function getTCProfitability() {
             .find(x => x.name === 'timeCrystal').val
     var curr = inTC - outTC,
         next = getTCPerShatter(currFurnace +1) - outTC
-    document.getElementById("TCData").value = "Current: "+curr+"\nNext Furnace: "+next);
+    document.getElementById("TCData").value = "Current: "+curr+"\nNext Furnace: "+next;
 }
 
 function getTCPerShatter(furnace) {
