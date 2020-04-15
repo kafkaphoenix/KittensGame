@@ -641,6 +641,7 @@ nightMode = function nightMode(){
 	document.getElementById('autoKittens').click();
 	
 	document.getElementById('autoHunt').click();
+	document.getElementById('autoTC').click();
 	document.getElementById('autoPraise').click();
 	document.getElementById('autoParty').click();
 	
@@ -1170,6 +1171,7 @@ function automateShatter () {
 		document.getElementById('autoTrade').click();
 		shatterTCTime();
 	}
+	switchAutoTC()
 }
 
 clearInterval(shatterInterval)
