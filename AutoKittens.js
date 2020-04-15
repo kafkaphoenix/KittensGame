@@ -1155,10 +1155,9 @@ function shatterTCTime () {
 }
 
 // ** Alicorns
-// Load religion buttons into memory
-game.religionTab.render();
-
 function sacrificeAlicorns () {
+	// Load religion buttons into memory
+        game.religionTab.render();
 	gamePage.religionTab.sacrificeAlicornsBtn.controller.transform(
 		gamePage.religionTab.sacrificeAlicornsBtn.model, 1, {}, function(result) {if (result) {}})
 }
