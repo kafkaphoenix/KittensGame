@@ -244,7 +244,7 @@ var htmlMenuAddition = '<div id="autokittens" class="column">' +
 '<a id="scriptOptions" onclick="openMenu()"> | AutoKittens </a>' + 
 
 '<div id="menu" style="display:none; margin-top:-450px; margin-left:-100px; width:220px; height:375px !important" class="dialog help">' + 
-'<input type="button" value="Close" style="position: absolute;left: 170px;top: 20px;box-sizing: content-box;" id="closeScript" class="close" onclick="closeMenu();"> + 
+'<input type="button" value="Close" style="position: absolute;left: 170px;top: 20px;box-sizing: content-box;" id="closeScript" class="close" onclick="closeMenu();">' + 
 
 '<input type="button" value="Stop Script" style="position: absolute; left: 15px; top: 20px; width: 130px;" id="stopScript" onclick="clearInterval(clearScript()); gamePage.msg(deadScript);">' +
 '<input type="button" value="NightMode" style="position: absolute; left: 15px; top: 50px; width: 130px;" id="nightMode" onclick="switchNightMode(); gamePage.msg(nightModeMsg);">' +    
