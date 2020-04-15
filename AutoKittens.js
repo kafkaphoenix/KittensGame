@@ -516,8 +516,8 @@ $("#game").append(tradesSelectAddition);
 var dataMenuAddition = '<div id="menuData" style="display:none; margin-top:-190px; height: 324px !important; margin-left: 400px; width:200px; z-index: 1;" class="dialog help">' + 
 '<a href="#" onclick="$(\'#menuData\').hide();" style="position: absolute; top: 10px; right: 15px;">close</a>' + 
 
-'<div id="leftMenuData" style="position: absolute; top: 20px; left: 40px;">' +    
-'<textarea id="TCData"></textarea>' +
+'<div id="leftMenuData" style="position: absolute; top: 20px; left: 20px; height: auto;">' +    
+'<textarea id="TCData" style="height: 71px; margin: 0px; width: 157px;"></textarea>' +
 '<button onclick="getTCProfitability()"> Update </button>' +
 '</div></div>'
 
@@ -1155,37 +1155,25 @@ function shatterTCTime () {
 
 // ** Alicorns
 // Load religion buttons into memory
-game.religionTab.render()
-var model = Object.assign({}, game.religionTab.sacrificeAlicornsBtn.model)
-
-var alicornButton = new classes.ui.religion.SacrificeBtn(
-    {
-        controller: new classes.ui.religion.SacrificeAlicornsBtnController(
-            game
-        ),
-        prices: model.prices},
-    game
-)
+game.religionTab.render();
 
 function sacrificeAlicorns () {
-    alicornButton.render()
-    alicornButton.controller.sacrificeAll(
-        alicornButton.model,
-        false,
-        () => {}
-    )
+	gamePage.religionTab.sacrificeAlicornsBtn.controller.transform(
+		gamePage.religionTab.sacrificeAlicornsBtn.model, 1, {}, function(result) {if (result) {}})
 }
 
 // ** Timer
 function automateShatter () {
-    sacrificeAlicorns()
-    $('#leviathans').click();
-    document.getElementById('autoTrade').click();
-    shatterTCTime()
+	if (ata == 1){
+		sacrificeAlicorns();
+		$('#leviathans').click();
+		document.getElementById('autoTrade').click();
+		shatterTCTime();
+	}
 }
 
 clearInterval(shatterInterval)
-if (gamePage.resPool.get('timeCrystal').unlocked && ata == 1) {
+if (gamePage.resPool.get('timeCrystal').unlocked) {
     var shatterInterval = setInterval(automateShatter,
 				      shatterPerTick ? 200 : 1000)
 } else {
